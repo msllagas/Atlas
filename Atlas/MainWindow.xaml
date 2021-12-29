@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Atlas"
         mc:Ignorable="d"
-        Title="Atlas Inventory" Height="450" Width="800">
+        Title="Atlas Inventory Management System" Height="400" Width="600
+        ">
     <Grid>
 
     </Grid>
