@@ -37,7 +37,7 @@ namespace Atlas
 
             using (UserDataContext context = new UserDataContext())
             {
-                bool userfound = context.Users.Any(user => user.username == Username && user.password == Password);
+                bool userfound = context.Users.Any(user => user.user == Username && user.pass == Password);
                 if (userfound)
                 {
                     MessageBox.Show("Hello!");

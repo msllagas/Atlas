@@ -9,15 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="AtlasDB.db" />
     <None Remove="images\logoimage.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="AtlasDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="5.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.13" />
     <PackageReference Include="MySql.Data" Version="8.0.27" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.115.5" />
   </ItemGroup>
 
   <ItemGroup>

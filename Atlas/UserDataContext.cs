@@ -12,7 +12,7 @@ namespace Atlas
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = Datafile.db");
+            optionsBuilder.UseSqlite("Data Source = AtlasDB.db");
 
         }
 
