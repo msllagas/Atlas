@@ -23,96 +23,32 @@ namespace Atlas
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MySqlConnection conn;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
-
+     
         public MainWindow()
         {
-            server = "localhost";
-            database = "atlas";
-            uid = "root";
-            password = "";
 
-            string connString;
-            connString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
-            conn = new MySqlConnection(connString);
             InitializeComponent();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string user = txtUsername.Text;
-            string pass = txtPassword.Password;
+            var Username = txtUsername.Text;
+            var Password = txtPassword.Password;
 
-            if(IsLogin(user, pass))
+            using (UserDataContext context = new UserDataContext())
             {
-                MessageBox.Show($"Welcome {user}!");
-            }
-            else
-            {
-                MessageBox.Show($"User or pass is incorrect!");
-            }
-        }
-
-        public bool IsLogin(string user, string pass)
-        {
-            string query = $"SELECT * FROM users WHERE Username='{user}' AND Password='{pass}';";
-            try
-            {
-                if(OpenConnection())
+                bool userfound = context.Users.Any(user => user.username == Username && user.password == Password);
+                if (userfound)
                 {
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        reader.Close();
-                        conn.Close();
-                        return true;
-                    }
-                    else
-                    {
-                        reader.Close();
-                        conn.Close();
-                        return false;
-                    }
+                    MessageBox.Show("Hello!");
                 }
                 else
                 {
-                    conn.Close();
-                    return false;
+                    MessageBox.Show("Who are u?!");
                 }
+            }
 
-            } catch (Exception ex)
-            {
-                conn.Close();
-                return false;
-            }
-        }
-        
-        private bool OpenConnection()
-        {
-            try
-            {
-                conn.Open();
-                return true;
-            }
-            catch(MySqlException ex)
-            {
-                switch (ex.Number)
-                {
-                    case 0:
-                        MessageBox.Show("Connection to server failed");
-                        break;
-                    case 1045:
-                        MessageBox.Show("Server user or password is incorrect");
-                        break;
-                }
-                return false;
-            }
+         
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
