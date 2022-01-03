@@ -40,7 +40,10 @@ namespace Atlas
                 bool userfound = context.Users.Any(user => user.user == Username && user.pass == Password);
                 if (userfound)
                 {
-                    MessageBox.Show("Hello!");
+                    // MessageBox.Show("Hello!");
+                    SecondWindow secondWindow = new SecondWindow();
+                    secondWindow.Show();
+                    this.Close();
                 }
                 else
                 {
