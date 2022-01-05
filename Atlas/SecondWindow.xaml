@@ -5,8 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Atlas"
         mc:Ignorable="d"
-        Title="SecondWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Height="500" Width="920"
+        WindowStyle="None"
+        AllowsTransparency="true"
+        Background="Transparent">
+    <Border CornerRadius="20"
+            Background="White"
+            MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Column="0" 
+                       Text="ATLAS"
+                       Margin="10,0,0,0"
+                       FontSize="25"
+                       Foreground="#3485f9"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold"/>
+
+            <StackPanel Grid.Row="2">
+                <Button Content="Home" 
+                        Height="40"
+                        Foreground="White"
+                        FontSize="14"
+                        Style="{StaticResource MenuButtonStyle}"/>
+                <Button Content="Products" 
+                        Height="40" 
+                        Foreground="White"
+                        FontSize="14"
+                        Style="{StaticResource MenuButtonStyle}"/>
+                <Button Content="Add Products" 
+                        Height="40" 
+                        Foreground="White"
+                        FontSize="14"
+                        Style="{StaticResource MenuButtonStyle}"/>
+                <Button Content="Orders" 
+                        Height="40" 
+                        Foreground="White"
+                        FontSize="14"                        
+                        Style="{StaticResource MenuButtonStyle}"/>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
 </Window>

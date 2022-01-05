@@ -55,8 +55,9 @@ namespace Atlas
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //if (e.ChangedButton == MouseButton.Left)
-            //    this.DragMove();
+            
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
         }
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
