@@ -10,7 +10,18 @@
 
   <ItemGroup>
     <None Remove="AtlasDB.db" />
+    <None Remove="background.jpg" />
+    <None Remove="box_inventory.png" />
+    <None Remove="delivery.png" />
+    <None Remove="home.png" />
+    <None Remove="icons8-menu-24.png" />
     <None Remove="images\logoimage.png" />
+    <None Remove="images\menu_button_default.png" />
+    <None Remove="images\menu_button_mouseover.png" />
+    <None Remove="inventory.png" />
+    <None Remove="logoimage.png" />
+    <None Remove="menu_button_default.png" />
+    <None Remove="menu_button_mouseover.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +41,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="background.jpg" />
+    <Resource Include="box_inventory.png" />
+    <Resource Include="delivery.png" />
+    <Resource Include="home.png" />
+    <Resource Include="icons8-menu-24.png" />
     <Resource Include="images\logoimage.png" />
+    <Resource Include="images\menu_button_mouseover.png" />
+    <Resource Include="images\menu_button_default.png" />
+    <Resource Include="inventory.png" />
+    <Resource Include="logoimage.png" />
+    <Resource Include="menu_button_default.png" />
+    <Resource Include="menu_button_mouseover.png" />
   </ItemGroup>
 
   <ItemGroup>
