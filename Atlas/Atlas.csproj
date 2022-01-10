@@ -15,13 +15,23 @@
     <None Remove="delivery.png" />
     <None Remove="home.png" />
     <None Remove="icons8-menu-24.png" />
+    <None Remove="images\background.jpg" />
+    <None Remove="images\box_inventory.png" />
+    <None Remove="images\delivery.png" />
+    <None Remove="images\home.png" />
+    <None Remove="images\icons8-menu-24.png" />
+    <None Remove="images\inventory.png" />
+    <None Remove="images\log.png" />
     <None Remove="images\logoimage.png" />
     <None Remove="images\menu_button_default.png" />
     <None Remove="images\menu_button_mouseover.png" />
+    <None Remove="images\settings.png" />
     <None Remove="inventory.png" />
+    <None Remove="log.png" />
     <None Remove="logoimage.png" />
     <None Remove="menu_button_default.png" />
     <None Remove="menu_button_mouseover.png" />
+    <None Remove="settings.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,13 +56,49 @@
     <Resource Include="delivery.png" />
     <Resource Include="home.png" />
     <Resource Include="icons8-menu-24.png" />
-    <Resource Include="images\logoimage.png" />
-    <Resource Include="images\menu_button_mouseover.png" />
-    <Resource Include="images\menu_button_default.png" />
+    <Resource Include="images\background.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\box_inventory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\delivery.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\icons8-menu-24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\inventory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\log.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\logoimage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\menu_button_mouseover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\menu_button_default.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="inventory.png" />
+    <Resource Include="log.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="logoimage.png" />
     <Resource Include="menu_button_default.png" />
     <Resource Include="menu_button_mouseover.png" />
+    <Resource Include="settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

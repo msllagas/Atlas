@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Atlas.Pages;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,7 @@ namespace Atlas
         public SecondWindow()
         {
             InitializeComponent();
+            Main.Content = new Home();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -37,12 +39,18 @@ namespace Atlas
                 tt_home.Visibility = Visibility.Collapsed;
                 tt_delivery.Visibility = Visibility.Collapsed;
                 tt_inventory.Visibility = Visibility.Collapsed;
+                tt_settings.Visibility = Visibility.Collapsed;
+                tt_log.Visibility = Visibility.Collapsed;
+
+
             }
             else
             {
                 tt_home.Visibility = Visibility.Visible;
                 tt_delivery.Visibility = Visibility.Visible;
                 tt_inventory.Visibility = Visibility.Visible;
+                tt_settings.Visibility = Visibility.Visible;
+                tt_log.Visibility = Visibility.Visible;
             }
         }
 
@@ -54,6 +62,32 @@ namespace Atlas
         private void toggleButton_Checked(object sender, RoutedEventArgs e)
         {
             img_bg.Opacity = 0.3;
+        }
+
+
+        private void btnInventory_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Inventory();
+        }
+
+        private void btnDelivery_click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Delivery();
+        }
+
+        private void btnHome_click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Home();
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Settings();
+        }
+
+        private void btnLog_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Log();
         }
     }
 }

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Atlas"
+        xmlns:n="clr-namespace:Atlas"
         mc:Ignorable="d"
         Height="500" 
         Width="920"
@@ -14,7 +15,7 @@
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
-                    ImageSource="/menu_button_mouseover.png"/>
+                    ImageSource="/images/menu_button_mouseover.png"/>
 
         <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
             <Setter Property="Template">
@@ -53,20 +54,26 @@
         </Style>
     </Window.Resources>
     <Grid>
+        
+        
         <Grid Background="White">
 
+            
             <Grid x:Name="background">
                 <Grid.Background>
-                    <ImageBrush ImageSource="/background.jpg"
+                    <ImageBrush ImageSource="/images/background.jpg"
                                 x:Name="img_bg"
                                 Stretch="Fill"/>
+                    
                 </Grid.Background>
+                <Frame x:Name="Main" Margin="66,0,0,0" NavigationUIVisibility="Hidden"/>
             </Grid>
             
             <Grid x:Name="navPanel"
                   HorizontalAlignment="Left"
                   Width="65"
                   Background="#1569b7">
+                
                 <StackPanel x:Name="stackPanel">
                     <Grid Height="90">
 
@@ -98,7 +105,7 @@
                                       BorderThickness="0"
                                       Style="{StaticResource tb_style}" Unchecked="toggleButton_Unchecked" Checked="toggleButton_Checked">
                             <ToggleButton.Background>
-                                <ImageBrush ImageSource="/menu_button_default.png"
+                                <ImageBrush ImageSource="/images/menu_button_default.png"
                                             Stretch="None"/>
                             </ToggleButton.Background>
 
@@ -159,18 +166,23 @@
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
 
-                            <StackPanel Orientation="Horizontal"
+
+                            <Button x:Name="btnHome" Click="btnHome_click" Background="#FF1569B7">
+                                <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="/home.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
 
-                                <TextBlock Text="Home"
+                                    <Image Source="/images/home.png"
+                                       Stretch="None"
+                                       Margin="0,0,0,0"/>
+
+                                    <TextBlock Text="Home"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
-                            </StackPanel>
+                                </StackPanel>
+                            </Button>
+                          
 
 
                             <ListViewItem.ToolTip>
@@ -183,60 +195,139 @@
 
                         </ListViewItem>
 
+                        
+                        
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15"
                                       MouseEnter="ListViewItem_MouseEnter">
 
-                            <StackPanel Orientation="Horizontal"
+
+                            <Button x:Name="btnInventory" Click="btnInventory_Click" Background="#FF1569B7">
+                                <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="/box_inventory.png"
-                                       Stretch="None"
-                                       Margin="12,0,0,0"/>
 
-                                <TextBlock Text="Inventory"
+
+                                    <Image Source="/images/box_inventory.png"
+                                       Stretch="None"
+                                       Margin="0,0,0,0"/>
+
+
+
+                                    <TextBlock Text="Inventory"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
-                            </StackPanel>
+                                </StackPanel>
+                            </Button>
+
+                            
 
 
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_inventory"
-                                         Content="Home"
+                                         Content="Inventory"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
 
+                        </ListViewItem>
+                        
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter">
+
+                            <Button x:Name="btnDelivery" Click="btnDelivery_click" Background="#FF1569B7">
+
+                                <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                    <Image Source="/images/delivery.png"
+                                       Stretch="None"
+                                       Margin="0,0,0,0"/>
+
+                                    <TextBlock Text="Delivery"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                                </StackPanel>
+                            </Button>
+
+
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_delivery"
+                                         Content="Delivery"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
                         </ListViewItem>
 
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15"
                                       MouseEnter="ListViewItem_MouseEnter">
 
-                            <StackPanel Orientation="Horizontal"
+                            <Button x:Name="btnSettings" Click="btnSettings_Click" Background="#FF1569B7">
+
+                                <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="/delivery.png"
+                                    <Image Source="/images/settings.png"
                                        Stretch="None"
-                                       Margin="12,0,0,0"/>
+                                       Margin="0,0,0,0"/>
 
-                                <TextBlock Text="Delivery"
+                                    <TextBlock Text="Settings"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
-                            </StackPanel>
+                                </StackPanel>
+                            </Button>
+
 
 
                             <ListViewItem.ToolTip>
 
-                                <ToolTip x:Name="tt_delivery"
-                                         Content="Home"
+                                <ToolTip x:Name="tt_settings"
+                                         Content="Settings"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
                         </ListViewItem>
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15"
+                                      MouseEnter="ListViewItem_MouseEnter">
+
+                            <Button x:Name="btnLog" Click="btnLog_Click" Background="#FF1569B7">
+
+                                <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                    <Image Source="/images/log.png"
+                                       Stretch="None"
+                                       Margin="0,0,0,0"/>
+
+                                    <TextBlock Text="Log"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                                </StackPanel>
+                            </Button>
+
+
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_log"
+                                         Content="Settings"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+
 
                         <ListView.ItemContainerStyle>
 
@@ -292,13 +383,18 @@
 
                             </Style>
 
+                            
                         </ListView.ItemContainerStyle>
-
+                        
+                        
                     </ListView>
+                  
                     
                 </StackPanel>
                 
+                
             </Grid>
+            
         </Grid>
         
         

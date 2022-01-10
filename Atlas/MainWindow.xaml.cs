@@ -63,5 +63,7 @@ namespace Atlas
         {
             Application.Current.Shutdown();
         }
+
+      
     }
 }
