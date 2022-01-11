@@ -34,24 +34,6 @@ namespace Atlas
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
-            if(toggleButton.IsChecked == true)
-            {
-                tt_home.Visibility = Visibility.Collapsed;
-                tt_delivery.Visibility = Visibility.Collapsed;
-                tt_inventory.Visibility = Visibility.Collapsed;
-                tt_settings.Visibility = Visibility.Collapsed;
-                tt_log.Visibility = Visibility.Collapsed;
-
-
-            }
-            else
-            {
-                tt_home.Visibility = Visibility.Visible;
-                tt_delivery.Visibility = Visibility.Visible;
-                tt_inventory.Visibility = Visibility.Visible;
-                tt_settings.Visibility = Visibility.Visible;
-                tt_log.Visibility = Visibility.Visible;
-            }
         }
 
         private void toggleButton_Unchecked(object sender, RoutedEventArgs e)

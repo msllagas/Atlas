@@ -23,5 +23,16 @@ namespace Atlas.Pages
             InitializeComponent();
         }
 
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void inventory_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        public DataTemplate ItemTemplate { get; set; }
     }
 }

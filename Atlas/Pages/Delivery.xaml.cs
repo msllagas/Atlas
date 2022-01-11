@@ -22,5 +22,15 @@ namespace Atlas.Pages
         {
             InitializeComponent();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void delivery_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

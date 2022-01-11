@@ -31,6 +31,13 @@
     <None Remove="logoimage.png" />
     <None Remove="menu_button_default.png" />
     <None Remove="menu_button_mouseover.png" />
+    <None Remove="Pages\atlasims.png" />
+    <None Remove="Pages\item 2.jpg" />
+    <None Remove="Pages\item 3.jpg" />
+    <None Remove="Pages\item4.jpg" />
+    <None Remove="Pages\profile.png" />
+    <None Remove="Pages\R %283%29.jpg" />
+    <None Remove="Pages\search.png" />
     <None Remove="settings.png" />
   </ItemGroup>
 
@@ -96,6 +103,13 @@
     <Resource Include="logoimage.png" />
     <Resource Include="menu_button_default.png" />
     <Resource Include="menu_button_mouseover.png" />
+    <Resource Include="Pages\atlasims.png" />
+    <Resource Include="Pages\item 2.jpg" />
+    <Resource Include="Pages\item 3.jpg" />
+    <Resource Include="Pages\item4.jpg" />
+    <Resource Include="Pages\profile.png" />
+    <Resource Include="Pages\R (3).jpg" />
+    <Resource Include="Pages\search.png" />
     <Resource Include="settings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
