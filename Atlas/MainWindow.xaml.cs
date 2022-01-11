@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Security;
+using System.Data.SQLite;
 
 namespace Atlas
 {
@@ -23,7 +24,7 @@ namespace Atlas
     /// </summary>
     public partial class MainWindow : Window
     {
-     
+        string dbConnectionString = @"Data Source = AtlasDB.db;Version=3;";
         public MainWindow()
         {
 
@@ -32,23 +33,44 @@ namespace Atlas
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
             var Username = txtUsername.Text;
-            var Password = txtPassword.Password;
+            var Password = txtPassword.Password;     
 
-            using (UserDataContext context = new UserDataContext())
+            try
             {
-                bool userfound = context.Users.Any(user => user.user == Username && user.pass == Password);
-                if (userfound)
+                sqliteCon.Open();
+                string Query = "select * from users where user='" + Username + "' and pass='" + Password + "' ";
+                SQLiteCommand createCommand = new SQLiteCommand(Query, sqliteCon);
+                createCommand.ExecuteNonQuery();
+                SQLiteDataReader dr = createCommand.ExecuteReader();
+                
+
+                int count = 0;
+                while (dr.Read())
                 {
-                    // MessageBox.Show("Hello!");
+                    count++;
+
+                }
+                if (count == 1)
+                {
                     SecondWindow secondWindow = new SecondWindow();
                     secondWindow.Show();
+                    sqliteCon.Close();
                     this.Close();
                 }
+
                 else
                 {
-                    MessageBox.Show("Who are u?!");
+                    MessageBox.Show("Who r u!?");
                 }
+               
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
 
          
