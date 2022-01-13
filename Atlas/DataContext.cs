@@ -8,7 +8,7 @@ namespace Atlas
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = deli.db");
+            optionsBuilder.UseSqlite("Data Source = deli.db"); 
         }
 
         public DbSet<CSDelivery> Deliveries { get; set; }

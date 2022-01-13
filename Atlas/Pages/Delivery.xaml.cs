@@ -25,6 +25,7 @@ namespace Atlas.Pages
         public Delivery()
         {
             InitializeComponent();
+            Read();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,7 +43,10 @@ namespace Atlas.Pages
             using (DataContext context = new DataContext())
             {
                 deliveries = context.Deliveries.ToList();
-                delivery_list.ItemsSource = deliveries;
+
+
+                if (deliveries.Count > 0)
+                    delivery_list.ItemsSource = deliveries;
             }
         }
 
