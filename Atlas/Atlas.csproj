@@ -6,6 +6,7 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon />
     <Win32Resource />
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,6 +33,7 @@
     <None Remove="menu_button_default.png" />
     <None Remove="menu_button_mouseover.png" />
     <None Remove="Pages\atlasims.png" />
+    <None Remove="Pages\background.jpg" />
     <None Remove="Pages\item 2.jpg" />
     <None Remove="Pages\item 3.jpg" />
     <None Remove="Pages\item4.jpg" />
@@ -104,6 +106,7 @@
     <Resource Include="menu_button_default.png" />
     <Resource Include="menu_button_mouseover.png" />
     <Resource Include="Pages\atlasims.png" />
+    <Resource Include="Pages\background.jpg" />
     <Resource Include="Pages\item 2.jpg" />
     <Resource Include="Pages\item 3.jpg" />
     <Resource Include="Pages\item4.jpg" />

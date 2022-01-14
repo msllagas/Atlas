@@ -1,0 +1,71 @@
+﻿<Page x:Class="Atlas.Pages.AddDelivery"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Atlas.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="854"
+      Title="AddDelivery">
+
+    <Grid Background="White">
+        <Rectangle HorizontalAlignment="Center" Height="49" Stroke="#FF1569B7" VerticalAlignment="Top" Width="896" Fill="#FF1569B7">
+            <Rectangle.Effect>
+                <DropShadowEffect/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <TextBlock HorizontalAlignment="Left" Margin="29,9,0,0" Text="Delivery/ Add Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Tracking No." HorizontalAlignment="Left" Margin="29,77,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Recipient:" HorizontalAlignment="Left" Margin="29,109,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="29,149,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Area:" HorizontalAlignment="Left" Margin="427,77,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Total Amount:" HorizontalAlignment="Left" Margin="427,109,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Total No. of Items:" HorizontalAlignment="Left" Margin="428,149,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Margin="107,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="107,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="534,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="562,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+        <ComboBox HorizontalAlignment="Left" Margin="478,74,0,0" VerticalAlignment="Top" Width="176">
+            <ComboBoxItem Content="Caloocan"/>
+            <ComboBoxItem Content="Las Pinas"/>
+            <ComboBoxItem Content="Makati"/>
+            <ComboBoxItem Content="Malabon"/>
+            <ComboBoxItem Content="Mandaluyong"/>
+            <ComboBoxItem Content="Manila"/>
+            <ComboBoxItem Content="Marikina"/>
+            <ComboBoxItem Content="Muntinlupa"/>
+            <ComboBoxItem Content="Navotas"/>
+            <ComboBoxItem Content="Paranaque"/>
+            <ComboBoxItem Content="Pasay"/>
+            <ComboBoxItem Content="Pasig"/>
+            <ComboBoxItem Content="Pateros"/>
+            <ComboBoxItem Content="Quezon City"/>
+            <ComboBoxItem Content="San Juan City"/>
+            <ComboBoxItem Content="Taguig City"/>
+            <ComboBoxItem Content="Valenzuela City"/>
+        </ComboBox>
+        <DataGrid HorizontalAlignment="Left" Height="187" Margin="29,227,0,0" VerticalAlignment="Top" Width="799" ItemsSource="{Binding Items}" AutoGenerateColumns="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderThickness="1,1,1,0">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{Binding Column1, UpdateSourceTrigger=PropertyChanged}" Header="Product ID"/>
+                <DataGridTextColumn Binding="{Binding Column2}" Header="Product Name"/>
+                <DataGridTextColumn Binding="{Binding Column3}" Header="Quantity"/>
+                <DataGridTextColumn Binding="{Binding Column4}" Header="Unit Cost"/>
+                <DataGridTextColumn Binding="{Binding Column5}" Header="Total Cost"/>
+            </DataGrid.Columns>
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Column1}" Value="True">
+                            <Setter Property="Background" Value="Gray"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+        </DataGrid>
+        <Button x:Name="add_row_btn" Content="Add Row" HorizontalAlignment="Left" Margin="753,190,0,0" VerticalAlignment="Top" BorderBrush="#FFADC9E4" Background="#FFADC9E4" Width="91" Foreground="#DD000000"/>
+        <Button Content="Add Parcel" HorizontalAlignment="Left" Margin="295,428,0,0" VerticalAlignment="Top" Background="#FF1569B7" BorderBrush="#FF1569B7" Width="100"/>
+        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="452,428,0,0" VerticalAlignment="Top" Background="#FF1569B7" BorderBrush="#FF1569B7" Width="100" Click="cancel_btn_Click"/>
+        
+
+    </Grid>
+</Page>

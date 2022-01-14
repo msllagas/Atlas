@@ -70,6 +70,7 @@ namespace Atlas
         private void btnLog_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Log();
+            
         }
     }
 }

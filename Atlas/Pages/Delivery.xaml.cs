@@ -32,5 +32,18 @@ namespace Atlas.Pages
         {
 
         }
+
+        private void add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            AddDelivery gotopage = new AddDelivery();
+            this.NavigationService.Navigate(gotopage);
+        }
+
+        private void edit_btn_click(object sender, RoutedEventArgs e)
+        {
+            EditDelivery gotopage = new EditDelivery();
+            this.NavigationService.Navigate(gotopage);
+        }
+
     }
 }
