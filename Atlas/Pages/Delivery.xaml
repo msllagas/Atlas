@@ -44,21 +44,29 @@
             <Button x:Name="add_btn" Content="ADD" Margin="536,51,184,417" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="add_btn_click"/>
             <Button x:Name="delete_btn" Content="DELETE" Margin="695,50,25,418" Background="#FF1569B7" BorderBrush="#FF1569B7"/>
 
-            <ListView x:Name="delivery_list" Margin="0,145,0,10" SelectionChanged="delivery_list_SelectionChanged" ScrollViewer.CanContentScroll="False" SnapsToDevicePixels="True" HorizontalAlignment="Center" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="834">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Tracking Number"
-                                        DisplayMemberBinding="{Binding TrackingNumber}"/>
-                        <GridViewColumn Header="Quantity"
-                                        DisplayMemberBinding="{Binding Quantity}"/>
-                        <GridViewColumn Header="Amount"
-                                        DisplayMemberBinding="{Binding Amount}"/>
+            <DataGrid HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="814" ItemsSource="{Binding Items}" AutoGenerateColumns="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderThickness="1,1,1,0" Background="#FFFAFAFA" ClipToBounds="True" Margin="15,178,0,0">
 
-                    </GridView>
-                </ListView.View>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding ParcelNumber}" Header="Parcel No."/>
+                    <DataGridTextColumn Binding="{Binding ProductID}" Header="Product ID"/>
+                    <DataGridTextColumn Binding="{Binding ProductName}" Header="Product Name"/>
+                    <DataGridTextColumn Binding="{Binding TrackingNumber}" Header="Tracking Number"/>
+                    <DataGridTextColumn Binding="{Binding Area}" Header="Delivery Area"/>
+                    <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity"/>
+                    <DataGridTextColumn Binding="{Binding UnitCost}" Header="Unit Cost"/>
+                    <DataGridTextColumn Binding="{Binding TotalCost}" Header="Total Cost"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="refresh"  Margin="695,108,25,360" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="refresh_Click">
+                <StackPanel Width="132" Height="30" Margin="-15,-3,0,0">
+                    <Image Height="23" Width="27" Source="/Pages/refresh.png" Margin="-62,3,0,0"/>
+                    <Label Content="Refresh" Width="80" Margin="45,-26,0,0" Foreground="#DDFFFFFF"/>
+                </StackPanel>
 
-            </ListView>
-            <Button x:Name="refresh" Content="Refresh" Margin="695,108,25,360" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="refresh_Click"/>
+            </Button>
+            <Label Content="Deliveries" HorizontalAlignment="Left" Margin="15,144,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+
+
         </Grid>
     </Grid>
 </Page>

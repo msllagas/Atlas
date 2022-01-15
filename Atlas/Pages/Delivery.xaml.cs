@@ -45,8 +45,8 @@ namespace Atlas.Pages
                 deliveries = context.Deliveries.ToList();
 
 
-                if (deliveries.Count > 0)
-                    delivery_list.ItemsSource = deliveries;
+             //   if (deliveries.Count > 0)
+               //     delivery_list.ItemsSource = deliveries;
             }
         }
 
