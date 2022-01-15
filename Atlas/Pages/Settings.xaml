@@ -20,9 +20,7 @@
         <Grid>
             <Image Source="/Pages/atlasims.png" Margin="120,70,120,70" Opacity="0.1"/>
             <Image Height="100" Width="100" Source="/Pages/profile.png" Margin="580,12,120,338"/>
-            <Label Content="Name" Margin="0,57,252,405" FontWeight="Bold" FontSize="20" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Width="163"/>
-            <Label Content="EmployeeID" Margin="383,83,247,379" FontSize="16" HorizontalContentAlignment="Right"/>
-            <Button Content="Log out" Margin="571,430,147,38" BorderBrush="#FF1569B7">
+            <Button x:Name="btnLogout" Content="Log out" Margin="571,430,147,38" BorderBrush="#FF1569B7" Click="btnLogout_click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF5F8BA4"/>
@@ -30,7 +28,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="Save Changes" Margin="148,430,570,38" BorderBrush="#FF1569B7">
+            <Button x:Name="btnSave" Content="Save Changes" Margin="148,430,570,38" BorderBrush="#FF1569B7" Click="btnSave_click">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF5F8BA4" Offset="0"/>
@@ -43,13 +41,12 @@
                     <DropShadowEffect/>
                 </Rectangle.Effect>
             </Rectangle>
-            <Label Content="Edit Profile" HorizontalAlignment="Left" Margin="154,155,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <Label Content="Name:" HorizontalAlignment="Left" Margin="158,197,0,0" VerticalAlignment="Top" FontSize="20" Width="77" Height="36"/>
-            <TextBox HorizontalAlignment="Left" Margin="230,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="1,1,1,1" FontSize="20" CaretBrush="#FF1F6EB4" Background="White" SelectionBrush="#FF87BBEA"/>
-            <Label Content="ID:" HorizontalAlignment="Left" Margin="183,250,0,0" VerticalAlignment="Top" FontSize="20" Width="48" Height="38"/>
-            <TextBox HorizontalAlignment="Left" Margin="230,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" BorderThickness="1,1,1,1" FontSize="20" TextChanged="TextBox_TextChanged" Background="White" SelectionBrush="#FF87BBEA" CaretBrush="#FF1F6EB4"/>
-            <Label Content="Password:" HorizontalAlignment="Left" Margin="158,301,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
-            <PasswordBox Margin="271,298,407,164" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
+            <Label Content="Edit Account" HorizontalAlignment="Left" Margin="154,155,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Label Content="Username:" HorizontalAlignment="Left" Margin="158,301,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
+            <TextBox x:Name="txtUserEdit" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Margin="271,298,407,164" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="158,350,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
+            <PasswordBox x:Name="txtPassEdit" Margin="271,350,407,112" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
+
 
         </Grid>
 
