@@ -29,8 +29,10 @@
                 <ComboBoxItem Content="School Supplies"/>
                 <ComboBoxItem Content="Stationary Items"/>
             </ComboBox>
-            <Button x:Name="add_btn" Content="ADD" Margin="388,51,38,417" Background="#FF1569B7" BorderBrush="#FF1569B7" Width="134" Click="add_btn_Click"/>
-            <Button x:Name="delete_btn" Content="DELETE" Margin="682,51,38,417" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="delete_btn_Click"/>
+
+            <Button x:Name="add_btn" Content="ADD" Margin="536,51,184,417" Background="#FF1569B7" BorderBrush="#FF1569B7"/>
+            <Button x:Name="delete_btn" Content="DELETE" Margin="682,51,38,417" Background="#FF1569B7" BorderBrush="#FF1569B7"/>
+
             <ListView x:Name="inventory_list" Margin="0,109,0,10" SelectionChanged="inventory_list_SelectionChanged" ScrollViewer.CanContentScroll="False" SnapsToDevicePixels="True" HorizontalAlignment="Center" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="834">
                 <ListView.View>
                     <GridView>
@@ -40,17 +42,10 @@
 
                 <ListViewItem BorderThickness="0,9,0,1" Height="113">
                     <StackPanel Width="794" Height="103">
-                        <Label Content="Product ID" Width="124" Margin="16,0,119,0" HorizontalAlignment="Left"/>
+                        <Label Content="Item 1" Width="124" Margin="16,0,119,0" HorizontalAlignment="Left"/>
                         <Image Height="62" Width="54" Source="/Pages/R (3).jpg" Margin="16,8,0,0" HorizontalAlignment="Left"/>
-                        <Button x:Name="edit_btn1" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10" Click="edit_Click"/>
-                        <Label Content="Measurement:" Width="94" Margin="-7,-60,0,0" Height="27"/>
-                        <Label Content="Product Name" Width="124" Margin="-500,-25,0,0"/>
-                        <Label Content="Category:" Width="68" Height="27" Margin="-288,-148,0,0"/>
-                        <Label Content="Stocks:" Width="53" Height="27" Margin="-7,-148,0,0"/>
-                        <Label Content="Defectives:" Width="74" Height="27" Margin="225,-148,0,0"/>
-                        <Label Content="On Delivery:" Width="80" Height="27" Margin="494,-148,0,0"/>
-                        <Label Content="Color:" Width="42" Height="27" Margin="225,-60,0,0"/>
-                        <Label Content="Unit Cost:" Width="80" Height="27" Margin="494,-60,0,0"/>
+                        <Label Content="Category:" Margin="-13,-153,0,0" Width="121" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" Foreground="#DD000000" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Button x:Name="edit_btn1" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10"/>
                     </StackPanel>
                 </ListViewItem>
 
@@ -58,7 +53,7 @@
                     <StackPanel Width="794" Height="103">
                         <Label Content="Item 2" Width="118" HorizontalAlignment="Left" Margin="16,0,0,0"/>
                         <Image Height="62" Width="54" Source="/Pages/item 2.jpg" Margin="16,8,0,0" HorizontalAlignment="Left"/>
-                        <Button x:Name="edit_btn2" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10" Click="edit_Click"/>
+                        <Button x:Name="edit_btn2" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10"/>
                     </StackPanel>
                 </ListViewItem>
 
@@ -66,15 +61,15 @@
                     <StackPanel Width="794" Height="103">
                         <Label Content="Item 3" Width="115" HorizontalAlignment="Left" Margin="16,0,0,0"/>
                         <Image Height="62" Width="54" Source="/Pages/item 3.jpg" Margin="16,8,0,0" HorizontalAlignment="Left"/>
-                        <Button x:Name="edit_btn3" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10" Click="edit_Click"/>
+                        <Button x:Name="edit_btn3" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10"/>
                     </StackPanel>
                 </ListViewItem>
-
+                
                 <ListViewItem BorderThickness="0,9,0,1" Height="113">
                     <StackPanel Width="794" Height="103">
                         <Label Content="Item 3" Width="129" Margin="16,0,0,0" HorizontalAlignment="Left"/>
                         <Image Height="62" Width="54" Source="/Pages/item4.jpg" Margin="16,8,0,0" HorizontalAlignment="Left"/>
-                        <Button x:Name="edit_btn4" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10" Click="edit_Click"/>
+                        <Button x:Name="edit_btn4" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10"/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>

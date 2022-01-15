@@ -34,22 +34,5 @@ namespace Atlas.Pages
         }
 
         public DataTemplate ItemTemplate { get; set; }
-
-        private void add_btn_Click(object sender, RoutedEventArgs e)
-        {
-            AddInventory pageFunction = new AddInventory();
-            this.NavigationService.Navigate(pageFunction);
-        }
-
-        private void delete_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void edit_Click(object sender, RoutedEventArgs e)
-        {
-            EditInventory pageFunction = new EditInventory();
-            this.NavigationService.Navigate(pageFunction);
-        }
     }
 }
