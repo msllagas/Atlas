@@ -37,6 +37,7 @@
     <None Remove="Pages\item4.jpg" />
     <None Remove="Pages\profile.png" />
     <None Remove="Pages\R %283%29.jpg" />
+    <None Remove="Pages\refresh.png" />
     <None Remove="Pages\search.png" />
     <None Remove="settings.png" />
   </ItemGroup>
@@ -109,6 +110,7 @@
     <Resource Include="Pages\item4.jpg" />
     <Resource Include="Pages\profile.png" />
     <Resource Include="Pages\R (3).jpg" />
+    <Resource Include="Pages\refresh.png" />
     <Resource Include="Pages\search.png" />
     <Resource Include="settings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

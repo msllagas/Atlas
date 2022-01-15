@@ -44,25 +44,20 @@
             <ComboBoxItem Content="Taguig City"/>
             <ComboBoxItem Content="Valenzuela City"/>
         </ComboBox>
-        <DataGrid HorizontalAlignment="Left" Height="187" Margin="29,227,0,0" VerticalAlignment="Top" Width="799" ItemsSource="{Binding Items}" AutoGenerateColumns="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderThickness="1,1,1,0">
+        <DataGrid Name="addTable" HorizontalAlignment="Center" Height="187" Margin="0,225,0,0"
+                  VerticalAlignment="Top" Width="798" 
+                  AutoGenerateColumns="False"
+                  HorizontalContentAlignment="Left" VerticalContentAlignment="Top" 
+                  BorderThickness="1,1,1,0">
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn Binding="{Binding Column1, UpdateSourceTrigger=PropertyChanged}" Header="Product ID"/>
-                <DataGridTextColumn Binding="{Binding Column2}" Header="Product Name"/>
-                <DataGridTextColumn Binding="{Binding Column3}" Header="Quantity"/>
-                <DataGridTextColumn Binding="{Binding Column4}" Header="Unit Cost"/>
-                <DataGridTextColumn Binding="{Binding Column5}" Header="Total Cost"/>
+                <DataGridTextColumn Binding="{Binding ProductID}" Header="Product ID"/>
+                <DataGridTextColumn Binding="{Binding ProductName}" Header="Product Name"/>
+                <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity"/>
+                <DataGridTextColumn Binding="{Binding UnitCost}" Header="Unit Cost"/>
+                <DataGridTextColumn Binding="{Binding TotalCost}" Header="Total Cost"/>
             </DataGrid.Columns>
-            <DataGrid.ItemContainerStyle>
-                <Style TargetType="DataGridRow">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Column1}" Value="True">
-                            <Setter Property="Background" Value="Gray"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </DataGrid.ItemContainerStyle>
+
         </DataGrid>
-        <Button x:Name="add_row_btn" Content="Add Row" HorizontalAlignment="Left" Margin="753,190,0,0" VerticalAlignment="Top" BorderBrush="#FFADC9E4" Background="#FFADC9E4" Width="91" Foreground="#DD000000"/>
         <Button Content="Add Parcel" HorizontalAlignment="Left" Margin="295,428,0,0" VerticalAlignment="Top" Background="#FF1569B7" BorderBrush="#FF1569B7" Width="100"/>
         <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="452,428,0,0" VerticalAlignment="Top" Background="#FF1569B7" BorderBrush="#FF1569B7" Width="100" Click="cancel_btn_Click"/>
 
