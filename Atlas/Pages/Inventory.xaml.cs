@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Atlas.Model_Classes;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,9 +20,12 @@ namespace Atlas.Pages
     /// </summary>
     public partial class Inventory : Page
     {
+        public List<CSProduct> products { get; private set; }
+
         public Inventory()
         {
             InitializeComponent();
+            Read();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -43,8 +48,20 @@ namespace Atlas.Pages
 
         private void edit_btn_click(object sender, RoutedEventArgs e)
         {
+            
             EditInventory gotopage = new EditInventory();
             this.NavigationService.Navigate(gotopage);
+        }
+
+        public void Read()
+        {
+            using (DataContext context = new DataContext())
+            {
+                products = context.Products.ToList();
+
+                if (products.Count > 0)
+                    inventory_list.ItemsSource = products;
+            }
         }
     }
 }

@@ -36,42 +36,19 @@
             <ListView x:Name="inventory_list" Margin="0,109,0,10" SelectionChanged="inventory_list_SelectionChanged" ScrollViewer.CanContentScroll="False" SnapsToDevicePixels="True" HorizontalAlignment="Center" HorizontalContentAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="834">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Main Inventory" />
+                        <GridViewColumn Header="ID" Width="150"  
+                                    DisplayMemberBinding="{Binding ID}"/>
+                        <GridViewColumn Header="Product Name" Width="150" 
+                                    DisplayMemberBinding="{Binding ProductName}"/>
+                        <GridViewColumn Header="Price" Width="150" 
+                                    DisplayMemberBinding="{Binding Price}"/>
+                        <GridViewColumn Header="Category" Width="150" 
+                                    DisplayMemberBinding="{Binding Category}"/>
+                        <GridViewColumn Header="Stocks" Width="150" 
+                                    DisplayMemberBinding="{Binding Stocks}"/>
                     </GridView>
                 </ListView.View>
 
-                <ListViewItem BorderThickness="0,9,0,1" Height="113">
-                    <StackPanel Width="794" Height="103">
-                        <Label Content="Item 1" Width="124" Margin="16,0,119,0" HorizontalAlignment="Left"/>
-                        <Image Height="62" Width="54" Source="/Pages/R (3).jpg" Margin="16,8,0,0" HorizontalAlignment="Left"/>
-                        <Label Content="Category:" Margin="-13,-153,0,0" Width="121" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" Foreground="#DD000000" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Button x:Name="edit_btn1" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10" Click="edit_btn_click"/>
-                    </StackPanel>
-                </ListViewItem>
-
-                <ListViewItem BorderThickness="0,9,0,1" Height="113">
-                    <StackPanel Width="794" Height="103">
-                        <Label Content="Item 2" Width="118" HorizontalAlignment="Left" Margin="16,0,0,0"/>
-                        <Image Height="62" Width="54" Source="/Pages/item 2.jpg" Margin="16,8,0,0" HorizontalAlignment="Left"/>
-                        <Button x:Name="edit_btn2" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10" Click="edit_btn_click"/>
-                    </StackPanel>
-                </ListViewItem>
-
-                <ListViewItem BorderThickness="0,9,0,1" Height="113">
-                    <StackPanel Width="794" Height="103">
-                        <Label Content="Item 3" Width="115" HorizontalAlignment="Left" Margin="16,0,0,0"/>
-                        <Image Height="62" Width="54" Source="/Pages/item 3.jpg" Margin="16,8,0,0" HorizontalAlignment="Left"/>
-                        <Button x:Name="edit_btn3" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10" Click="edit_btn_click"/>
-                    </StackPanel>
-                </ListViewItem>
-                
-                <ListViewItem BorderThickness="0,9,0,1" Height="113">
-                    <StackPanel Width="794" Height="103">
-                        <Label Content="Item 3" Width="129" Margin="16,0,0,0" HorizontalAlignment="Left"/>
-                        <Image Height="62" Width="54" Source="/Pages/item4.jpg" Margin="16,8,0,0" HorizontalAlignment="Left"/>
-                        <Button x:Name="edit_btn4" Content="Edit" Width="50" Margin="733,-140,6,5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#DD2D2DFF" ClipToBounds="True" SnapsToDevicePixels="False" HorizontalAlignment="Right" VerticalAlignment="Center" RenderTransformOrigin="0.55,0.475" FontSize="10" Click="edit_btn_click"/>
-                    </StackPanel>
-                </ListViewItem>
             </ListView>
         </Grid>
     </Grid>

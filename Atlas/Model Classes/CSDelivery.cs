@@ -7,9 +7,10 @@ namespace Atlas
         [Key]
         public int TrackingNumber{ get; set; }
 
+        [Required]
         public int Quantity { get; set; }
 
+        [Required]
         public float Amount { get; set; }
-
     }
 }

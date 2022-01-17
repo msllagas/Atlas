@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Atlas.Model_Classes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Text;
 
@@ -11,6 +12,7 @@ namespace Atlas
             optionsBuilder.UseSqlite("Data Source = deli.db"); 
         }
 
-        public DbSet<CSDelivery> Deliveries { get; set; }
+
+        public DbSet<CSProduct> Products { get; set; }
     }
 }

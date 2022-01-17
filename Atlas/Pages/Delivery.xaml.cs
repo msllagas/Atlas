@@ -20,12 +20,12 @@ namespace Atlas.Pages
     public partial class Delivery : Page
     {
 
-        public List<CSDelivery> deliveries { get; private set; }
+       // public List<CSDelivery> deliveries { get; private set; }
 
         public Delivery()
         {
             InitializeComponent();
-            Read();
+           // Read();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -40,14 +40,7 @@ namespace Atlas.Pages
 
         public void Read()
         {
-            using (DataContext context = new DataContext())
-            {
-                deliveries = context.Deliveries.ToList();
-
-
-             //   if (deliveries.Count > 0)
-               //     delivery_list.ItemsSource = deliveries;
-            }
+            
         }
 
         private void refresh_Click(object sender, RoutedEventArgs e)
