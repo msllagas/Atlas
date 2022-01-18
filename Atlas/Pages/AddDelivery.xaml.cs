@@ -16,7 +16,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using Atlas.Model_Classes;
 
 namespace Atlas.Pages
 {
@@ -126,5 +126,61 @@ namespace Atlas.Pages
             this.NavigationService.Navigate(gotopage);
         }
 
+        public void Create()
+        {
+            using (DataContext context = new DataContext())
+            {
+                var _name = receipient.Text;
+                var _address = address.Text;
+                var _amount = float.Parse(amount.Text);
+                var _quantity = int.Parse(quantity.Text);
+                var _product = int.Parse(product.Text);
+
+                CSCustomer cSCustomer
+                if (_name != null && _address != null && _amount != 0 && _quantity != 0 && _product != 0)
+                {
+                    context.Customers.Add(new CSCustomer() { CustomerName = _name, Address = _address});
+                    context.SaveChanges();
+                    
+                }
+                if (_name != null && _address != null && _amount != 0 && _quantity != 0 && _product != 0)
+                {
+
+                    CSCustomer customer = context.Customers.Find(_name);
+                   context.Deliveries.Add(new CSDelivery() { CustomerID = customer.ID, ProductID = _product, Quantity = _quantity, Amount = _amount});
+                    context.SaveChanges();
+
+                }
+
+            }
+        }
+        public void Create2()
+        {
+            Create();
+            using (DataContext context = new DataContext())
+            {
+                var _name = receipient.Text;
+                var _address = address.Text;
+                var _amount = float.Parse(amount.Text);
+                var _quantity = int.Parse(quantity.Text);
+                var _product = int.Parse(product.Text);
+
+                if (_name != null && _address != null && _amount != 0 && _quantity != 0 && _product != 0)
+                {
+
+                    CSCustomer customer = context.Customers.Find(_name);
+                    context.Deliveries.Add(new CSDelivery() { CustomerID = customer.ID, ProductID = _product, Quantity = _quantity, Amount = _amount });
+                    context.SaveChanges();
+
+                }
+            }
+        }
+
+        private void add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Create2();
+            Delivery gotopage = new Delivery();
+            this.NavigationService.Navigate(gotopage);
+        }
     }
 }
