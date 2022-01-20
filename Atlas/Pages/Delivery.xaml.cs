@@ -24,17 +24,34 @@ namespace Atlas.Pages
     /// </summary>
     public partial class Delivery : Page
     {
-
-        // public List<CSDelivery> deliveries { get; private set; }
         private List<Info> items;
         public Delivery()
         {
             InitializeComponent();
             
-            delivery_list.ItemsSource = GetInfo();   
-           // Read();
+            delivery_list.ItemsSource = GetInfo();
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(delivery_list.ItemsSource);
+            view.Filter = SearchFilter;
+            // Read();
         }
 
+        private bool SearchFilter(object item)
+        {
+            
+            if (String.IsNullOrEmpty(SearchBar.Text))
+                return true;
+            else               
+                return ((item as Info).Recipient.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    || ((item as Info).Address.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    || ((item as Info).TrackingNumber.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    || ((item as Info).TotalItems.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    || ((item as Info).TotalAmount.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
+
+        private void SearchBar_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(delivery_list.ItemsSource).Refresh();
+        }
         public List<Info> GetInfo()
         {
             items = new List<Info>();
@@ -43,15 +60,15 @@ namespace Atlas.Pages
                 TrackingNumber = "827365JDH83H7",
                 Recipient = "john doe",
                 Address = "Manila City",
-                TotalItems = 3,
-                TotalAmount = 90.54
+                TotalItems = 30,
+                TotalAmount = 100
             });
             items.Add(new Info()
             {
                 TrackingNumber = "8372094NDDH37",
                 Recipient = "sammy doe",
-                Address = "Manila City",
-                TotalItems = 3,
+                Address = "Calamba City",
+                TotalItems = 20,
                 TotalAmount = 90.54
             });
             items.Add(new Info()
@@ -59,7 +76,7 @@ namespace Atlas.Pages
                 TrackingNumber = "92863829",
                 Recipient = "Juan Dela Cruz",
                 Address = "Manila City",
-                TotalItems = 3,
+                TotalItems = 30,
                 TotalAmount = 90.54
             });
             return items;
@@ -69,7 +86,7 @@ namespace Atlas.Pages
             public string TrackingNumber { get; set; }
             public string Recipient { get; set; }
             public string Address { get; set; }
-            public int TotalItems { get; set; }
+            public int TotalItems { get; set; }            
             public double TotalAmount { get; set; }
             public override string ToString()
             {
@@ -80,18 +97,11 @@ namespace Atlas.Pages
         private void delivery_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
-        }
-      
+        }     
 
         public void Read()
         {
             
-        }
-
-        private void refresh_Click(object sender, RoutedEventArgs e)
-        {
-            delivery_list.Items.Add("added parcel");
-            Read();
         }
 
         private void add_btn_click(object sender, RoutedEventArgs e)
@@ -108,9 +118,7 @@ namespace Atlas.Pages
                 Delivery_Item_List gotopage = new Delivery_Item_List();
                 this.NavigationService.Navigate(gotopage);
                 //MessageBox.Show(item + " Double Click handled!");
-            }
-          
-
+            }     
         }
     }
 }
