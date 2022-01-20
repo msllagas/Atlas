@@ -31,13 +31,20 @@
     <None Remove="logoimage.png" />
     <None Remove="menu_button_default.png" />
     <None Remove="menu_button_mouseover.png" />
+    <None Remove="Pages\atlas.png" />
     <None Remove="Pages\atlasims.png" />
+    <None Remove="Pages\box.png" />
+    <None Remove="Pages\cart.png" />
+    <None Remove="Pages\icons8-menu-24.png" />
     <None Remove="Pages\item 2.jpg" />
     <None Remove="Pages\item 3.jpg" />
     <None Remove="Pages\item4.jpg" />
+    <None Remove="Pages\list.png" />
+    <None Remove="Pages\peso.png" />
     <None Remove="Pages\profile.png" />
     <None Remove="Pages\R %283%29.jpg" />
     <None Remove="Pages\refresh.png" />
+    <None Remove="Pages\sales.png" />
     <None Remove="Pages\search.png" />
     <None Remove="settings.png" />
   </ItemGroup>
@@ -104,13 +111,20 @@
     <Resource Include="logoimage.png" />
     <Resource Include="menu_button_default.png" />
     <Resource Include="menu_button_mouseover.png" />
+    <Resource Include="Pages\atlas.png" />
     <Resource Include="Pages\atlasims.png" />
+    <Resource Include="Pages\box.png" />
+    <Resource Include="Pages\cart.png" />
+    <Resource Include="Pages\icons8-menu-24.png" />
     <Resource Include="Pages\item 2.jpg" />
     <Resource Include="Pages\item 3.jpg" />
     <Resource Include="Pages\item4.jpg" />
+    <Resource Include="Pages\list.png" />
+    <Resource Include="Pages\peso.png" />
     <Resource Include="Pages\profile.png" />
     <Resource Include="Pages\R (3).jpg" />
     <Resource Include="Pages\refresh.png" />
+    <Resource Include="Pages\sales.png" />
     <Resource Include="Pages\search.png" />
     <Resource Include="settings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
