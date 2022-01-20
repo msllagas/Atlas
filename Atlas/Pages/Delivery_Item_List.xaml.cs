@@ -10,8 +10,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -21,17 +19,18 @@ using Atlas.Pages;
 namespace Atlas.Pages
 {
     /// <summary>
-    /// Interaction logic for AddDelivery.xaml
+    /// Interaction logic for Delivery_Item_List.xaml
     /// </summary>
-    public partial class AddDelivery : Page
+    public partial class Delivery_Item_List : Page
     {
-        public AddDelivery()
+        public Delivery_Item_List()
         {
             InitializeComponent();
-            addTable.ItemsSource = Products.GetProducts();
+            itemsTable.ItemsSource = Products.GetProducts();
+            DataContext = Products.GetInfo();
         }
 
-        public class Products :INotifyPropertyChanged
+        public class Products : INotifyPropertyChanged
         {
             private string prodID;
             public string ProductID
@@ -43,7 +42,6 @@ namespace Atlas.Pages
                     RaiseProperChanged();
                 }
             }
-
             private string name;
             public string ProductName
             {
@@ -53,8 +51,7 @@ namespace Atlas.Pages
                     name = value;
                     RaiseProperChanged();
                 }
-            }           
-
+            }
             private int quantity;
             public int Quantity
             {
@@ -65,7 +62,6 @@ namespace Atlas.Pages
                     RaiseProperChanged();
                 }
             }
-
             private string unit;
             public string UnitCost
             {
@@ -76,7 +72,6 @@ namespace Atlas.Pages
                     RaiseProperChanged();
                 }
             }
-
             private string total;
             public string TotalCost
             {
@@ -87,18 +82,49 @@ namespace Atlas.Pages
                     RaiseProperChanged();
                 }
             }
+            public string _TrackingNumber;
+            public string TrackingNumber { get { return _TrackingNumber; } set { _TrackingNumber = value; } }
+            public string _Recipient;
+            public string Recipient { get; set; }
+            public string _Address;
+            public string Address { get; set; }
+            public int _TotalItems;
+            public int TotalItems { get; set; }
+            public double _TotalAmount;
+            public double TotalAmount { get; set; }
 
+            public static ObservableCollection<Products> GetInfo()
+            {
+                var order = new ObservableCollection<Products>();
+                order.Add(new Products()
+                {
+                    TrackingNumber = "001",
+                    Recipient = "Juan",
+                    Address = "Laguna",
+                    TotalItems = 5,
+                    TotalAmount = 167.96
+                });                
+                return order;
+            }
             public static ObservableCollection<Products> GetProducts()
             {
                 var item = new ObservableCollection<Products>();
                 item.Add(new Products()
                 {
                     ProductID = "001",
-                    ProductName = "Gtech",
+                    ProductName = "Gtech Sign Pen C-3",
                     Quantity = 1,
                     UnitCost = "P70.00",
                     TotalCost = "P70.00"
-                });                
+                });
+                item.Add(new Products()
+                {
+                    ProductID = "002",
+                    ProductName = "Mongol 08",
+                    Quantity = 11,
+                    UnitCost = "P70.00",
+                    TotalCost = "P70.00"
+                });
                 return item;
             }
 
@@ -110,40 +136,8 @@ namespace Atlas.Pages
                     PropertyChanged(this, new PropertyChangedEventArgs(caller));
                 }
             }
-        }       
-
-        public void Create()
-        {
-            using (DataContext context = new DataContext())
-            {
-                var _name = receipient.Text;
-                var _address = address.Text;
-                var _amount = float.Parse(amount.Text);
-                var _quantity = int.Parse(quantity.Text);
-                var _product = int.Parse(product.Text);
-
-                CSCustomer cSCustomer = new CSCustomer { CustomerName = _name, Address = _address };
-                if (_name != null && _address != null && _amount != 0 && _quantity != 0 && _product != 0)
-                {
-                    context.Customers.Add(cSCustomer);
-                    context.SaveChanges();
-
-                    int id = cSCustomer.ID;
-
-                    context.Deliveries.Add(new CSDelivery() { CustomerID = id, ProductID = _product, Quantity = _quantity, Amount = _amount });
-                    context.SaveChanges();
-                }
-            }
         }
-
-        private void add_btn_Click(object sender, RoutedEventArgs e)
-        {
-            Create();            
-            Delivery gotopage = new Delivery();
-            this.NavigationService.Navigate(gotopage);
-        }
-
-        private void cancel_btn_Click(object sender, RoutedEventArgs e)
+        private void close_btn_click(object sender, RoutedEventArgs e)
         {
             Delivery gotopage = new Delivery();
             this.NavigationService.Navigate(gotopage);
