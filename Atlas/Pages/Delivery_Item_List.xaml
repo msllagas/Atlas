@@ -15,23 +15,23 @@
             </Rectangle.Effect>
         </Rectangle>
         <TextBlock HorizontalAlignment="Left" Margin="29,9,0,0" Text="Delivery/ Item List" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Tracking No." HorizontalAlignment="Left" Margin="29,77,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Recipient:" HorizontalAlignment="Left" Margin="29,127,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Address:" HorizontalAlignment="Left" Margin="29,167,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Number of Items:" HorizontalAlignment="Left" Margin="28,218,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Total Amount:" HorizontalAlignment="Left" Margin="29,258,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <!--</ComboBox>-->
-        <DataGrid x:Name="itemsTable" HorizontalAlignment="Left" Height="315" Margin="343,97,0,0"
-            VerticalAlignment="Top" Width="501" 
+        <Label x:Name="trackingNumber" Content="Tracking No." HorizontalAlignment="Left" Margin="29,77,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="customerName" Content="Recipient:" HorizontalAlignment="Left" Margin="29,127,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="customerAddress" Content="Address:" HorizontalAlignment="Left" Margin="29,167,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="quantity" Content="Number of Items:" HorizontalAlignment="Left" Margin="28,218,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="total" Content="Total Amount:" HorizontalAlignment="Left" Margin="29,258,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+
+        <DataGrid x:Name="itemsTable" HorizontalAlignment="Left" Height="315" Margin="249,88,0,0"
+            VerticalAlignment="Top" Width="595" 
             AutoGenerateColumns="False"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" 
             BorderThickness="0,2,0,0" BorderBrush="#FF1569B7" GridLinesVisibility="None" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding ProductID}" Header="Product ID"/>
+                <DataGridTextColumn Binding="{Binding ID}" Header="Product ID"/>
                 <DataGridTextColumn Binding="{Binding ProductName}" Header="Product Name"/>
+                <DataGridTextColumn Binding="{Binding Price}" Header="Price"/>
                 <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity"/>
-                <DataGridTextColumn Binding="{Binding UnitCost}" Header="Unit Cost"/>
-                <DataGridTextColumn Binding="{Binding TotalCost}" Header="Total Cost"/>
+                <DataGridTextColumn Binding="{Binding Amount}" Header="Total Amount"/>
             </DataGrid.Columns>
 
         </DataGrid>

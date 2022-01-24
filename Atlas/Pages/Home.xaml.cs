@@ -13,6 +13,8 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Atlas.Model_Classes;
+using System.Linq;
 
 namespace Atlas.Pages
 {
@@ -26,8 +28,21 @@ namespace Atlas.Pages
             InitializeComponent();
             HighestSale.ItemsSource = Products.GetHighestSales();
             SalesTable.ItemsSource = Products.GetYearlySales();
-        }
 
+            SetProductCount();
+        }
+        public void  SetProductCount()
+        {
+            using (DataContext context = new DataContext()) 
+            {
+                List<CSProduct> products = context.Products.ToList();
+                if (products.Count > 0)
+                    productCount.Content = products.Count;
+                else
+                    productCount.Content = "0";
+            }
+            
+        }
         public class Products : INotifyPropertyChanged
         {           
             private string name;

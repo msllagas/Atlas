@@ -54,7 +54,7 @@ namespace Atlas
 
         private void btnDelivery_click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Delivery();
+            Main.Content = new Pages.Delivery();
         }
 
         private void btnHome_click(object sender, RoutedEventArgs e)

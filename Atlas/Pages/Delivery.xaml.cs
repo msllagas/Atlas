@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Atlas.Model_Classes;
-using System.Windows.Controls.Primitives;
 
 namespace Atlas.Pages
 {
@@ -25,28 +13,24 @@ namespace Atlas.Pages
     public partial class Delivery : Page
     {
         private List<Info> items;
+        public List<CSDelivery> deliveries { get; private set; }
+        public static int TrackingNumber;
+        public static int CustomerID;
+        public static int ProductID;
+        public static int Quantity;
+        public static float Total;
+
         public Delivery()
         {
             InitializeComponent();
             
-            delivery_list.ItemsSource = GetInfo();
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(delivery_list.ItemsSource);
-            view.Filter = SearchFilter;
-            // Read();
+            
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(delivery_list.ItemsSource);
+            //view.Filter = SearchFilter;
+            Read();
         }
 
-        private bool SearchFilter(object item)
-        {
-            
-            if (String.IsNullOrEmpty(SearchBar.Text))
-                return true;
-            else               
-                return ((item as Info).Recipient.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-                    || ((item as Info).Address.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-                    || ((item as Info).TrackingNumber.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-                    || ((item as Info).TotalItems.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-                    || ((item as Info).TotalAmount.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        }
+        
 
         private void SearchBar_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
@@ -101,7 +85,14 @@ namespace Atlas.Pages
 
         public void Read()
         {
-            
+            using (DataContext context = new DataContext())
+            {
+                deliveries = context.Deliveries.ToList();
+
+                if (deliveries.Count > 0)
+                    delivery_list.ItemsSource = deliveries;
+            }
+
         }
 
         private void add_btn_click(object sender, RoutedEventArgs e)
@@ -112,13 +103,24 @@ namespace Atlas.Pages
 
         private void item_dbl_click(object sender, MouseButtonEventArgs e)
         {
-            var item = delivery_list.SelectedItem;
-            if (item != null)
+                      
+
+            using (DataContext context = new DataContext())
             {
-                Delivery_Item_List gotopage = new Delivery_Item_List();
-                this.NavigationService.Navigate(gotopage);
-                //MessageBox.Show(item + " Double Click handled!");
-            }     
+                var item = delivery_list.SelectedItem as CSDelivery;
+                
+                if(item != null)
+                {
+                    CSDelivery cSDelivery = context.Deliveries.Find(item.TrackingNumber);
+                    TrackingNumber = cSDelivery.TrackingNumber;
+                    CustomerID = cSDelivery.CustomerID;
+                    ProductID = cSDelivery.ProductID;
+                    Quantity = cSDelivery.Quantity;
+                    Total = cSDelivery.Amount;
+                    Delivery_Item_List gotopage = new Delivery_Item_List();
+                    this.NavigationService.Navigate(gotopage);
+                }
+            }
         }
     }
 }

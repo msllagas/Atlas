@@ -1,7 +1,13 @@
 ﻿using Atlas.Model_Classes;
-using Microsoft.EntityFrameworkCore;
+
 using System;
 using System.Text;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Atlas
 {
@@ -16,5 +22,6 @@ namespace Atlas
         public DbSet<CSProduct> Products { get; set; }
         public DbSet<CSCustomer> Customers { get; set; }
         public DbSet<CSDelivery> Deliveries { get; set; }
+        //public DbQuery<CSDeliInfo> DeliInfos { get; set; }
     }
 }
