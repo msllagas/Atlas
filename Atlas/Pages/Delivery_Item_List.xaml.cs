@@ -3,7 +3,8 @@ using System.Windows.Controls;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Atlas.Model_Classes;
-
+using System.Collections.Generic;
+using System;
 
 namespace Atlas.Pages
 {
@@ -12,6 +13,7 @@ namespace Atlas.Pages
     /// </summary>
     public partial class Delivery_Item_List : Page
     {
+        
         public Delivery_Item_List()
         {
             InitializeComponent();
@@ -28,12 +30,32 @@ namespace Atlas.Pages
                 quantity.Content = Delivery.Quantity;
                 total.Content = Delivery.Total;
                 trackingNumber.Content = Delivery.TrackingNumber;
-                
-               // itemsTable.ItemsSource = context.DeliInfos.FromSqlRaw("SELECT Products.ID, ProductName, Price, Quantity, Amount " +
-                                                                     // "FROM Products " +
-                                                                      //"Inner JOIN Deliveries ON Deliveries.ProductID = Products.ID " +
-                                                                      //"INNER JOIN Customers ON Customers.ID = Deliveries.CustomerID " +
-                                                                      //"WHERE CustomerID = {0}", Delivery.CustomerID).ToList();
+
+                var DeliObject = from p in context.Products
+                                 from d in context.Deliveries
+                                 where d.CustomerID == 5
+                                 select new
+                                 {
+                                     id = p.ID,
+                                     productName = p.ProductName,
+                                     price = p.Price,
+                                     quantity = d.Quantity,
+                                     amount = d.Amount
+                                 };
+                //foreach (var item in DeliObject)
+                //{
+                //    MessageBox.Show($"{item.productName} + {item.quantity}");
+                //    itemsTable.ItemsSource = item;
+                //    //Console.WriteLine();
+                //}
+
+                itemsTable.ItemsSource = DeliObject.ToList();
+
+                //itemsTable.ItemsSource = context.DeliInfos.FromSqlRaw("SELECT Products.ID, ProductName, Price, Quantity, Amount " +
+                //                                                      "FROM Products " +
+                //                                                      "Inner JOIN Deliveries ON Deliveries.ProductID = Products.ID " +
+                //                                                      "INNER JOIN Customers ON Customers.ID = Deliveries.CustomerID " +
+                //                                                      "WHERE CustomerID = {0}", Delivery.CustomerID).ToList();
 
             }
         }
@@ -43,6 +65,11 @@ namespace Atlas.Pages
         {
             Delivery gotopage = new Delivery();
             this.NavigationService.Navigate(gotopage);
+        }
+
+        private void itemsTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

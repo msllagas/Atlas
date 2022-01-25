@@ -25,13 +25,13 @@
             VerticalAlignment="Top" Width="595" 
             AutoGenerateColumns="False"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" 
-            BorderThickness="0,2,0,0" BorderBrush="#FF1569B7" GridLinesVisibility="None" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True">
+            BorderThickness="0,2,0,0" BorderBrush="#FF1569B7" GridLinesVisibility="None" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" SelectionChanged="itemsTable_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding ID}" Header="Product ID"/>
-                <DataGridTextColumn Binding="{Binding ProductName}" Header="Product Name"/>
-                <DataGridTextColumn Binding="{Binding Price}" Header="Price"/>
-                <DataGridTextColumn Binding="{Binding Quantity}" Header="Quantity"/>
-                <DataGridTextColumn Binding="{Binding Amount}" Header="Total Amount"/>
+                <DataGridTextColumn Binding="{Binding id}" Header="Product ID"/>
+                <DataGridTextColumn Binding="{Binding productName}" Header="Product Name"/>
+                <DataGridTextColumn Binding="{Binding price}" Header="Price"/>
+                <DataGridTextColumn Binding="{Binding quantity}" Header="Quantity"/>
+                <DataGridTextColumn Binding="{Binding amount}" Header="Total Amount"/>
             </DataGrid.Columns>
 
         </DataGrid>

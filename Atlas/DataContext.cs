@@ -22,6 +22,6 @@ namespace Atlas
         public DbSet<CSProduct> Products { get; set; }
         public DbSet<CSCustomer> Customers { get; set; }
         public DbSet<CSDelivery> Deliveries { get; set; }
-        //public DbQuery<CSDeliInfo> DeliInfos { get; set; }
+        public DbSet<CSDeliInfo> DeliInfos { get; set; }
     }
 }
