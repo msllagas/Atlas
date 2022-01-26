@@ -24,23 +24,32 @@
             <Label Content="Product Name" Margin="36,26,726,453"/>
             <Label Content="Category" Margin="278,20,484,454" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
             <StackPanel Margin="36,26,525,391" Orientation="Horizontal">
-                <TextBox TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search"/>
-                <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF414346" ToolTip="{DynamicResource PrimaryHueDarkForegroundBrush}" Foreground="#FF1569B7">
+                <TextBox TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search" BorderBrush="#FF1264B1"/>
+                <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" ToolTip="{DynamicResource PrimaryHueDarkForegroundBrush}" Foreground="#FF1569B7">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Pages/search.png"/>
                     </Button.Background>
                 </Button>
             </StackPanel>
 
-            <ComboBox x:Name="Category_Cmbox" Width="236" Height="29" Text="Category" Margin="278,53,340,418" AutomationProperties.Name="Category">
+            <ComboBox x:Name="Category_Cmbox" Width="236" Height="29" Text="Category" Margin="278,53,340,418" AutomationProperties.Name="Category" BorderBrush="#FF1264B1">
                 <ComboBoxItem Content="Art Materials"/>
                 <ComboBoxItem Content="Books"/>
                 <ComboBoxItem Content="School Supplies"/>
                 <ComboBoxItem Content="Stationary Items"/>
             </ComboBox>
 
-            <Button x:Name="add_btn" Content="ADD" Margin="536,51,184,417" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="add_btn_click"/>
-            <Button x:Name="delete_btn" Content="DELETE" Margin="682,51,38,417" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="delete_btn_Click"/>
+            <Button x:Name="add_btn" Margin="694,50,100,418" BorderBrush="{x:Null}" Click="add_btn_click" ClipToBounds="True" BorderThickness="0,0,0,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pages/add.png" Stretch="Uniform"/>
+                </Button.Background>
+
+            </Button>
+            <Button x:Name="delete_btn" Content="" Margin="770,50,25,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pages/delete.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
 
             <!--<DataGrid x:Name="inventory_list" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="814" ItemsSource="{Binding Items}" AutoGenerateColumns="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderThickness="1,1,1,0" Background="#FFFAFAFA" ClipToBounds="True" Margin="15,178,0,0">
 
@@ -66,9 +75,13 @@
                 </DataGrid.Columns>
             </DataGrid>-->
 
-
-
-            <ListView x:Name="inventory_list" Margin="10,144,10,0" SelectionChanged="inventory_list_SelectionChanged"  Width="834" SnapsToDevicePixels="True" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FlowDirection="LeftToRight" >
+            <ListView x:Name="inventory_list" Margin="10,144,10,0" 
+                      SelectionChanged="inventory_list_SelectionChanged"  
+                      Width="834" SnapsToDevicePixels="True"
+                      VerticalAlignment="Top" 
+                      HorizontalContentAlignment="Left"
+                      VerticalContentAlignment="Center"
+                      FlowDirection="LeftToRight" >
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="BorderBrush" Value="LightGray" />
@@ -77,13 +90,10 @@
                         <Setter Property="HorizontalAlignment" Value="Stretch" />
                     </Style>
                 </ListView.ItemContainerStyle>
-
                 <ListView.View>
-
                     <GridView>
-
-
-                        <GridViewColumn Header="ID" Width="150" DisplayMemberBinding="{Binding ID}"/>
+                        <GridViewColumn Header="ID" Width="150" 
+                                        DisplayMemberBinding="{Binding ID}"/>
                         <GridViewColumn Header="Product Name" Width="230" 
                                     DisplayMemberBinding="{Binding ProductName}"/>
                         <GridViewColumn Header="Price" Width="150" 
@@ -94,9 +104,8 @@
                                     DisplayMemberBinding="{Binding Stocks}"/>
                     </GridView>
                 </ListView.View>
-
             </ListView>
-            <Label Content="Inventory" FontWeight="Bold" HorizontalAlignment="Left" Margin="24,109,0,0" VerticalAlignment="Top"/>
+            <Label Content="Main Inventory" FontWeight="Bold" HorizontalAlignment="Left" Margin="32,107,0,0" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
 </Page>

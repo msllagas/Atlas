@@ -19,36 +19,29 @@
         </Grid>
         <Grid>
             <Image Source="/Pages/atlasims.png" Margin="120,70,120,70" Opacity="0.1"/>
-            <Image Height="100" Width="100" Source="/Pages/profile.png" Margin="580,12,120,338"/>
-            <Button x:Name="btnLogout" Content="Log out" Margin="571,430,147,38" BorderBrush="#FF1569B7" Click="btnLogout_click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF5F8BA4"/>
-                        <GradientStop Color="#FF1569B7" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="btnSave" Content="Save Changes" Margin="148,430,570,38" BorderBrush="#FF1569B7" Click="btnSave_click">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF5F8BA4" Offset="0"/>
-                        <GradientStop Color="#FF1569B7" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Rectangle HorizontalAlignment="Center" Height="38" Margin="0,146,0,0" VerticalAlignment="Top" Width="558" Opacity="0.1" Stroke="#FF5F8BA4">
-                <Rectangle.Effect>
+            <Image Height="100" Width="100" Source="/Pages/profile.png" Margin="193,26,561,374">
+                <Image.Effect>
                     <DropShadowEffect/>
-                </Rectangle.Effect>
-            </Rectangle>
-            <Label Content="Edit Account" HorizontalAlignment="Left" Margin="154,155,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <Label Content="Username:" HorizontalAlignment="Left" Margin="158,301,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
-            <TextBox x:Name="txtUserEdit" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Margin="271,298,407,164" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
-            <Label Content="Password:" HorizontalAlignment="Left" Margin="158,350,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
-            <PasswordBox x:Name="txtPassEdit" Margin="271,350,407,112" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
-
-
+                </Image.Effect>
+            </Image>
+            <Button x:Name="btnSave" Content="Save Changes" Margin="399,379,319,89" BorderBrush="{x:Null}" Click="btnSave_click" ClipToBounds="True">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFAD99D6" Offset="0.2"/>
+                        <GradientStop Color="#FF1569B7" Offset="0.782"/>
+                        <GradientStop Color="#FFC299C5" Offset="0.206"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Content="Edit Account" HorizontalAlignment="Left" Margin="194,155,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Label Content="Username:" HorizontalAlignment="Left" Margin="198,218,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="32"/>
+            <TextBox x:Name="txtUserEdit" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Margin="311,220,367,0" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="198,270,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
+            <PasswordBox x:Name="txtPassEdit" Margin="311,272,367,190" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
+            <TextBlock Text="{Binding Username}" TextWrapping="Wrap" Margin="296,47,384,422" FontSize="20"/>
+            <TextBlock Text="{Binding UserID}" TextWrapping="Wrap" Margin="298,79,382,390" FontSize="20"/>
         </Grid>
+
 
     </Grid>
 </Page>
