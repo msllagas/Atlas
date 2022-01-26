@@ -30,8 +30,7 @@ namespace Atlas
 
             InitializeComponent();
             
-        }
-
+        }        
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
@@ -63,7 +62,10 @@ namespace Atlas
 
                 else
                 {
-                    MessageBox.Show("Who r u!?");
+                    //MessageBox.Show("Who r u!?");
+                    SecondWindow mainWin = new SecondWindow();
+                    mainWin.Show();
+                    this.Close(); //to close this window
                 }
                
 
@@ -73,7 +75,7 @@ namespace Atlas
 
                 MessageBox.Show(ex.Message);
             }
-
+            
          
         }
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)

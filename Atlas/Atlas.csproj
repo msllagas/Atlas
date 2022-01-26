@@ -9,7 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="atlas.png" />
     <None Remove="AtlasDB.db" />
+    <None Remove="atlasims.png" />
+    <None Remove="atlaslogo.png" />
     <None Remove="background.jpg" />
     <None Remove="box_inventory.png" />
     <None Remove="delivery.png" />
@@ -30,15 +33,18 @@
     <None Remove="log.png" />
     <None Remove="logoimage.png" />
     <None Remove="logout.png" />
+    <None Remove="log_icon.png" />
     <None Remove="menu_button_default.png" />
     <None Remove="menu_button_mouseover.png" />
     <None Remove="Pages\add.png" />
+    <None Remove="Pages\add_icon.png" />
     <None Remove="Pages\atlas.png" />
     <None Remove="Pages\atlasims.png" />
     <None Remove="Pages\back.png" />
     <None Remove="Pages\box.png" />
     <None Remove="Pages\cart.png" />
     <None Remove="Pages\delete.png" />
+    <None Remove="Pages\delete_icon.png" />
     <None Remove="Pages\icons8-menu-24.png" />
     <None Remove="Pages\item 2.jpg" />
     <None Remove="Pages\item 3.jpg" />
@@ -46,11 +52,14 @@
     <None Remove="Pages\list.png" />
     <None Remove="Pages\peso.png" />
     <None Remove="Pages\profile.png" />
+    <None Remove="Pages\profile_icon.png" />
     <None Remove="Pages\R %283%29.jpg" />
     <None Remove="Pages\refresh.png" />
     <None Remove="Pages\sales.png" />
     <None Remove="Pages\search.png" />
+    <None Remove="sales.png" />
     <None Remove="settings.png" />
+    <None Remove="settings_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,6 +81,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="atlas.png" />
+    <Resource Include="atlasims.png" />
+    <Resource Include="atlaslogo.png" />
     <Resource Include="background.jpg" />
     <Resource Include="box_inventory.png" />
     <Resource Include="delivery.png" />
@@ -116,15 +128,18 @@
     </Resource>
     <Resource Include="logoimage.png" />
     <Resource Include="logout.png" />
+    <Resource Include="log_icon.png" />
     <Resource Include="menu_button_default.png" />
     <Resource Include="menu_button_mouseover.png" />
     <Resource Include="Pages\add.png" />
+    <Resource Include="Pages\add_icon.png" />
     <Resource Include="Pages\atlas.png" />
     <Resource Include="Pages\atlasims.png" />
     <Resource Include="Pages\back.png" />
     <Resource Include="Pages\box.png" />
     <Resource Include="Pages\cart.png" />
     <Resource Include="Pages\delete.png" />
+    <Resource Include="Pages\delete_icon.png" />
     <Resource Include="Pages\icons8-menu-24.png" />
     <Resource Include="Pages\item 2.jpg" />
     <Resource Include="Pages\item 3.jpg" />
@@ -132,13 +147,16 @@
     <Resource Include="Pages\list.png" />
     <Resource Include="Pages\peso.png" />
     <Resource Include="Pages\profile.png" />
+    <Resource Include="Pages\profile_icon.png" />
     <Resource Include="Pages\R (3).jpg" />
     <Resource Include="Pages\refresh.png" />
     <Resource Include="Pages\sales.png" />
     <Resource Include="Pages\search.png" />
+    <Resource Include="sales.png" />
     <Resource Include="settings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="settings_icon.png" />
   </ItemGroup>
 
   <ItemGroup>

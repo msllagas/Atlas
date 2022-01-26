@@ -21,56 +21,40 @@
 
     <Grid Background="White">
         <Grid>
-            <Label Content="Product Name" Margin="36,26,726,453"/>
-            <Label Content="Category" Margin="278,20,484,454" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
-            <StackPanel Margin="36,26,525,391" Orientation="Horizontal">
-                <TextBox TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search" BorderBrush="#FF1264B1"/>
-                <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" ToolTip="{DynamicResource PrimaryHueDarkForegroundBrush}" Foreground="#FF1569B7">
-                    <Button.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="/Pages/search.png"/>
-                    </Button.Background>
-                </Button>
-            </StackPanel>
 
-            <ComboBox x:Name="Category_Cmbox" Width="236" Height="29" Text="Category" Margin="278,53,340,418" AutomationProperties.Name="Category" BorderBrush="#FF1264B1">
-                <ComboBoxItem Content="Art Materials"/>
-                <ComboBoxItem Content="Books"/>
-                <ComboBoxItem Content="School Supplies"/>
-                <ComboBoxItem Content="Stationary Items"/>
-            </ComboBox>
+            <Grid Margin="170,10,206,401">
+                <Label Content="Product Name" Margin="-18,6,404,62"/>
+                <Label Content="Category" Margin="242,0,144,63" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+                <StackPanel Margin="-24,6,209,0" Orientation="Horizontal">
+                    <TextBox TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search" BorderBrush="#FF1264B1"/>
+                    <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" Foreground="#FF1569B7">
+                        <Button.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="/Pages/search.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+
+                <ComboBox x:Name="Category_Cmbox" Width="236" Height="29" Text="Category" Margin="242,33,0,27" AutomationProperties.Name="Category" BorderBrush="#FF1264B1">
+                    <ComboBoxItem Content="Art Materials"/>
+                    <ComboBoxItem Content="Books"/>
+                    <ComboBoxItem Content="School Supplies"/>
+                    <ComboBoxItem Content="Stationary Items"/>
+                </ComboBox>
+
+            </Grid>
 
             <Button x:Name="add_btn" Margin="694,50,100,418" BorderBrush="{x:Null}" Click="add_btn_click" ClipToBounds="True" BorderThickness="0,0,0,0">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Pages/add.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Pages/add_icon.png" Stretch="Uniform"/>
                 </Button.Background>
 
             </Button>
             <Button x:Name="delete_btn" Content="" Margin="770,50,25,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Pages/delete.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Pages/delete_icon.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
 
-            <!--<DataGrid x:Name="inventory_list" HorizontalAlignment="Left" Height="296" VerticalAlignment="Top" Width="814" ItemsSource="{Binding Items}" AutoGenerateColumns="False" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" BorderThickness="1,1,1,0" Background="#FFFAFAFA" ClipToBounds="True" Margin="15,178,0,0">
-
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding ID}" Header="ID"/>
-                    <DataGridTextColumn Binding="{Binding ProductName}" Header="Product Name"/>
-                    <DataGridTextColumn Binding="{Binding Price}" Header="Price"/>
-                    <DataGridTextColumn Binding="{Binding Category}" Header="Category"/>
-                    <DataGridTextColumn Binding="{Binding Stocks}" Header="Stocks"/>
-
-                    -->
-            <!--<GridViewColumn Header="ID" Width="150"  
-                                    DisplayMemberBinding="{Binding ID}"/>
-                        <GridViewColumn Header="Product Name" Width="150" 
-                                    DisplayMemberBinding="{Binding ProductName}"/>
-                        <GridViewColumn Header="Price" Width="150" 
-                                    DisplayMemberBinding="{Binding Price}"/>
-                        <GridViewColumn Header="Category" Width="150" 
-                                    DisplayMemberBinding="{Binding Category}"/>
-                        <GridViewColumn Header="Stocks" Width="150" 
-                                    DisplayMemberBinding="{Binding Stocks}"/>-->
             <!--
                 </DataGrid.Columns>
             </DataGrid>-->
@@ -106,7 +90,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Label Content="Main Inventory" FontWeight="Bold" HorizontalAlignment="Left" Margin="32,107,0,0" VerticalAlignment="Top"/>
+            <Label Content="Main Inventory" FontWeight="Normal" HorizontalAlignment="Left" Margin="20,94,0,0" VerticalAlignment="Top" FontSize="20"/>
         </Grid>
     </Grid>
 </Page>

@@ -3,27 +3,25 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Atlas.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="854"
       Title="EditInventory">
 
-    <Grid Background="White">
-        <Rectangle HorizontalAlignment="Center" Height="28" Stroke="#FF1569B7" VerticalAlignment="Top" Width="854" Opacity="0.5" StrokeThickness="0" ClipToBounds="True" SnapsToDevicePixels="True">
-            <Rectangle.Effect>
-                <BlurEffect/>
-            </Rectangle.Effect>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFDDC3F7"/>
-                    <GradientStop Color="#FF2A58A8" Offset="0.762"/>
-                    <GradientStop Color="#FF6962EE" Offset="0.516"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                <GradientStop Color="#FF99A4D6" Offset="0.782"/>
+                <GradientStop Color="#FFB3A2EE" Offset="0.70"/>
+                <GradientStop Color="#FF1569B7" Offset="0.500"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Height="450" VerticalAlignment="Top" 
+                CornerRadius="0 0 250 0" 
+                Background="White" HorizontalAlignment="Stretch"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="29,5,0,0" Text="Inventory/ Edit Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF080808" FontSize="20" FontWeight="Bold" FontFamily="Copperplate Gothic Bold"/>
-        <Label Content="Product ID:" HorizontalAlignment="Left" Margin="29,95,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,37,0,0" Text="Inventory/ Edit Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF080808" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI"/>
         <Label Content="Product Name:" HorizontalAlignment="Left" Margin="29,145,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Content="Measurement:" HorizontalAlignment="Left" Margin="29,197,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Content="Color:" HorizontalAlignment="Left" Margin="31,250,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
@@ -45,25 +43,17 @@
         <TextBox HorizontalAlignment="Left" Margin="558,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
         <TextBox HorizontalAlignment="Left" Margin="566,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
         <TextBox HorizontalAlignment="Left" Margin="575,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
-        <Button x:Name="save_btn" Content="Save Changes" HorizontalAlignment="Left" Margin="296,398,0,0" VerticalAlignment="Top" Width="119" BorderBrush="{x:Null}" Click="edit_Click" HorizontalContentAlignment="Stretch">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF99A4D6" Offset="0.295"/>
-                    <GradientStop Color="#FF1569B7" Offset="0.782"/>
-                    <GradientStop Color="#FFB3A2EE" Offset="0.112"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="466,398,0,0" VerticalAlignment="Top" Width="119" BorderBrush="{x:Null}" Click="cancel_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF99A4D6" Offset="0.295"/>
-                    <GradientStop Color="#FF1569B7" Offset="0.782"/>
-                    <GradientStop Color="#FFB3A2EE" Offset="0.112"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+        <Button x:Name="save_btn" Content="Save"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                HorizontalAlignment="Left" Margin="300,374,0,0" VerticalAlignment="Top" 
+                Width="119" BorderBrush="{x:Null}" Click="edit_Click" HorizontalContentAlignment="Center" Background="Black"/>
+        <Button x:Name="cancel_btn" Content="Cancel" 
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                HorizontalAlignment="Left" Margin="466,374,0,0" VerticalAlignment="Top" Width="119" BorderBrush="{x:Null}" Click="cancel_Click" Background="Black"/>
         <TextBox HorizontalAlignment="Left" Margin="141,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
+        <Label Content="Product ID:" HorizontalAlignment="Left" Margin="29,95,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#DD000000"/>
 
     </Grid>
 </Page>

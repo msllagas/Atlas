@@ -22,7 +22,7 @@ namespace Atlas
         {
             InitializeComponent();
             Main.Content = new Home();
-        }
+        }        
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -73,9 +73,10 @@ namespace Atlas
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
-        {
-            //Main.Content = new Log();
-            MessageBox.Show("Log out");            
+        {           
+            MainWindow loginWin = new MainWindow();
+            loginWin.Show();
+            this.Close();
         }
     }
 }

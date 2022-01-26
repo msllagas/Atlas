@@ -54,7 +54,6 @@ namespace Atlas.Pages
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
 

@@ -6,17 +6,15 @@
         xmlns:local="clr-namespace:Atlas"
         xmlns:n="clr-namespace:Atlas"
         mc:Ignorable="d"
-        Height="500" 
+        Height="500"
         Width="920"
-        ResizeMode="NoResize"
-        Topmost="True"
+        ResizeMode="NoResize"        
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
                     ImageSource="/images/menu_button_mouseover.png"/>
-
         <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -24,8 +22,7 @@
                         <Border x:Name="border"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
-                                SnapsToDevicePixels="True">
-                            
+                                SnapsToDevicePixels="True">                            
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -43,21 +40,17 @@
                                 <Setter Property="BorderBrush"
                                         TargetName="border"
                                         Value="{StaticResource tb_mouse_over}"/>
-
-                            </Trigger>
-                            
+                            </Trigger>                            
                         </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                   
+                    </ControlTemplate>                   
                 </Setter.Value>
             </Setter>
         </Style>
     </Window.Resources>
     <Grid>
-        
-        
-        <Grid Background="White">
 
+
+        <Grid Background="White" MouseDown="Border_MouseDown">
             
             <Grid x:Name="background">
                 <Grid.Background>
@@ -220,8 +213,8 @@
                             <Button x:Name="btnLog" Click="btnLog_Click" Background="#FF1569B7" BorderBrush="#FF1569B7" ClipToBounds="True">
                                 <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                    <Image Source="/images/log.png"
-                                       Stretch="None"
+                                    <Image Source="/log_icon.png"
+                                       Stretch="Uniform"
                                        Margin="0,0,0,0"/>
                                     <TextBlock Text="Logs"
                                            Margin="25,0,0,0"
@@ -236,8 +229,8 @@
                             <Button x:Name="btnSettings" Click="btnSettings_Click" Background="#FF1569B7" BorderBrush="#FF1569B7" ClipToBounds="True">
                                 <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                    <Image Source="/images/settings.png"
-                                       Stretch="None"
+                                    <Image Source="/settings_icon.png"
+                                       Stretch="UniformToFill"
                                        Margin="0,0,0,0"/>
                                     <TextBlock Text="Settings"
                                            Margin="25,0,0,0"

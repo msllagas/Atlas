@@ -3,57 +3,49 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:Atlas.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="854"
       Title="AddDelivery">
 
-    <Grid Background="White">
-        <Rectangle HorizontalAlignment="Center" Height="28" Stroke="#FF1569B7" VerticalAlignment="Top" Width="854" Opacity="0.5" StrokeThickness="0" ClipToBounds="True" SnapsToDevicePixels="True">
-            <Rectangle.Effect>
-                <BlurEffect/>
-            </Rectangle.Effect>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFDDC3F7"/>
-                    <GradientStop Color="#FF2A58A8" Offset="0.762"/>
-                    <GradientStop Color="#FF6962EE" Offset="0.516"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                <GradientStop Color="#FF99A4D6" Offset="0.782"/>
+                <GradientStop Color="#FFB3A2EE" Offset="0.70"/>
+                <GradientStop Color="#FF1569B7" Offset="0.500"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Height="450" VerticalAlignment="Top" 
+                CornerRadius="0 0 250 0" 
+                Background="White" Margin="0,-2,0,0"/>
 
 
-        <TextBlock HorizontalAlignment="Left" Margin="29,9,0,0" Text="Delivery/ Add Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="16" FontWeight="Bold" FontFamily="Copperplate Gothic Bold"/>
-        <Label Content="Tracking No." HorizontalAlignment="Left" Margin="29,77,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Recipient:" HorizontalAlignment="Left" Margin="29,109,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Address:" HorizontalAlignment="Left" Margin="29,149,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Product:" HorizontalAlignment="Left" Margin="427,77,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Total Amount:" HorizontalAlignment="Left" Margin="427,109,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Total No. of Items:" HorizontalAlignment="Left" Margin="428,149,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="receipient"  HorizontalAlignment="Left" Margin="107,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontSize="14"/>
-        <TextBox x:Name="address" HorizontalAlignment="Left" Margin="107,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontSize="14"/>
-        <TextBox x:Name="amount" HorizontalAlignment="Left" Margin="534,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-        <TextBox x:Name="quantity" HorizontalAlignment="Left" Margin="562,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="80,49,0,0" Text="Delivery/ Add Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI"/>
+        <Grid HorizontalAlignment="Left" Height="102" Margin="80,123,0,0" VerticalAlignment="Top" Width="653">
+            <Label Content="Tracking No." HorizontalAlignment="Left" Margin="0,-1,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
+            <Label Content="Recipient:" HorizontalAlignment="Left" Margin="0,35,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
+            <Label Content="Address:" HorizontalAlignment="Left" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+            <Label Content="Product:" HorizontalAlignment="Left" Margin="398,1,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
+            <Label Content="Total Amount:" HorizontalAlignment="Left" Margin="398,35,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
+            <Label Content="Total No. of Items:" HorizontalAlignment="Left" Margin="399,75,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
+            <TextBox x:Name="receipient"  HorizontalAlignment="Left" Margin="78,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontSize="14"/>
+            <TextBox x:Name="address" HorizontalAlignment="Left" Margin="78,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontSize="14"/>
+            <TextBox x:Name="amount" HorizontalAlignment="Left" Margin="505,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+            <TextBox x:Name="quantity" HorizontalAlignment="Left" Margin="533,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+            <TextBox x:Name="product" HorizontalAlignment="Left" Margin="465,-2,0,0" VerticalAlignment="Top" Width="176"/>
+        </Grid>
         <!--</ComboBox>-->
-        <TextBox x:Name="product" HorizontalAlignment="Left" Margin="494,74,0,0" VerticalAlignment="Top" Width="176"/>
-        <Button x:Name="add_btn" Content="Add Parcel" HorizontalAlignment="Left" Margin="288,278,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="add_btn_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF99A4D6" Offset="0.295"/>
-                    <GradientStop Color="#FF1569B7" Offset="0.782"/>
-                    <GradientStop Color="#FFB3A2EE" Offset="0.112"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="443,278,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="cancel_btn_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF99A4D6" Offset="0.295"/>
-                    <GradientStop Color="#FF1569B7" Offset="0.782"/>
-                    <GradientStop Color="#FFB3A2EE" Offset="0.112"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+        <Button x:Name="add_btn" Content="Add Parcel" 
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                HorizontalAlignment="Left" Margin="294,286,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="add_btn_Click" Background="Black"/>
+        <Button x:Name="cancel_btn" Content="Cancel" 
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                HorizontalAlignment="Left" Margin="449,286,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="cancel_btn_Click" Background="Black"/>
 
 
     </Grid>

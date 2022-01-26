@@ -10,10 +10,10 @@
 
     <Grid Background="White">
         <Grid>
-            <Label Content="Search" Margin="36,26,726,453"/>
-            <StackPanel Margin="36,26,525,391" Orientation="Horizontal">
+            <Label Content="Search" Margin="375,24,387,455"/>
+            <StackPanel Margin="375,24,186,392" Orientation="Horizontal">
                 <TextBox x:Name="SearchBar" TextChanged="SearchBar_TextChanged" TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search" BorderBrush="#FF1264B1"/>
-                <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" ToolTip="{DynamicResource PrimaryHueDarkForegroundBrush}" Foreground="#FF1569B7">
+                <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" Foreground="#FF1569B7">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Pages/search.png"/>
                     </Button.Background>
@@ -22,13 +22,13 @@
 
             <Button x:Name="add_btn" Margin="694,50,100,418" BorderBrush="{x:Null}" Click="add_btn_click" ClipToBounds="True" BorderThickness="0,0,0,0">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Pages/add.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Pages/add_icon.png" Stretch="Uniform"/>
                 </Button.Background>
 
             </Button>
             <Button x:Name="delete_btn" Content="" Margin="770,50,25,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Pages/delete.png" Stretch="Uniform"/>
+                    <ImageBrush ImageSource="/Pages/delete_icon.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
             <ListView x:Name="delivery_list" Margin="10,123,10,29" 
@@ -55,6 +55,7 @@
                                     DisplayMemberBinding="{Binding CustomerID}"/>
                         <GridViewColumn Header="Address" Width="150" 
                                     DisplayMemberBinding="{Binding ProductID}"/>
+                        <!--Change ProductID to Address-->
                         <GridViewColumn Header="Quantity" Width="150" 
                                     DisplayMemberBinding="{Binding Quantity}"/>
                         <GridViewColumn Header="Amount" Width="150" 
@@ -62,6 +63,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            <TextBlock HorizontalAlignment="Left" Margin="40,95,0,0" Text="Deliveries" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
         </Grid>
 
     </Grid>
