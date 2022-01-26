@@ -74,19 +74,13 @@ namespace Atlas.Pages
                 
                 if(item != null)
                 {
-                    //CSDelivery cSDelivery = context.Deliveries.Find(item.TrackingNumber);
-                    /*TrackingNumber = cSDelivery.TrackingNumber;                    
+                    CSDelivery cSDelivery = context.Deliveries.Find(item.TrackingNumber);
+                    TrackingNumber = cSDelivery.TrackingNumber;                    
                     CustomerID = cSDelivery.CustomerID;
                     ProductID = cSDelivery.ProductID; //change product ID to address...
                     Quantity = cSDelivery.Quantity; //display total quantity of items ordered
-                    Total = cSDelivery.Amount;      //display total amount of orders
-                    */
-                    TrackingNumber = 001;
-                    CustomerID = 001;
-                    ProductID = 001;
-                    Quantity = 1;
-                    Total = 10;
-
+                    Total = cSDelivery.Amount;      //display total amount of orders                    
+                    
                     Delivery_Item_List gotopage = new Delivery_Item_List();
                     this.NavigationService.Navigate(gotopage);
                 }

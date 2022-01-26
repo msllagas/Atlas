@@ -35,6 +35,7 @@
     <None Remove="Pages\add.png" />
     <None Remove="Pages\atlas.png" />
     <None Remove="Pages\atlasims.png" />
+    <None Remove="Pages\back.png" />
     <None Remove="Pages\box.png" />
     <None Remove="Pages\cart.png" />
     <None Remove="Pages\delete.png" />
@@ -120,6 +121,7 @@
     <Resource Include="Pages\add.png" />
     <Resource Include="Pages\atlas.png" />
     <Resource Include="Pages\atlasims.png" />
+    <Resource Include="Pages\back.png" />
     <Resource Include="Pages\box.png" />
     <Resource Include="Pages\cart.png" />
     <Resource Include="Pages\delete.png" />

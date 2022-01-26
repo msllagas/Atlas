@@ -81,7 +81,8 @@
                       VerticalAlignment="Top" 
                       HorizontalContentAlignment="Left"
                       VerticalContentAlignment="Center"
-                      FlowDirection="LeftToRight" >
+                      FlowDirection="LeftToRight" 
+                      MouseDoubleClick="edit_dbl_click">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="BorderBrush" Value="LightGray" />

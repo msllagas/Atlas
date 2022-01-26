@@ -19,17 +19,13 @@
         </Grid>
         <Grid>
             <Image Source="/Pages/atlasims.png" Margin="120,70,120,70" Opacity="0.1"/>
-            <Image Height="100" Width="100" Source="/Pages/profile.png" Margin="193,26,561,374">
-                <Image.Effect>
-                    <DropShadowEffect/>
-                </Image.Effect>
-            </Image>
-            <Button x:Name="btnSave" Content="Save Changes" Margin="399,379,319,89" BorderBrush="{x:Null}" Click="btnSave_click" ClipToBounds="True">
+            <Image Height="100" Width="100" Source="/Pages/profile.png" Margin="193,26,561,374"/>
+            <Button x:Name="btnSave" Content="Save Changes" Margin="363,379,355,89" BorderBrush="{x:Null}" Click="btnSave_click" ClipToBounds="True">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFAD99D6" Offset="0.2"/>
+                        <GradientStop Color="#FF99A4D6" Offset="0.295"/>
                         <GradientStop Color="#FF1569B7" Offset="0.782"/>
-                        <GradientStop Color="#FFC299C5" Offset="0.206"/>
+                        <GradientStop Color="#FFB3A2EE" Offset="0.112"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
@@ -38,8 +34,8 @@
             <TextBox x:Name="txtUserEdit" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Margin="311,220,367,0" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="198,270,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
             <PasswordBox x:Name="txtPassEdit" Margin="311,272,367,190" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
-            <TextBlock Text="{Binding Username}" TextWrapping="Wrap" Margin="296,47,384,422" FontSize="20"/>
-            <TextBlock Text="{Binding UserID}" TextWrapping="Wrap" Margin="298,79,382,390" FontSize="20"/>
+            <TextBlock Text="Employee User Name" TextWrapping="WrapWithOverflow" Margin="296,47,355,422" FontSize="20"/>
+            <TextBlock Text="0876MN989" TextWrapping="Wrap" Margin="298,79,382,390" FontSize="20"/>
         </Grid>
 
 

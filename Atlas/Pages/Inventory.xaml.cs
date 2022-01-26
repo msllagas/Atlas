@@ -43,7 +43,7 @@ namespace Atlas.Pages
             this.NavigationService.Navigate(gotopage);
         }
 
-        private void edit_btn_click(object sender, RoutedEventArgs e)
+        private void edit_dbl_click(object sender, RoutedEventArgs e)
         {
 
             EditInventory gotopage = new EditInventory();
@@ -94,13 +94,10 @@ namespace Atlas.Pages
                 }
                 else
                 {
-                    MessageBox.Show("Selected Product:" + selProduct.ProductName + " was not deleted");
+                    MessageBox.Show("Error deleting" + selProduct.ProductName);
                     Read();
                 }
             }
-
-
         }
-
     }
 }

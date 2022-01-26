@@ -50,7 +50,8 @@ namespace Atlas.Pages
                 var _stocks = stocks.Text;
 
 
-                if (product != null && cost != null && _color != null && _category != null && _status != null && _stocks != null)
+                //if (product != null && cost != null && _color != null && _category != null && _status != null && _stocks != null)
+                if (product != null && _color != null && _category != null && _status != null && _stocks != null)
                 {
                     context.Products.Add(new CSProduct() { ProductName = product, 
                                                             Price = cost,

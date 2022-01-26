@@ -13,36 +13,60 @@
             <ColumnDefinition Width="321*"/>
             <ColumnDefinition Width="106*"/>
         </Grid.ColumnDefinitions>
-        <Rectangle HorizontalAlignment="Left" Height="49" Stroke="#FF1569B7" VerticalAlignment="Top" Width="867" Fill="#FF1569B7" Grid.ColumnSpan="2" Margin="-13,0,0,0">
+        <Rectangle HorizontalAlignment="Left" Height="28" Stroke="#FF1569B7" VerticalAlignment="Top" Width="854" Grid.ColumnSpan="2" Opacity="0.5" StrokeThickness="0" ClipToBounds="True" SnapsToDevicePixels="True">
             <Rectangle.Effect>
-                <DropShadowEffect/>
+                <BlurEffect/>
             </Rectangle.Effect>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDDC3F7"/>
+                    <GradientStop Color="#FF2A58A8" Offset="0.762"/>
+                    <GradientStop Color="#FF6962EE" Offset="0.516"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
         </Rectangle>
-        <TextBlock HorizontalAlignment="Left" Margin="29,9,0,0" Text="Inventory/ Add Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,7,0,0" Text="Inventory/ Add Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF020527" FontSize="16" FontWeight="Bold" FontFamily="Copperplate Gothic Bold"/>
         <Label Content="Product ID:" HorizontalAlignment="Left" Margin="29,95,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Content="Product Name:" HorizontalAlignment="Left" Margin="29,145,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Content="Measurement:" HorizontalAlignment="Left" Margin="29,197,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Color:" HorizontalAlignment="Left" Margin="31,250,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Unit Cost:" HorizontalAlignment="Left" Margin="29,300,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Color:" HorizontalAlignment="Left" Margin="73,250,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Unit Cost:" HorizontalAlignment="Left" Margin="49,300,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Content="Category:" HorizontalAlignment="Left" Margin="481,145,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Stocks:" HorizontalAlignment="Left" Margin="481,197,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="Status:" HorizontalAlignment="Left" Margin="481,250,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <Label Content="On Delivery:" HorizontalAlignment="Left" Margin="481,300,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Stocks:" HorizontalAlignment="Left" Margin="506,197,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" HorizontalContentAlignment="Right"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="501,250,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label Content="On Delivery:" HorizontalAlignment="Left" Margin="464,300,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="product_name" HorizontalAlignment="Left" Margin="141,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
-        <TextBox x:Name="measurement" HorizontalAlignment="Left" Margin="141,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
-        <TextBox x:Name="color" HorizontalAlignment="Left" Margin="141,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
-        <TextBox x:Name="price" HorizontalAlignment="Left" Margin="141,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
+        <TextBox x:Name="measurement" HorizontalAlignment="Left" Margin="141,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
+        <TextBox x:Name="color" HorizontalAlignment="Left" Margin="141,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
+        <TextBox x:Name="price" HorizontalAlignment="Left" Margin="141,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
         <ComboBox x:Name="category"  HorizontalAlignment="Left" Margin="558,142,0,0" VerticalAlignment="Top" Width="167" Grid.ColumnSpan="2">
             <ComboBoxItem Content="Art Materials"/>
             <ComboBoxItem Content="Books"/>
             <ComboBoxItem Content="School Supplies"/>
             <ComboBoxItem Content="Stationary Items"/>
         </ComboBox>
-        <TextBox x:Name="stocks" HorizontalAlignment="Left" Margin="558,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
-        <TextBox x:Name="status" HorizontalAlignment="Left" Margin="566,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="stocks" HorizontalAlignment="Left" Margin="562,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="status" HorizontalAlignment="Left" Margin="558,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
         <!--<TextBox HorizontalAlignment="Left" Margin="575,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC" Grid.ColumnSpan="2"/>-->
-        <Button x:Name="add_btn" Content="Add" HorizontalAlignment="Left" Margin="296,398,0,0" VerticalAlignment="Top" Width="112" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="add_Click"/>
-        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="466,398,0,0" VerticalAlignment="Top" Width="112" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="cancel_Click"/>
+        <Button x:Name="add_btn" Content="Add Item" HorizontalAlignment="Left" Margin="296,398,0,0" VerticalAlignment="Top" Width="112" BorderBrush="{x:Null}" Click="add_Click" Foreground="#DDFFFFFF" FontWeight="ExtraBold" BorderThickness="0,0,0,0" ClipToBounds="True" FontFamily="Bahnschrift Light" ScrollViewer.VerticalScrollBarVisibility="Disabled" RenderTransformOrigin="0,0">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF99A4D6" Offset="0.295"/>
+                    <GradientStop Color="#FF1569B7" Offset="0.782"/>
+                    <GradientStop Color="#FFB3A2EE" Offset="0.112"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="466,398,0,0" VerticalAlignment="Top" Width="112" BorderBrush="{x:Null}" Click="cancel_Click" FontFamily="Bahnschrift Light" FontWeight="ExtraBold" ClipToBounds="True" BorderThickness="0,0,0,0">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF99A4D6" Offset="0.295"/>
+                    <GradientStop Color="#FF1569B7" Offset="0.782"/>
+                    <GradientStop Color="#FFB3A2EE" Offset="0.112"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="status_Copy" HorizontalAlignment="Left" Margin="558,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
 
     </Grid>
 </Page>
