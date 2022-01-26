@@ -29,12 +29,15 @@
     <None Remove="inventory.png" />
     <None Remove="log.png" />
     <None Remove="logoimage.png" />
+    <None Remove="logout.png" />
     <None Remove="menu_button_default.png" />
     <None Remove="menu_button_mouseover.png" />
+    <None Remove="Pages\add.png" />
     <None Remove="Pages\atlas.png" />
     <None Remove="Pages\atlasims.png" />
     <None Remove="Pages\box.png" />
     <None Remove="Pages\cart.png" />
+    <None Remove="Pages\delete.png" />
     <None Remove="Pages\icons8-menu-24.png" />
     <None Remove="Pages\item 2.jpg" />
     <None Remove="Pages\item 3.jpg" />
@@ -111,12 +114,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="logoimage.png" />
+    <Resource Include="logout.png" />
     <Resource Include="menu_button_default.png" />
     <Resource Include="menu_button_mouseover.png" />
+    <Resource Include="Pages\add.png" />
     <Resource Include="Pages\atlas.png" />
     <Resource Include="Pages\atlasims.png" />
     <Resource Include="Pages\box.png" />
     <Resource Include="Pages\cart.png" />
+    <Resource Include="Pages\delete.png" />
     <Resource Include="Pages\icons8-menu-24.png" />
     <Resource Include="Pages\item 2.jpg" />
     <Resource Include="Pages\item 3.jpg" />

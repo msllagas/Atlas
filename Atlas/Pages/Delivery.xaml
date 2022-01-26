@@ -12,31 +12,48 @@
         <Grid>
             <Label Content="Search" Margin="36,26,726,453"/>
             <StackPanel Margin="36,26,525,391" Orientation="Horizontal">
-                <TextBox x:Name="SearchBar" TextChanged="SearchBar_TextChanged" TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search"/>
-                <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF414346" ToolTip="{DynamicResource PrimaryHueDarkForegroundBrush}" Foreground="#FF1569B7">
+                <TextBox x:Name="SearchBar" TextChanged="SearchBar_TextChanged" TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search" BorderBrush="#FF1264B1"/>
+                <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" ToolTip="{DynamicResource PrimaryHueDarkForegroundBrush}" Foreground="#FF1569B7">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Pages/search.png"/>
                     </Button.Background>
                 </Button>
             </StackPanel>
 
-            <Button x:Name="add_btn" Content="ADD" Margin="536,51,184,417" Background="#FF1569B7" BorderBrush="#FF1569B7" Click="add_btn_click"/>
-            <Button x:Name="delete_btn" Content="DELETE" Margin="695,50,25,418" Background="#FF1569B7" BorderBrush="#FF1569B7"/>
-            <ListView x:Name="delivery_list" Margin="10,123,10,32" 
-                      SelectionChanged="delivery_list_SelectionChanged" 
-                      ScrollViewer.CanContentScroll="False" 
+            <Button x:Name="add_btn" Margin="694,50,100,418" BorderBrush="{x:Null}" Click="add_btn_click" ClipToBounds="True" BorderThickness="0,0,0,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pages/add.png" Stretch="Uniform"/>
+                </Button.Background>
+
+            </Button>
+            <Button x:Name="delete_btn" Content="" Margin="770,50,25,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pages/delete.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <ListView x:Name="delivery_list" Margin="10,123,10,29" 
+                      SelectionChanged="delivery_list_SelectionChanged"                        
                       SnapsToDevicePixels="True" 
-                      HorizontalContentAlignment="Left" 
+                      HorizontalContentAlignment="Left"                       
+                      VerticalContentAlignment="Center"
+                      FlowDirection="LeftToRight"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       MouseDoubleClick="item_dbl_click">
-                
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="BorderBrush" Value="LightGray" />
+                        <Setter Property="BorderThickness" Value="0,0,0,1" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Tracking Number" Width="150"  
+                        <GridViewColumn Header="Tracking Number" Width="165"  
                                     DisplayMemberBinding="{Binding TrackingNumber}"/>
                         <GridViewColumn Header="Customer ID" Width="150" 
                                     DisplayMemberBinding="{Binding CustomerID}"/>
-                        <GridViewColumn Header="Product ID" Width="150" 
+                        <GridViewColumn Header="Address" Width="150" 
                                     DisplayMemberBinding="{Binding ProductID}"/>
                         <GridViewColumn Header="Quantity" Width="150" 
                                     DisplayMemberBinding="{Binding Quantity}"/>
@@ -44,9 +61,7 @@
                                     DisplayMemberBinding="{Binding Amount}"/>
                     </GridView>
                 </ListView.View>
-                
             </ListView>
-
         </Grid>
 
     </Grid>

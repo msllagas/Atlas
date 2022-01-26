@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System;
 
 namespace Atlas.Pages
 {
@@ -11,8 +12,7 @@ namespace Atlas.Pages
     /// Interaction logic for Delivery.xaml
     /// </summary>
     public partial class Delivery : Page
-    {
-        private List<Info> items;
+    {       
         public List<CSDelivery> deliveries { get; private set; }
         public static int TrackingNumber;
         public static int CustomerID;
@@ -23,61 +23,27 @@ namespace Atlas.Pages
         public Delivery()
         {
             InitializeComponent();
-            
-            
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(delivery_list.ItemsSource);
-            //view.Filter = SearchFilter;
             Read();
+            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(delivery_list.DataContext);
+          //  view.Filter = SearchFilter;
         }
+        private bool SearchFilter(object item)
+        {
 
-        
-
+            if (String.IsNullOrEmpty(SearchBar.Text))
+                return true;
+            else
+                return ((item as CSDelivery).CustomerID.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    //|| ((item as CSDelivery).Address.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    || ((item as CSDelivery).TrackingNumber.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    || ((item as CSDelivery).Quantity.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+                    || ((item as CSDelivery).Amount.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
         private void SearchBar_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(delivery_list.ItemsSource).Refresh();
         }
-        public List<Info> GetInfo()
-        {
-            items = new List<Info>();
-            items.Add(new Info()
-            {
-                TrackingNumber = "827365JDH83H7",
-                Recipient = "john doe",
-                Address = "Manila City",
-                TotalItems = 30,
-                TotalAmount = 100
-            });
-            items.Add(new Info()
-            {
-                TrackingNumber = "8372094NDDH37",
-                Recipient = "sammy doe",
-                Address = "Calamba City",
-                TotalItems = 20,
-                TotalAmount = 90.54
-            });
-            items.Add(new Info()
-            {
-                TrackingNumber = "92863829",
-                Recipient = "Juan Dela Cruz",
-                Address = "Manila City",
-                TotalItems = 30,
-                TotalAmount = 90.54
-            });
-            return items;
-        }
-        public class Info
-        {            
-            public string TrackingNumber { get; set; }
-            public string Recipient { get; set; }
-            public string Address { get; set; }
-            public int TotalItems { get; set; }            
-            public double TotalAmount { get; set; }
-            public override string ToString()
-            {
-                return "Tracking No. "+this.TrackingNumber+"\n"+this.Recipient+"\n"+this.Address
-                    +"\nItems: "+this.TotalItems+"\tAmount: "+this.TotalAmount;
-            }
-        }
+       
         private void delivery_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
@@ -92,7 +58,6 @@ namespace Atlas.Pages
                 if (deliveries.Count > 0)
                     delivery_list.ItemsSource = deliveries;
             }
-
         }
 
         private void add_btn_click(object sender, RoutedEventArgs e)
@@ -102,21 +67,26 @@ namespace Atlas.Pages
         }
 
         private void item_dbl_click(object sender, MouseButtonEventArgs e)
-        {
-                      
-
+        {   
             using (DataContext context = new DataContext())
             {
                 var item = delivery_list.SelectedItem as CSDelivery;
                 
                 if(item != null)
                 {
-                    CSDelivery cSDelivery = context.Deliveries.Find(item.TrackingNumber);
-                    TrackingNumber = cSDelivery.TrackingNumber;
+                    //CSDelivery cSDelivery = context.Deliveries.Find(item.TrackingNumber);
+                    /*TrackingNumber = cSDelivery.TrackingNumber;                    
                     CustomerID = cSDelivery.CustomerID;
-                    ProductID = cSDelivery.ProductID;
-                    Quantity = cSDelivery.Quantity;
-                    Total = cSDelivery.Amount;
+                    ProductID = cSDelivery.ProductID; //change product ID to address...
+                    Quantity = cSDelivery.Quantity; //display total quantity of items ordered
+                    Total = cSDelivery.Amount;      //display total amount of orders
+                    */
+                    TrackingNumber = 001;
+                    CustomerID = 001;
+                    ProductID = 001;
+                    Quantity = 1;
+                    Total = 10;
+
                     Delivery_Item_List gotopage = new Delivery_Item_List();
                     this.NavigationService.Navigate(gotopage);
                 }

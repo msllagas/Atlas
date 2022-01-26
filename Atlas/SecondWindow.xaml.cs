@@ -62,14 +62,20 @@ namespace Atlas
             Main.Content = new Home();
         }
 
+        private void btnLog_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Log();
+        }
+
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new Settings();
         }
 
-        private void btnLog_Click(object sender, RoutedEventArgs e)
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Log();
+            //Main.Content = new Log();
+            MessageBox.Show("Log out");            
         }
     }
 }
