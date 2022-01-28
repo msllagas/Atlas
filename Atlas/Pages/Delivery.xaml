@@ -54,7 +54,7 @@
                         <GridViewColumn Header="Customer ID" Width="150" 
                                     DisplayMemberBinding="{Binding CustomerID}"/>
                         <GridViewColumn Header="Address" Width="150" 
-                                    DisplayMemberBinding="{Binding ProductID}"/>
+                                    DisplayMemberBinding="{Binding Address}"/>
                         <!--Change ProductID to Address-->
                         <GridViewColumn Header="Quantity" Width="150" 
                                     DisplayMemberBinding="{Binding Quantity}"/>
@@ -63,7 +63,8 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock HorizontalAlignment="Left" Margin="40,95,0,0" Text="Deliveries" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+            <TextBlock HorizontalAlignment="Left" Margin="31,13,0,0" Text="Deliveries" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+            <Button Content="Customer List" HorizontalAlignment="Left" Margin="31,60,0,0" VerticalAlignment="Top" Click="btnCustomer" Width="122"/>
         </Grid>
 
     </Grid>

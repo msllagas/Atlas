@@ -99,5 +99,21 @@ namespace Atlas.Pages
                 }
             }
         }
+
+        private void search_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Category_Cmbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem category = (ComboBoxItem)Category_Cmbox.SelectedItem;
+
+            string strCategory = category.Content.ToString();
+            var db = new DataContext();
+
+            inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products where Category = {0}", strCategory).ToList();
+            //MessageBox.Show(category.Content.ToString());
+        }
     }
 }
