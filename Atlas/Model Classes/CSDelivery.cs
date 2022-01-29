@@ -14,8 +14,10 @@ namespace Atlas
         [ForeignKey("Customer")]
         public int CustomerID { get; set; }
 
-        [Required]
-        public string Address { get; set; }
+        public CSProduct Product { get; set; }
+
+        [ForeignKey("Product")]
+        public int ProductID { get; set; }
 
         [Required]
         public int Quantity { get; set; }

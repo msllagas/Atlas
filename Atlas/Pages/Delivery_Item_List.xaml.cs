@@ -31,24 +31,16 @@ namespace Atlas.Pages
                 total.Content = Delivery.Total;
                 trackingNumber.Content = Delivery.TrackingNumber;
 
-                itemsTable.ItemsSource = null;
-
-                //var DeliObject = from d in context.Deliveries
-                //                 join o in context.Orderitems on d.TrackingNumber equals o.TrackingNumber
-                //                 join p in context.Products on o.ProductID equals p.ID
-
-                var customerid = Delivery.selectedDel.TrackingNumber;
-
-                var DeliObject = from o in context.Orderitems
-                                 from p in context.Products
-                                 where o.ProductID == p.ID && o.TrackingNumber == customerid
-                                 select new 
+                var DeliObject = from p in context.Products
+                                 from d in context.Deliveries
+                                 where d.CustomerID == 5
+                                 select new
                                  {
-                                     id = o.ProductID,
+                                     id = p.ID,
                                      productName = p.ProductName,
-                                     price = o.UnitPrice,
-                                     quantity = o.Quantity,
-                                     amount = o.TotPrice
+                                     price = p.Price,
+                                     quantity = d.Quantity,
+                                     amount = d.Amount
                                  };
                 //foreach (var item in DeliObject)
                 //{
