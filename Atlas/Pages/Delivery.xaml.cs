@@ -12,11 +12,13 @@ namespace Atlas.Pages
     /// Interaction logic for Delivery.xaml
     /// </summary>
     public partial class Delivery : Page
-    {       
+    {
+        public static CSDelivery selectedDel;
+
         public List<CSDelivery> deliveries { get; private set; }
         public static int TrackingNumber;
         public static int CustomerID;
-        public static int ProductID;
+        public static string Address;
         public static int Quantity;
         public static float Total;
 
@@ -27,18 +29,18 @@ namespace Atlas.Pages
             //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(delivery_list.DataContext);
           //  view.Filter = SearchFilter;
         }
-        private bool SearchFilter(object item)
-        {
+        //private bool SearchFilter(object item)
+        //{
 
-            if (String.IsNullOrEmpty(SearchBar.Text))
-                return true;
-            else
-                return ((item as CSDelivery).CustomerID.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-                    //|| ((item as CSDelivery).Address.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-                    || ((item as CSDelivery).TrackingNumber.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-                    || ((item as CSDelivery).Quantity.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-                    || ((item as CSDelivery).Amount.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        }
+        //    //if (String.IsNullOrEmpty(SearchBar.Text))
+        //    //    return true;
+        //    //else
+        //    //    return ((item as CSDelivery).CustomerID.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+        //    //        //|| ((item as CSDelivery).Address.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+        //    //        || ((item as CSDelivery).TrackingNumber.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+        //    //        || ((item as CSDelivery).Quantity.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+        //    //        || ((item as CSDelivery).Amount.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        //}
         private void SearchBar_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(delivery_list.ItemsSource).Refresh();
@@ -75,16 +77,26 @@ namespace Atlas.Pages
                 if(item != null)
                 {
                     CSDelivery cSDelivery = context.Deliveries.Find(item.TrackingNumber);
-                    TrackingNumber = cSDelivery.TrackingNumber;                    
+                    TrackingNumber = cSDelivery.TrackingNumber;
                     CustomerID = cSDelivery.CustomerID;
-                    ProductID = cSDelivery.ProductID; //change product ID to address...
+                    Address = cSDelivery.Address; //change product ID to address...
                     Quantity = cSDelivery.Quantity; //display total quantity of items ordered
-                    Total = cSDelivery.Amount;      //display total amount of orders                    
-                    
+                    Total = cSDelivery.Amount;      //display total amount of orders
+                                                    //
+                    selectedDel = (CSDelivery)delivery_list.SelectedItems[0];
+
                     Delivery_Item_List gotopage = new Delivery_Item_List();
                     this.NavigationService.Navigate(gotopage);
                 }
             }
+        }
+
+
+        private void btnCustomer(object sender, RoutedEventArgs e)
+        {
+            Customer gotopage = new Customer();
+            this.NavigationService.Navigate(gotopage);
+
         }
     }
 }

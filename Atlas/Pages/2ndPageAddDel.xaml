@@ -1,0 +1,130 @@
+﻿<Page x:Class="Atlas.Pages._2ndPageAddDel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Atlas.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="854"
+      Title="AddDelivery">
+
+    <Page.Resources>
+
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+
+    </Page.Resources>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                <GradientStop Color="#FF99A4D6" Offset="0.782"/>
+                <GradientStop Color="#FFB3A2EE" Offset="0.70"/>
+                <GradientStop Color="#FF1569B7" Offset="0.500"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Height="500" VerticalAlignment="Top" 
+              
+                Background="White" Margin="10,-10,-10,0">
+            <ListView x:Name="inventory_list" Margin="412,93,24,0" 
+                SelectionChanged="inventory_list_SelectionChanged" SnapsToDevicePixels="True"
+                VerticalAlignment="Top" 
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Center"
+                FlowDirection="LeftToRight" 
+                Height="119">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="BorderBrush" Value="LightGray" />
+                        <Setter Property="BorderThickness" Value="0,0,0,1" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID"
+                            DisplayMemberBinding="{Binding ID}"/>
+                        <GridViewColumn Header="Product Name" Width="150" 
+                            DisplayMemberBinding="{Binding ProductName}"/>
+                        <GridViewColumn Header="Price"
+                            DisplayMemberBinding="{Binding Price}"/>
+                        <GridViewColumn Header="Category" Width="90" 
+                            DisplayMemberBinding="{Binding Category}"/>
+                        <GridViewColumn Header="Stocks"  Width="150" 
+                            DisplayMemberBinding="{Binding Stocks}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Delivery/ Add Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI"/>
+        <Grid HorizontalAlignment="Left" Height="102" Margin="80,123,0,0" VerticalAlignment="Top" Width="653">
+            <!--<Label Content="Product:" HorizontalAlignment="Left" Margin="398,1,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>-->
+            <!--<Label Content="Total Amount:" HorizontalAlignment="Left" Margin="398,35,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
+            <Label Content="Total No. of Items:" HorizontalAlignment="Left" Margin="399,75,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>-->
+            <!--<TextBox x:Name="amount" HorizontalAlignment="Left" Margin="505,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+            <TextBox x:Name="quantity" HorizontalAlignment="Left" Margin="533,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
+            <TextBox x:Name="product" HorizontalAlignment="Left" Margin="465,-2,0,0" VerticalAlignment="Top" Width="176"/>-->
+        </Grid>
+        <!--</ComboBox>-->
+        <Button x:Name="add_btn" Content="Add Parcel" 
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                HorizontalAlignment="Left" Margin="738,427,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="add_btn_Click" Background="Black" RenderTransformOrigin="0.24,0.9"/>
+        <Button x:Name="cancel_btn" Content="Cancel" 
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                HorizontalAlignment="Left" Margin="620,427,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="cancel_btn_Click" Background="Black" RenderTransformOrigin="0.545,-8.828"/>
+        <ComboBox x:Name="Category_Cmbox" Height="29" Text="Category" Margin="620,46,70,425" AutomationProperties.Name="Category" BorderBrush="#FF1264B1" SelectionChanged="Category_Cmbox_SelectionChanged" >
+            <ComboBoxItem Content="Art Materials"/>
+            <ComboBoxItem Content="Books"/>
+            <ComboBoxItem Content="School Supplies"/>
+            <ComboBoxItem Content="Stationary Items"/>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="505,47,0,0" Text="Products" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="20" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <ListView x:Name="initial_Order" Margin="12,174,448,0"
+            SnapsToDevicePixels="True"
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            FlowDirection="LeftToRight" 
+            Height="203" SelectionChanged="initial_Order_SelectionChanged" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="BorderBrush" Value="LightGray" />
+                    <Setter Property="BorderThickness" Value="0,0,0,1" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+
+                    <!--<GridViewColumn Header="ID" Width="50"
+                        DisplayMemberBinding="{Binding ID}"/>-->
+                    <GridViewColumn Header="Product Name" Width="105"
+                        DisplayMemberBinding="{Binding ProductName}"/>
+                    <GridViewColumn Header="Quantity" Width="150"
+                        DisplayMemberBinding="{Binding Quantity}"/>
+                    <GridViewColumn Header="Price" Width="70"
+                        DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Header="Total" Width="70"
+                        DisplayMemberBinding="{Binding Total}"/>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock HorizontalAlignment="Left" Margin="427,223,0,0" Text="Quantity" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="20" FontWeight="Bold" FontFamily="Segoe UI"/>
+        <TextBox x:Name="quantityValue" HorizontalAlignment="Left" Margin="522,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
+        <Button x:Name="btn_Order" Content="Add to Order" 
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            HorizontalAlignment="Left" Margin="738,220,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="116" Background="Black" Click="btn_Order_Click"/>
+
+
+    </Grid>
+</Page>

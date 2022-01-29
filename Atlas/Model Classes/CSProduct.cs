@@ -28,7 +28,7 @@ namespace Atlas.Model_Classes
         public string Status { get; set; }
 
         [Required]
-        public string Stocks { get; set; }
+        public int Stocks { get; set; }
         
     }
 }

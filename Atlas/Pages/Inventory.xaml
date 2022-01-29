@@ -27,14 +27,14 @@
                 <Label Content="Category" Margin="242,0,144,63" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
                 <StackPanel Margin="-24,6,209,0" Orientation="Horizontal">
                     <TextBox TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search" BorderBrush="#FF1264B1"/>
-                    <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" Foreground="#FF1569B7">
+                    <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" Foreground="#FF1569B7" Click="search_btn_Click">
                         <Button.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="/Pages/search.png"/>
                         </Button.Background>
                     </Button>
                 </StackPanel>
 
-                <ComboBox x:Name="Category_Cmbox" Width="236" Height="29" Text="Category" Margin="242,33,0,27" AutomationProperties.Name="Category" BorderBrush="#FF1264B1">
+                <ComboBox x:Name="Category_Cmbox" Width="236" Height="29" Text="Category" Margin="242,33,0,27" AutomationProperties.Name="Category" BorderBrush="#FF1264B1" SelectionChanged="Category_Cmbox_SelectionChanged">
                     <ComboBoxItem Content="Art Materials"/>
                     <ComboBoxItem Content="Books"/>
                     <ComboBoxItem Content="School Supplies"/>
