@@ -42,12 +42,40 @@ namespace Atlas.Pages
             AddInventory gotopage = new AddInventory();
             this.NavigationService.Navigate(gotopage);
         }
-
-        private void edit_dbl_click(object sender, RoutedEventArgs e)
+        private void delete_btn_click(object sender, RoutedEventArgs e)
         {
+            using (DataContext context = new DataContext())
+            {
+                if (inventory_list.SelectedItems.Count > 0)
+                {
 
-            EditInventory gotopage = new EditInventory();
-            this.NavigationService.Navigate(gotopage);
+                    CSProduct delProduct = inventory_list.SelectedItem as CSProduct;
+
+                    context.Remove(delProduct);
+                    context.SaveChanges();
+                    Read();
+                }
+                else
+                    MessageBox.Show("Please select a product to be deleted!");
+            }
+        }
+        private void edit_btn_click(object sender, RoutedEventArgs e)
+        {
+            using (DataContext context = new DataContext())
+            {
+                if (inventory_list.SelectedItems.Count > 0)
+                {
+                    EditInventory gotopage = new EditInventory();
+                    this.NavigationService.Navigate(gotopage);
+                }
+                else
+                    MessageBox.Show("Please select a product to edit!");
+            }            
+        }
+        private void inventory_list_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            delete_btn.IsEnabled = true;
+            edit_btn.IsEnabled = true;
         }
 
         public void Read()
@@ -67,58 +95,26 @@ namespace Atlas.Pages
 
         private void search_btn_Click(object sender, RoutedEventArgs e)
         {
-
            //MessageBox.Show(category.Content.ToString());            
             if (!String.IsNullOrEmpty(SearchField.Text) && !String.IsNullOrEmpty(Category_Cmbox.Text))
             {
                 using (DataContext context = new DataContext())
                 {
-
                     var input = SearchField.Text;
                     var category = Category_Cmbox.SelectedItem.ToString();
 
                     inventory_list.ItemsSource = context.Products.FromSqlRaw("Select * from Products where Category = {0} AND ProductName = {1}", category, input).ToList();
-                    //inventory_list.ItemsSource = context.Products.FromSqlInterpolated($"Select * from Products where Category = {category} AND ProductName = {input}").ToList();
-                    
+                    //inventory_list.ItemsSource = context.Products.FromSqlInterpolated($"Select * from Products where Category = {category} AND ProductName = {input}").ToList();                    
                 }
             }
-
         }
-
         private void Category_Cmbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem category = (ComboBoxItem)Category_Cmbox.SelectedItem;
             string strCategory = category.Content.ToString();
-            var db = new DataContext();
-            
+            var db = new DataContext();           
 
-            inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products where Category = {0}", strCategory).ToList();
-            
-        }
-
-        private void delete_product(object sender, RoutedEventArgs e)
-        {
-            using (DataContext context = new DataContext())
-            {
-                if (inventory_list.SelectedItems.Count > 0)
-                {
-                    
-                    CSProduct delProduct = inventory_list.SelectedItem as CSProduct;
-
-                    context.Remove(delProduct);
-                    context.SaveChanges();
-                    Read();
-                }
-                else
-                    MessageBox.Show("Please select a product to be deleted!");
-            }
-
-            
-        }
-
-        private void inventory_list_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            delete_btn.IsEnabled = true;
-        }
+            inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products where Category = {0}", strCategory).ToList();           
+        }               
     }
 }

@@ -28,10 +28,7 @@
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background"
                                         TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
-                                <Setter Property="BorderBrush"
-                                        TargetName="border"
-                                        Value="{StaticResource tb_mouse_over}"/>
+                                        Value="{StaticResource tb_mouse_over}"/>                                
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Background"
@@ -47,29 +44,25 @@
             </Setter>
         </Style>
     </Window.Resources>
+    
     <Grid>
-
-
         <Grid Background="White" MouseDown="Border_MouseDown">
-            
             <Grid x:Name="background">
                 <Grid.Background>
                     <ImageBrush ImageSource="/images/background.jpg"
                                 x:Name="img_bg"
                                 Stretch="Fill"/>
-                    
                 </Grid.Background>
                 <Frame x:Name="Main" Margin="66,0,0,0" NavigationUIVisibility="Hidden"/>
             </Grid>
-            
+
             <Grid x:Name="navPanel"
                   HorizontalAlignment="Left"
-                  Width="65"
+                  Width="67"
                   Background="#1569b7">
-                
+
                 <StackPanel x:Name="stackPanel">
                     <Grid Height="90">
-
                         <TextBlock Grid.Row="1"
                                    Grid.Column="0"
                                    Margin="73,-20,0,0"
@@ -85,9 +78,7 @@
                                                   Direction="90"
                                                   Color="White"/>
                             </TextBlock.Effect>
-                            
                         </TextBlock>
-
                         <ToggleButton x:Name="toggleButton"
                                       Grid.Column="0"
                                       VerticalAlignment="Center"
@@ -96,59 +87,40 @@
                                       Height="30"
                                       Width="30"
                                       BorderThickness="0"
-                                      Style="{StaticResource tb_style}" Unchecked="toggleButton_Unchecked" Checked="toggleButton_Checked">
+                                      Style="{StaticResource tb_style}" Unchecked="toggleButton_Unchecked" Checked="toggleButton_Checked" Cursor="Hand">
                             <ToggleButton.Background>
                                 <ImageBrush ImageSource="/images/menu_button_default.png"
                                             Stretch="None"/>
                             </ToggleButton.Background>
 
                             <ToggleButton.Triggers>
-
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-
                                     <BeginStoryboard>
-
                                         <Storyboard x:Name="HideStackPanel">
-
                                             <DoubleAnimation Storyboard.TargetName="navPanel"
                                                              Storyboard.TargetProperty="Width"
                                                              BeginTime="0:0:0"
                                                              From="250" To="65"
                                                              Duration="0:0:0.2">
-
                                             </DoubleAnimation>
-
                                         </Storyboard>
-
                                     </BeginStoryboard>
-
                                 </EventTrigger>
-
+                                
                                 <EventTrigger RoutedEvent="ToggleButton.Checked">
-
                                     <BeginStoryboard>
-
                                         <Storyboard x:Name="ShowStackPanel">
-
                                             <DoubleAnimation Storyboard.TargetName="navPanel"
                                                              Storyboard.TargetProperty="Width"
                                                              BeginTime="0:0:0"
                                                              From="65" To="250"
                                                              Duration="0:0:0.3">
-
-
                                             </DoubleAnimation>
-
                                         </Storyboard>
-
                                     </BeginStoryboard>
-
                                 </EventTrigger>
-
                             </ToggleButton.Triggers>
-
                         </ToggleButton>
-                        
                     </Grid>
 
                     <ListView x:Name="ListViewMenu"
@@ -158,7 +130,6 @@
 
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-
                             <Button x:Name="btnHome" Click="btnHome_click" Background="#FF1569B7" BorderBrush="#FF1569B7" BorderThickness="0,0,0,0" Foreground="#FF1569B7" ClipToBounds="True">
                                 <StackPanel Orientation="Horizontal"
                                         Width="230">
@@ -170,8 +141,8 @@
                                            Style="{StaticResource font_style}"/>
                                 </StackPanel>
                             </Button>
-
                         </ListViewItem>
+                        
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15"
                                       MouseEnter="ListViewItem_MouseEnter">
@@ -187,7 +158,7 @@
                                            Style="{StaticResource font_style}"/>
                                 </StackPanel>
                             </Button>
-                        </ListViewItem>                        
+                        </ListViewItem>
 
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15"
@@ -256,15 +227,10 @@
                         </ListViewItem>
 
                         <ListView.ItemContainerStyle>
-
                             <Style TargetType="ListViewItem">
-
                                 <Setter Property="Template">
-
                                     <Setter.Value>
-
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
-
                                             <Border x:Name="Bd"
                                                     Height="50"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
@@ -276,54 +242,27 @@
                                                 <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-
                                             </Border>
 
                                             <ControlTemplate.Triggers>
-
                                                 <MultiTrigger>
-
                                                     <MultiTrigger.Conditions>
-
                                                         <Condition Property="IsMouseOver" Value="True"/>
-
                                                     </MultiTrigger.Conditions>
 
                                                     <Setter Property="Background"
                                                             TargetName="Bd"
                                                             Value="#FF437FB7"/>
-
-                                                    <Setter Property="BorderBrush"
-                                                            TargetName="Bd"
-                                                            Value="#FF437FB7"/>
-
                                                 </MultiTrigger>
-
                                             </ControlTemplate.Triggers>
-
                                         </ControlTemplate>
-
                                     </Setter.Value>
-
                                 </Setter>
-
                             </Style>
-
-                            
                         </ListView.ItemContainerStyle>
-                        
-                        
                     </ListView>
-                  
-                    
                 </StackPanel>
-                
-                
             </Grid>
-            
         </Grid>
-        
-        
-        
     </Grid>
 </Window>

@@ -43,8 +43,10 @@
     <None Remove="Pages\back.png" />
     <None Remove="Pages\box.png" />
     <None Remove="Pages\cart.png" />
+    <None Remove="Pages\customer_list.png" />
     <None Remove="Pages\delete.png" />
     <None Remove="Pages\delete_icon.png" />
+    <None Remove="Pages\edit_icon.png" />
     <None Remove="Pages\icons8-menu-24.png" />
     <None Remove="Pages\item 2.jpg" />
     <None Remove="Pages\item 3.jpg" />
@@ -139,8 +141,10 @@
     <Resource Include="Pages\back.png" />
     <Resource Include="Pages\box.png" />
     <Resource Include="Pages\cart.png" />
+    <Resource Include="Pages\customer_list.png" />
     <Resource Include="Pages\delete.png" />
     <Resource Include="Pages\delete_icon.png" />
+    <Resource Include="Pages\edit_icon.png" />
     <Resource Include="Pages\icons8-menu-24.png" />
     <Resource Include="Pages\item 2.jpg" />
     <Resource Include="Pages\item 3.jpg" />

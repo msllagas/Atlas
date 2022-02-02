@@ -26,22 +26,9 @@ namespace Atlas.Pages
         public Delivery()
         {
             InitializeComponent();
-            Read();
-            //CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(delivery_list.DataContext);
-          //  view.Filter = SearchFilter;
+            Read();       
         }
-        //private bool SearchFilter(object item)
-        //{
-
-        //    //if (String.IsNullOrEmpty(SearchBar.Text))
-        //    //    return true;
-        //    //else
-        //    //    return ((item as CSDelivery).CustomerID.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-        //    //        //|| ((item as CSDelivery).Address.IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-        //    //        || ((item as CSDelivery).TrackingNumber.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-        //    //        || ((item as CSDelivery).Quantity.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0)
-        //    //        || ((item as CSDelivery).Amount.ToString().IndexOf(SearchBar.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        //}
+       
         private void SearchBar_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(delivery_list.ItemsSource).Refresh();
@@ -93,11 +80,13 @@ namespace Atlas.Pages
             }
         }
 
-
         private void btnCustomer(object sender, RoutedEventArgs e)
         {
             Customer gotopage = new Customer();
             this.NavigationService.Navigate(gotopage);
+        }
+        private void edit_btn_click(object sender, RoutedEventArgs e)
+        {
 
         }
 
@@ -122,6 +111,6 @@ namespace Atlas.Pages
                 else
                     MessageBox.Show("Please select an order to be deleted!");
             }
-        }
+        }        
     }
 }

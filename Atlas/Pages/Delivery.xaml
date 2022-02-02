@@ -3,30 +3,33 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Atlas.Pages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Atlas.Pages" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="854"
       Title="Delivery">
 
     <Grid Background="White">
         <Grid>
-            <Label Content="Search" Margin="375,24,387,455"/>
-            <StackPanel Margin="375,24,186,392" Orientation="Horizontal">
+            <StackPanel Margin="253,31,353,385" Orientation="Horizontal">
+
                 <TextBox x:Name="SearchBar" TextChanged="SearchBar_TextChanged" TextWrapping="Wrap" Width="183" Height="30" Margin="-1,0,0,0" CaretBrush="#FF1569B7" SelectionBrush="#FF5BAAF3" AcceptsReturn="True" AutomationProperties.Name="Search" BorderBrush="#FF1264B1"/>
                 <Button x:Name="search_btn" Width="49" Margin="0,0,3,0" BorderBrush="#FF1264B1" Foreground="#FF1569B7">
                     <Button.Background>
                         <ImageBrush Stretch="Uniform" ImageSource="/Pages/search.png"/>
                     </Button.Background>
                 </Button>
+                <Label Content="Search" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Left" Margin="-230,0,0,0"/>
             </StackPanel>
 
-            <Button x:Name="add_btn" Margin="694,50,100,418" BorderBrush="{x:Null}" Click="add_btn_click" ClipToBounds="True" BorderThickness="0,0,0,0">
+            <Button x:Name="add_btn" Margin="662,50,132,418" BorderBrush="{x:Null}" Click="add_btn_click" ClipToBounds="True" BorderThickness="0,0,0,0" ToolTip="Add">
                 <Button.Background>
                     <ImageBrush ImageSource="/Pages/add_icon.png" Stretch="Uniform"/>
                 </Button.Background>
 
             </Button>
-            <Button x:Name="delete_btn" IsEnabled="False" Content="" Margin="770,50,25,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True" Click="delete_order">
+            <Button x:Name="delete_btn" IsEnabled="False" Content="" 
+                    Margin="720,50,75,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True" Click="delete_order" ToolTip="Delete">
                 <Button.Background>
                     <ImageBrush ImageSource="/Pages/delete_icon.png" Stretch="Uniform"/>
                 </Button.Background>
@@ -62,13 +65,25 @@
                                     DisplayMemberBinding="{Binding Amount}"/>
                         <GridViewColumn Header="OrderDate" Width="150" 
                                     DisplayMemberBinding="{Binding OrderDate}"/>
-
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock HorizontalAlignment="Left" Margin="31,13,0,0" Text="Deliveries" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
-            <Button Content="Customer List" HorizontalAlignment="Left" Margin="31,60,0,0" VerticalAlignment="Top" Click="btnCustomer" Width="122"/>
-        </Grid>
 
+            <TextBlock HorizontalAlignment="Left" Margin="40,91,0,0" Text="Deliveries" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+            <Button Content="" HorizontalAlignment="Left" Margin="603,50,0,0"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                    VerticalAlignment="Top" Click="btnCustomer" Width="60" BorderBrush="{x:Null}" Height="32" ToolTip="Customer List">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pages/customer_list.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="edit_btn" IsEnabled="False" Content="" Margin="778,50,17,418" BorderBrush="{x:Null}" 
+                BorderThickness="0,0,0,0" ClipToBounds="True" Click="edit_btn_click" ToolTip="Edit">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pages/edit_icon.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </Grid>
     </Grid>
 </Page>

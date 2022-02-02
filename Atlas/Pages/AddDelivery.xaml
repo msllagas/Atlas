@@ -10,12 +10,11 @@
       Title="AddDelivery">
 
     <Page.Resources>
-
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
-
     </Page.Resources>
+    
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
@@ -24,34 +23,35 @@
                 <GradientStop Color="#FF1569B7" Offset="0.500"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="500" VerticalAlignment="Top" 
-              
-                Background="White" Margin="10,-10,-10,0"/>
+        <Border Height="450" VerticalAlignment="Top" 
+                CornerRadius="0 0 250 0" 
+                Background="White" Margin="0,-2,0,0"/>
 
-
-
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI" Width="258"><Run Text="Choose a customer"/><LineBreak/><Run/></TextBlock>
-        <Grid HorizontalAlignment="Left" Height="102" Margin="80,123,0,0" VerticalAlignment="Top" Width="653">
-            <!--<Label Content="Product:" HorizontalAlignment="Left" Margin="398,1,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>-->
+        <TextBlock HorizontalAlignment="Left" Margin="80,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI" Width="258" Height="43"><Run Text="Choose a customer"/><LineBreak/><Run/></TextBlock>
+        <!--<Grid HorizontalAlignment="Left" Height="102" Margin="80,123,0,0" VerticalAlignment="Top" Width="653">
+            <Label Content="Product:" HorizontalAlignment="Left" Margin="398,1,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>-->
             <!--<Label Content="Total Amount:" HorizontalAlignment="Left" Margin="398,35,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
             <Label Content="Total No. of Items:" HorizontalAlignment="Left" Margin="399,75,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>-->
             <!--<TextBox x:Name="amount" HorizontalAlignment="Left" Margin="505,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
             <TextBox x:Name="quantity" HorizontalAlignment="Left" Margin="533,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-            <TextBox x:Name="product" HorizontalAlignment="Left" Margin="465,-2,0,0" VerticalAlignment="Top" Width="176"/>-->
-        </Grid>
+            <TextBox x:Name="product" HorizontalAlignment="Left" Margin="465,-2,0,0" VerticalAlignment="Top" Width="176"/>
+        </Grid>-->
         <!--</ComboBox>-->
-        <Button x:Name="cancel_btn" Content="Cancel" 
-                Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="20"
-                HorizontalAlignment="Left" Margin="480,21,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="cancel_btn_Click" Background="Black" RenderTransformOrigin="0.545,-8.828"/>
+        <Button x:Name="cancel_btn" HorizontalAlignment="Left" Margin="28,22,0,0"
+                VerticalAlignment="Top" BorderBrush="{x:Null}" Width="40"
+                Click="cancel_btn_Click" Height="17" ToolTip="Back">
+            <Button.Background>
+                <ImageBrush ImageSource="/Pages/back.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
         <TextBlock HorizontalAlignment="Left" Margin="108,77,0,0" Text="Customer List" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="20" FontWeight="Bold" FontFamily="Segoe UI"/>
-        <ListView x:Name="customer_list" Margin="25,123,503,0" 
+        <ListView x:Name="customer_list" Margin="101,123,427,0" 
             SnapsToDevicePixels="True"
             VerticalAlignment="Top" 
             HorizontalContentAlignment="Left"
             VerticalContentAlignment="Center"
             FlowDirection="LeftToRight" 
-            Height="219" SelectionChanged="customer_list_SelectionChanged" SelectionMode="Single" AlternationCount="-4" >
+            Height="307" SelectionChanged="customer_list_SelectionChanged" SelectionMode="Single" AlternationCount="-4" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="BorderBrush" Value="LightGray" />
@@ -68,15 +68,23 @@
                         DisplayMemberBinding="{Binding CustomerName}"/>
                     <GridViewColumn Header="Address" Width="150"
                         DisplayMemberBinding="{Binding Address}"/>
-
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="proceed_btn" Content="Proceed" 
-            Style="{StaticResource MaterialDesignRaisedButton}"
-            materialDesign:ButtonAssist.CornerRadius="20"
-            HorizontalAlignment="Left" Margin="480,69,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="proceed_btn_Click" Background="Black" RenderTransformOrigin="0.545,-8.828"/>
-
-
+        <Button x:Name="proceed_btn" HorizontalAlignment="Left" Margin="793,22,0,0"
+                VerticalAlignment="Top" BorderBrush="{x:Null}" Width="40"
+                Click="cancel_btn_Click" Height="17" RenderTransformOrigin="0.5,0.5" ToolTip="Proceed">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <ImageBrush ImageSource="/Pages/back.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

@@ -42,12 +42,8 @@ namespace Atlas.Pages
 
         public void Read()
         {
-
             var db = new DataContext();
-
-            customer_list.ItemsSource = db.Customers.FromSqlRaw("Select * from Customers").ToList();
-
-   
+            customer_list.ItemsSource = db.Customers.FromSqlRaw("Select * from Customers").ToList();   
         }
 
         private void customer_list_SelectionChanged(object sender, SelectionChangedEventArgs e)

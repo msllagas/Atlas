@@ -9,7 +9,7 @@
       d:DesignHeight="500" d:DesignWidth="854"
       Title="AddInventory">
 
-    <Grid>
+    <Grid ClipToBounds="True">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
                 <GradientStop Color="#FF99A4D6" Offset="0.782"/>
@@ -17,27 +17,31 @@
                 <GradientStop Color="#FF1569B7" Offset="0.500"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="450" VerticalAlignment="Top" 
-                CornerRadius="0 0 250 0" 
+        <Border Height="450" VerticalAlignment="Stretch" 
+                CornerRadius="0 250 0 150" 
                 Background="White" HorizontalAlignment="Stretch">
-            <TextBox x:Name="contactnumber" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC" Margin="152,247,0,0"/>
+
         </Border>
 
-        <TextBlock HorizontalAlignment="Left" Margin="29,57,0,0" Text="Customer Add" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF020527" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,57,0,0" Text="Add Customer" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF020527" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI"/>
         <Label Content="Customer Name:" HorizontalAlignment="Left" Margin="29,145,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
         <Label Content="Customer Address:" HorizontalAlignment="Left" Margin="29,197,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
-
+        <TextBox x:Name="contactnumber" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC" Margin="152,246,0,0"/>
         <TextBox x:Name="customer_name" HorizontalAlignment="Left" Margin="141,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
         <TextBox x:Name="address" HorizontalAlignment="Left" Margin="153,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
         <!--<TextBox HorizontalAlignment="Left" Margin="575,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC" Grid.ColumnSpan="2"/>-->
         <Button x:Name="add_btn" Content="Add Customer" 
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                HorizontalAlignment="Left" Margin="284,370,0,0" VerticalAlignment="Top" Width="112" BorderBrush="{x:Null}" Foreground="#DDFFFFFF" FontWeight="ExtraBold" BorderThickness="0,0,0,0" ClipToBounds="True" FontFamily="Bahnschrift Light" ScrollViewer.VerticalScrollBarVisibility="Disabled" RenderTransformOrigin="0,0" Background="Black" Click="add_click"/>
+                HorizontalAlignment="Left" Margin="284,370,0,0" VerticalAlignment="Top" 
+                BorderBrush="{x:Null}" Foreground="#DDFFFFFF" FontWeight="ExtraBold"
+                BorderThickness="0,0,0,0" ClipToBounds="True" 
+                FontFamily="Bahnschrift Light" ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                RenderTransformOrigin="0,0" Background="Black" Click="add_click" Height="37"/>
         <Button x:Name="cancel_btn" Content="Cancel" 
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                HorizontalAlignment="Left" Margin="454,370,0,0" VerticalAlignment="Top" Width="112" BorderBrush="{x:Null}" Click="cancel_Click" FontFamily="Bahnschrift Light" FontWeight="ExtraBold" ClipToBounds="True" BorderThickness="0,0,0,0" Background="Black"/>
+                HorizontalAlignment="Left" Margin="454,370,0,0" VerticalAlignment="Top" Width="112" BorderBrush="{x:Null}" Click="cancel_Click" FontFamily="Bahnschrift Light" FontWeight="ExtraBold" ClipToBounds="True" BorderThickness="0,0,0,0" Background="Black" Height="37"/>
         <Label Content="Contact Number:" HorizontalAlignment="Left" Margin="23,250,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
 
     </Grid>

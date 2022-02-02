@@ -9,13 +9,10 @@
       d:DesignHeight="500" d:DesignWidth="854"
       Title="AddDelivery">
 
-
     <Page.Resources>
-
         <Style TargetType="{x:Type GridViewColumnHeader}">
             <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
-
     </Page.Resources>
 
     <Grid>
@@ -29,36 +26,31 @@
         <Border Height="450" VerticalAlignment="Top" 
                 CornerRadius="0 0 250 0" 
                 Background="White" Margin="0,-2,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="80,17,0,0" Text="Customer List"
+                   TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" 
+                   FontSize="22" FontWeight="Normal" FontFamily="Segoe UI"/>
 
-
-
-        <TextBlock HorizontalAlignment="Left" Margin="80,49,0,0" Text="Customer List
-                   " TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI"/>
-        <Grid HorizontalAlignment="Left" Height="102" Margin="80,123,0,0" VerticalAlignment="Top" Width="653">
-            <!--<Label Content="Product:" HorizontalAlignment="Left" Margin="398,1,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>-->
-            <!--<Label Content="Total Amount:" HorizontalAlignment="Left" Margin="398,35,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
-            <Label Content="Total No. of Items:" HorizontalAlignment="Left" Margin="399,75,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>-->
-            <!--<TextBox x:Name="amount" HorizontalAlignment="Left" Margin="505,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-            <TextBox x:Name="quantity" HorizontalAlignment="Left" Margin="533,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
-            <TextBox x:Name="product" HorizontalAlignment="Left" Margin="465,-2,0,0" VerticalAlignment="Top" Width="176"/>-->
-        </Grid>
-        <!--</ComboBox>-->
-        <Button x:Name="add_btn" Content="Add Customer" 
-                Style="{StaticResource MaterialDesignRaisedButton}"
+        <Button x:Name="add_btn" 
+                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                HorizontalAlignment="Left" Margin="607,372,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="126" Background="Black" Click="add_btn_Click"/>
-        <Button x:Name="cancel_btn" Content="Back" 
-                Style="{StaticResource MaterialDesignRaisedButton}"
-                materialDesign:ButtonAssist.CornerRadius="20"
-                HorizontalAlignment="Left" Margin="695,34,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="cancel_btn_Click" Background="Black"/>
+                HorizontalAlignment="Center" Margin="0,385,0,0" VerticalAlignment="Top" 
+                BorderBrush="{x:Null}" Click="add_btn_Click" Height="38" 
+                ToolTip="Add" Foreground="White" Background="Black" Content="Add Customer"/>
+        <Button x:Name="cancel_btn" HorizontalAlignment="Left" Margin="28,22,0,0"
+                VerticalAlignment="Top" BorderBrush="{x:Null}" Width="40"
+                Click="cancel_btn_Click" Height="17">
+            <Button.Background>
+                <ImageBrush ImageSource="/Pages/back.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
 
-        <ListView x:Name="customer_list" Margin="80,123,289,0" 
+        <ListView x:Name="customer_list" Margin="188,84,181,0" 
                       SnapsToDevicePixels="True"
                       VerticalAlignment="Top" 
                       HorizontalContentAlignment="Left"
                       VerticalContentAlignment="Center"
                       FlowDirection="LeftToRight" 
-                      Height="244" SelectionChanged="customer_list_SelectionChanged" >
+                      Height="278" SelectionChanged="customer_list_SelectionChanged" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="BorderBrush" Value="LightGray" />
@@ -77,11 +69,8 @@
                                     DisplayMemberBinding="{Binding Address}"/>
                     <GridViewColumn Header="Contact Number" Width="150"
                                     DisplayMemberBinding="{Binding ContactNumber}"/>
-
                 </GridView>
             </ListView.View>
         </ListView>
-
-
     </Grid>
 </Page>

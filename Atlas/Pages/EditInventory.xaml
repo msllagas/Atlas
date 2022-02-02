@@ -17,9 +17,9 @@
                 <GradientStop Color="#FF1569B7" Offset="0.500"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border Height="450" VerticalAlignment="Top" 
-                CornerRadius="0 0 250 0" 
-                Background="White" HorizontalAlignment="Stretch"/>
+        <Border 
+                CornerRadius="0 250 0 100" 
+                Background="White" Margin="0,25,0,42"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="29,37,0,0" Text="Inventory/ Edit Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF080808" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI"/>
         <Label Content="Product Name:" HorizontalAlignment="Left" Margin="29,145,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
@@ -47,11 +47,11 @@
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
                 HorizontalAlignment="Left" Margin="300,374,0,0" VerticalAlignment="Top" 
-                Width="119" BorderBrush="{x:Null}" Click="edit_Click" HorizontalContentAlignment="Center" Background="Black"/>
+                Width="119" BorderBrush="{x:Null}" Click="edit_Click" HorizontalContentAlignment="Center" Background="Black" Height="37"/>
         <Button x:Name="cancel_btn" Content="Cancel" 
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                HorizontalAlignment="Left" Margin="466,374,0,0" VerticalAlignment="Top" Width="119" BorderBrush="{x:Null}" Click="cancel_Click" Background="Black"/>
+                HorizontalAlignment="Left" Margin="466,374,0,0" VerticalAlignment="Top" Width="119" BorderBrush="{x:Null}" Click="cancel_Click" Background="Black" Height="37"/>
         <TextBox HorizontalAlignment="Left" Margin="141,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC"/>
         <Label Content="Product ID:" HorizontalAlignment="Left" Margin="29,95,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#DD000000"/>
 

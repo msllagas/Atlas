@@ -21,18 +21,18 @@
         <Grid>
             <Image Source="/Pages/atlasims.png" Margin="120,70,120,70" Opacity="0.1"/>
             <Image Height="100" Width="100" Margin="193,26,561,374" Source="/Pages/profile_icon.png"/>
-            <Button x:Name="btnSave" Content="Save Changes" Margin="359,360,371,108" Height="40"                    
+            <Button x:Name="btnSave" Content="Save Changes" Margin="0,356,0,0" Height="42"                    
                     BorderBrush="{x:Null}" Click="btnSave_click" ClipToBounds="True" Background="Black"
                     Style="{StaticResource MaterialDesignRaisedButton}"
                     materialDesign:ButtonAssist.CornerRadius="20" 
-                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label Content="Username:" HorizontalAlignment="Left" Margin="198,218,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="32"/>
-            <TextBox x:Name="txtUserEdit" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Margin="311,220,367,0" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
-            <Label Content="Password:" HorizontalAlignment="Left" Margin="198,270,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
-            <PasswordBox x:Name="txtPassEdit" Margin="311,272,367,190" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
+                    HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label Content="Username:" HorizontalAlignment="Left" Margin="210,218,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="32"/>
+            <TextBox x:Name="txtUserEdit" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Margin="323,220,355,0" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="210,270,0,0" VerticalAlignment="Top" FontSize="20" Width="108" Height="33"/>
+            <PasswordBox x:Name="txtPassEdit" Margin="323,272,355,190" BorderThickness="1,1,1,1" Background="White" CaretBrush="#FF1F6EB4" SelectionBrush="#FF87BBEA"/>
             <TextBlock Text="Employee User Name" TextWrapping="WrapWithOverflow" Margin="296,47,355,422" FontSize="20"/>
             <TextBlock Text="0876MN989" TextWrapping="Wrap" Margin="298,79,382,390" FontSize="20"/>
-            <Label Content="Edit Account" HorizontalAlignment="Left" Margin="194,163,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Normal"/>
+            <Label Content="Edit Account" HorizontalAlignment="Left" Margin="206,163,0,0" VerticalAlignment="Top" FontSize="25" FontWeight="Normal"/>
         </Grid>
 
 

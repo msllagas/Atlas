@@ -43,15 +43,22 @@
 
             </Grid>
 
-            <Button x:Name="add_btn" Margin="694,50,100,418" BorderBrush="{x:Null}" Click="add_btn_click" ClipToBounds="True" BorderThickness="0,0,0,0">
+            <Button x:Name="add_btn" Margin="662,50,132,418" BorderBrush="{x:Null}"
+                    Click="add_btn_click" ClipToBounds="True" BorderThickness="0,0,0,0" ToolTip="Add">
                 <Button.Background>
                     <ImageBrush ImageSource="/Pages/add_icon.png" Stretch="Uniform"/>
                 </Button.Background>
-
             </Button>
-            <Button x:Name="delete_btn" IsEnabled="False" Content="" Margin="770,50,25,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True" Click="delete_product">
+            <Button x:Name="delete_btn" IsEnabled="False" Content="" Margin="720,50,75,418" BorderBrush="{x:Null}" 
+                    BorderThickness="0,0,0,0" ClipToBounds="True" Click="delete_btn_click" ToolTip="Delete">
                 <Button.Background>
                     <ImageBrush ImageSource="/Pages/delete_icon.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="edit_btn" IsEnabled="False" Content="" Margin="778,50,17,418" BorderBrush="{x:Null}" 
+                    BorderThickness="0,0,0,0" ClipToBounds="True" Click="edit_btn_click" ToolTip="Edit">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Pages/edit_icon.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
 
@@ -65,7 +72,7 @@
                       HorizontalContentAlignment="Left"
                       VerticalContentAlignment="Center"
                       FlowDirection="LeftToRight" 
-                      MouseDoubleClick="edit_dbl_click" PreviewMouseLeftButtonDown="inventory_list_PreviewMouseLeftButtonDown">
+                      PreviewMouseLeftButtonDown="inventory_list_PreviewMouseLeftButtonDown">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="BorderBrush" Value="LightGray" />
@@ -114,7 +121,7 @@
                             DisplayMemberBinding="{Binding Stocks}"/>
                     </GridView>
                 </ListView.View>
-            </ListView>
+            </ListView>            
         </Grid>
     </Grid>
 </Page>

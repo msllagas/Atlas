@@ -21,13 +21,11 @@
                 Background="White" HorizontalAlignment="Stretch">
         </Border>
 
-
-        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Customer Information" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF1B1616" FontWeight="Normal" FontSize="25" FontFamily="Segoe UI"/>
-        <Grid HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="214" Margin="511,95,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="129*"/>
-                <ColumnDefinition Width="85*"/>
-            </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Customer Information" 
+                   TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF1B1616" 
+                   FontWeight="Normal" FontSize="25" FontFamily="Segoe UI"/>
+        <Grid HorizontalAlignment="Left" Height="227" VerticalAlignment="Top"
+              Width="214" Margin="511,95,0,0">
             <Label x:Name="trackingNumber" Content="None"  VerticalAlignment="Top" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Width="91" Margin="-296,-37,0,0"/>
             <Label x:Name="customerName" Content="None" HorizontalAlignment="Left" Margin="-296,3,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
             <Label x:Name="customerAddress" Content="None" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="-296,40,0,0"/>
@@ -43,7 +41,7 @@
 
         </Grid>
 
-        <DataGrid x:Name="itemsTable" HorizontalAlignment="Left" Height="225" Margin="65,225,0,0"
+        <DataGrid x:Name="itemsTable" HorizontalAlignment="Left" Height="225" Margin="171,207,0,0"
             VerticalAlignment="Top" Width="484" 
             AutoGenerateColumns="False"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" 
@@ -62,6 +60,5 @@
                 <ImageBrush ImageSource="/Pages/back.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
-
     </Grid>
 </Page>
