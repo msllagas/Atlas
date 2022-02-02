@@ -100,7 +100,7 @@
                                             <DoubleAnimation Storyboard.TargetName="navPanel"
                                                              Storyboard.TargetProperty="Width"
                                                              BeginTime="0:0:0"
-                                                             From="250" To="65"
+                                                             From="250" To="67"
                                                              Duration="0:0:0.2">
                                             </DoubleAnimation>
                                         </Storyboard>
@@ -113,7 +113,7 @@
                                             <DoubleAnimation Storyboard.TargetName="navPanel"
                                                              Storyboard.TargetProperty="Width"
                                                              BeginTime="0:0:0"
-                                                             From="65" To="250"
+                                                             From="67" To="250"
                                                              Duration="0:0:0.3">
                                             </DoubleAnimation>
                                         </Storyboard>
