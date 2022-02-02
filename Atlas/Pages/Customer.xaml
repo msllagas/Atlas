@@ -52,7 +52,7 @@
                 materialDesign:ButtonAssist.CornerRadius="20"
                 HorizontalAlignment="Left" Margin="695,34,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="cancel_btn_Click" Background="Black"/>
 
-        <ListView x:Name="customer_list" Margin="80,123,427,0" 
+        <ListView x:Name="customer_list" Margin="80,123,289,0" 
                       SnapsToDevicePixels="True"
                       VerticalAlignment="Top" 
                       HorizontalContentAlignment="Left"
@@ -75,6 +75,8 @@
                                     DisplayMemberBinding="{Binding CustomerName}"/>
                     <GridViewColumn Header="Address" Width="150"
                                     DisplayMemberBinding="{Binding Address}"/>
+                    <GridViewColumn Header="Contact Number" Width="150"
+                                    DisplayMemberBinding="{Binding ContactNumber}"/>
 
                 </GridView>
             </ListView.View>

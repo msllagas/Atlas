@@ -23,21 +23,21 @@
                     <Image Height="36" Width="32" Source="/Pages/list.png" Stretch="Uniform" HorizontalAlignment="Center" Margin="0,17,0,0"/>
                 </StackPanel>
                 <Label Content="Categories" Height="27" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="38,42,0,0"/>
-                <Label x:Name="categoryCount" Content="4" HorizontalAlignment="Left" Margin="-37,9,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+                <Label x:Name="categoryCount" Content="0" HorizontalAlignment="Left" Margin="-37,9,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="322,199,328,229" Background="White">
                 <StackPanel Width="63" Background="#FF4B79F3">
                     <Image Height="45" Width="40" Source="/Pages/cart.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,13,0,0"/>
                 </StackPanel>
                 <Label Content="Products" Height="27" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="40,41,0,0"/>
-                <Label x:Name="productCount" Content="4" HorizontalAlignment="Left" Margin="-45,9,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+                <Label x:Name="productCount" Content="0" HorizontalAlignment="Left" Margin="-45,9,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Background="White" Margin="578,199,72,229">
                 <StackPanel Width="63" Background="#FFF5BC56">
                     <Image Height="45" Width="40" Source="/Pages/peso.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,13,0,0"/>
                 </StackPanel>
                 <Label Content="Sales" Height="27" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="57,41,0,0"/>
-                <Label x:Name="salesCount" Content="4" HorizontalAlignment="Left" Margin="-30,9,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+                <Label x:Name="salesCount" Content="0" HorizontalAlignment="Left" Margin="-30,9,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
             </StackPanel>
 
             <StackPanel Margin="106,285,427,175">

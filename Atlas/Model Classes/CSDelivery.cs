@@ -22,5 +22,8 @@ namespace Atlas
 
         [Required]
         public float Amount { get; set; }
+
+        [Required]
+        public string OrderDate { get; set; }
     }
 }

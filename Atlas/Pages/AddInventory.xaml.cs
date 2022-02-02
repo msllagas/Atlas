@@ -46,19 +46,17 @@ namespace Atlas.Pages
                 var measure = measurement.Text;
                 var _color = color.Text;
                 var _category = category.Text;
-                var _status = status.Text;
                 var _stocks = int.Parse(stocks.Text);
 
 
                 //if (product != null && cost != null && _color != null && _category != null && _status != null && _stocks != null)
-                if (product != null && _color != null && _category != null && _status != null)
+                if (product != null && _color != null && _category != null)
                 {
                     context.Products.Add(new CSProduct() { ProductName = product, 
                                                             Price = cost,
                                                             Measurement = measure,
                                                             Color = _color,
                                                             Category = _category,
-                                                            Status = _status,
                                                             Stocks = _stocks});
                     context.SaveChanges();
                 }

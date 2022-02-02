@@ -120,10 +120,15 @@ namespace Atlas.Pages
 
         private void proceed_btn_Click(object sender, RoutedEventArgs e)
         {
-            selectedCus = (CSCustomer)customer_list.SelectedItems[0];
-            _2ndPageAddDel gotopage = new _2ndPageAddDel();
+            if (customer_list.SelectedItems.Count > 0)
+            {
+                selectedCus = (CSCustomer)customer_list.SelectedItems[0];
+                _2ndPageAddDel gotopage = new _2ndPageAddDel();
 
-            this.NavigationService.Navigate(gotopage);
+                this.NavigationService.Navigate(gotopage);
+            }
+            else
+                MessageBox.Show("Please select a Customer!");
         }
 
         //private void btn_Order_Click(object sender, RoutedEventArgs e)

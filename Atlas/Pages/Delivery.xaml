@@ -26,7 +26,7 @@
                 </Button.Background>
 
             </Button>
-            <Button x:Name="delete_btn" Content="" Margin="770,50,25,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True">
+            <Button x:Name="delete_btn" IsEnabled="False" Content="" Margin="770,50,25,418" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" ClipToBounds="True" Click="delete_order">
                 <Button.Background>
                     <ImageBrush ImageSource="/Pages/delete_icon.png" Stretch="Uniform"/>
                 </Button.Background>
@@ -38,7 +38,7 @@
                       VerticalContentAlignment="Center"
                       FlowDirection="LeftToRight"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      MouseDoubleClick="item_dbl_click">
+                      MouseDoubleClick="item_dbl_click" PreviewMouseLeftButtonDown="delivery_list_PreviewMouseLeftButtonDown">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="BorderBrush" Value="LightGray" />
@@ -53,13 +53,16 @@
                                     DisplayMemberBinding="{Binding TrackingNumber}"/>
                         <GridViewColumn Header="Customer ID" Width="150" 
                                     DisplayMemberBinding="{Binding CustomerID}"/>
-                        <GridViewColumn Header="Address" Width="150" 
+                        <GridViewColumn Header="Address" Width="125" 
                                     DisplayMemberBinding="{Binding Address}"/>
                         <!--Change ProductID to Address-->
-                        <GridViewColumn Header="Quantity" Width="150" 
+                        <GridViewColumn Header="Quantity" Width="120" 
                                     DisplayMemberBinding="{Binding Quantity}"/>
-                        <GridViewColumn Header="Amount" Width="150" 
+                        <GridViewColumn Header="Amount" Width="115" 
                                     DisplayMemberBinding="{Binding Amount}"/>
+                        <GridViewColumn Header="OrderDate" Width="150" 
+                                    DisplayMemberBinding="{Binding OrderDate}"/>
+
                     </GridView>
                 </ListView.View>
             </ListView>

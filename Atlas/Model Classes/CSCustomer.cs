@@ -15,5 +15,8 @@ namespace Atlas.Model_Classes
 
         [Required]
         public string Address{ get; set; }
+
+        [Required]
+        public string ContactNumber { get; set; }
     }
 }

@@ -15,14 +15,13 @@ namespace Atlas
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = deli.db"); 
+            optionsBuilder.UseSqlite("Data Source = dbv2.db"); 
         }
 
 
         public DbSet<CSProduct> Products { get; set; }
         public DbSet<CSCustomer> Customers { get; set; }
         public DbSet<CSDelivery> Deliveries { get; set; }
-        public DbSet<CSDeliInfo> DeliInfos { get; set; }
         public DbSet<ProductNameGet> getProductName { get; set; }
         public DbSet<Orderlist> Orders { get; set; }
         public DbSet<CSOrderitems> Orderitems { get; set; }

@@ -45,15 +45,18 @@ namespace Atlas.Pages
                
                 var custaddress = address.Text;
 
+                var number = contactnumber.Text;
+
 
                 //if (product != null && cost != null && _color != null && _category != null && _status != null && _stocks != null)
-                if (name != null && custaddress != null)
+                if (!String.IsNullOrEmpty(custaddress) && !String.IsNullOrEmpty(number) && !String.IsNullOrEmpty(name))
                 {
                     context.Customers.Add(new CSCustomer()
                     {
                         CustomerName = name,
-                        Address = custaddress
-                    });
+                        Address = custaddress,
+                        ContactNumber = number
+                    }) ;
                     context.SaveChanges();
                 }
 

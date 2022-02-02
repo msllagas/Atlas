@@ -30,10 +30,10 @@ namespace Atlas.Pages
         }
 
 
-        private void inventory_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            delete_btn_Click(sender, e);
-        }
+        //private void inventory_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    delete_btn_Click(sender, e);
+        //}
 
         public DataTemplate ItemTemplate { get; set; }
 
@@ -52,11 +52,10 @@ namespace Atlas.Pages
 
         public void Read()
         {
-
+            
             var db = new DataContext();
-
+            var emp = 0;
             inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products").ToList();
-
             //using (DataContext context = new DataContext())
             //{
             //    products = context.Products.ToList();
@@ -66,54 +65,60 @@ namespace Atlas.Pages
             //}
         }
 
-        private void delete_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-            delBtn(sender);
-
-        }
-
-        private void delBtn(object sender)
-        {
-            Button targetbutton = (sender as Button);
-
-            if (targetbutton != null && targetbutton.Name == "delete_btn")
-            {
-                CSProduct selProduct = (CSProduct)inventory_list.SelectedItems[0];
-                if (MessageBox.Show("Are you sure you want to remove " + selProduct.ProductName + " from record?", "Please Select", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                {
-
-                    using (var context = new DataContext())
-                    {
-                        context.Remove(selProduct);
-                        context.SaveChanges();
-                        MessageBox.Show("Deleted: " + selProduct.ProductName);
-                        Read();
-                    }
-                    //string ProductN = selProduct.ProductName;
-                }
-                else
-                {
-                    MessageBox.Show("Error deleting" + selProduct.ProductName);
-                    Read();
-                }
-            }
-        }
-
         private void search_btn_Click(object sender, RoutedEventArgs e)
         {
+
+           //MessageBox.Show(category.Content.ToString());            
+            if (!String.IsNullOrEmpty(SearchField.Text) && !String.IsNullOrEmpty(Category_Cmbox.Text))
+            {
+                using (DataContext context = new DataContext())
+                {
+
+                    var input = SearchField.Text;
+                    var category = Category_Cmbox.SelectedItem.ToString();
+
+                    inventory_list.ItemsSource = context.Products.FromSqlRaw("Select * from Products where Category = {0} AND ProductName = {1}", category, input).ToList();
+                    //inventory_list.ItemsSource = context.Products.FromSqlInterpolated($"Select * from Products where Category = {category} AND ProductName = {input}").ToList();
+                    
+                }
+            }
 
         }
 
         private void Category_Cmbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem category = (ComboBoxItem)Category_Cmbox.SelectedItem;
-
             string strCategory = category.Content.ToString();
             var db = new DataContext();
+            
 
             inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products where Category = {0}", strCategory).ToList();
-            //MessageBox.Show(category.Content.ToString());
+            
+        }
+
+        private void delete_product(object sender, RoutedEventArgs e)
+        {
+            using (DataContext context = new DataContext())
+            {
+                if (inventory_list.SelectedItems.Count > 0)
+                {
+                    
+                    CSProduct delProduct = inventory_list.SelectedItem as CSProduct;
+
+                    context.Remove(delProduct);
+                    context.SaveChanges();
+                    Read();
+                }
+                else
+                    MessageBox.Show("Please select a product to be deleted!");
+            }
+
+            
+        }
+
+        private void inventory_list_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            delete_btn.IsEnabled = true;
         }
     }
 }

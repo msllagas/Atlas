@@ -27,8 +27,8 @@ namespace Atlas.Pages
                 CSCustomer cSCustomer = context.Customers.Find(Delivery.CustomerID);
                 customerName.Content = cSCustomer.CustomerName;
                 customerAddress.Content = cSCustomer.Address;
-                quantity.Content = Delivery.Quantity;
-                total.Content = Delivery.Total;
+                quantity.Text = Delivery.Quantity.ToString();
+                total.Text = "P" + Delivery.Total.ToString();
                 trackingNumber.Content = Delivery.TrackingNumber;
 
                 itemsTable.ItemsSource = null;

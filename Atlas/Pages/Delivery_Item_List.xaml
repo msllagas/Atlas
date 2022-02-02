@@ -18,21 +18,33 @@
         </Grid.Background>
         <Border Height="450" VerticalAlignment="Top" 
                 CornerRadius="0 0 250 0" 
-                Background="White" HorizontalAlignment="Stretch"/>
+                Background="White" HorizontalAlignment="Stretch">
+        </Border>
 
 
-        <TextBlock HorizontalAlignment="Left" Margin="38,50,0,0" Text="Delivery/ Item List" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF1B1616" FontWeight="Normal" FontSize="25" FontFamily="Segoe UI"/>
-        <Grid HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="124" Margin="511,95,0,0">
-            <Label x:Name="trackingNumber" Content="Tracking No." VerticalAlignment="Top" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Width="91"/>
-            <Label x:Name="customerName" Content="Recipient:" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-            <Label x:Name="customerAddress" Content="Address:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
-            <Label x:Name="quantity" Content="Number of Items:" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-            <Label x:Name="total" Content="Total Amount:" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" Text="Customer Information" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF1B1616" FontWeight="Normal" FontSize="25" FontFamily="Segoe UI"/>
+        <Grid HorizontalAlignment="Left" Height="227" VerticalAlignment="Top" Width="214" Margin="511,95,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="129*"/>
+                <ColumnDefinition Width="85*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="trackingNumber" Content="None"  VerticalAlignment="Top" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Width="91" Margin="-296,-37,0,0"/>
+            <Label x:Name="customerName" Content="None" HorizontalAlignment="Left" Margin="-296,3,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="customerAddress" Content="None" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="-296,40,0,0"/>
+            <TextBlock x:Name="quantity" Text="0" TextAlignment="Center" HorizontalAlignment="Left" Margin="-131,-3,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Width="115" />
+            <TextBlock x:Name="total" Text="0" TextAlignment="Center" HorizontalAlignment="Left" Margin="22,-3,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Width="97"/>
+            <Label Content="Tracking Number:" HorizontalAlignment="Left" Margin="-446,-37,0,0" VerticalAlignment="Top" Width="130" FontSize="14" FontWeight="Bold" />
+            <Label Content="Customer Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" FontSize="14" FontWeight="Bold" Margin="-446,3,0,0" />
+            <Label Content="Customer Address:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" FontSize="14" FontWeight="Bold" Margin="-446,40,0,0" />
+            <Label Content="Number of Items" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="-131,-37,130,0" />
+            <Label Content="Total Amount" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="22,-37,84,0" Grid.ColumnSpan="2" />
+            <Label Content="Contact Number:" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="-446,72,445,0" />
+            <Label x:Name="contactNumber" Content="None" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="-296,72,295,0" />
 
         </Grid>
 
-        <DataGrid x:Name="itemsTable" HorizontalAlignment="Left" Height="334" Margin="24,88,0,0"
-            VerticalAlignment="Top" Width="482" 
+        <DataGrid x:Name="itemsTable" HorizontalAlignment="Left" Height="225" Margin="65,225,0,0"
+            VerticalAlignment="Top" Width="484" 
             AutoGenerateColumns="False"
             HorizontalContentAlignment="Left" VerticalContentAlignment="Top" 
             BorderThickness="0,2,0,2" BorderBrush="#FF1569B7" GridLinesVisibility="None" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled" IsReadOnly="True" SelectionChanged="itemsTable_SelectionChanged">
