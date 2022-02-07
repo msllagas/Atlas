@@ -57,6 +57,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+
         </Border>
 
 
@@ -75,10 +76,10 @@
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
                 HorizontalAlignment="Left" Margin="738,427,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="add_btn_Click" Background="Black" RenderTransformOrigin="0.24,0.9"/>
-        <Button x:Name="cancel_btn" Content="Cancel" 
+        <Button x:Name="back_btn" Content="Go Back" 
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                HorizontalAlignment="Left" Margin="620,427,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="cancel_btn_Click" Background="Black" RenderTransformOrigin="0.545,-8.828"/>
+                HorizontalAlignment="Left" Margin="622,407,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="100" Click="go_back_btn_click" Background="Black" RenderTransformOrigin="0.545,-8.828"/>
         <ComboBox x:Name="Category_Cmbox" Height="29" Text="Category" Margin="620,46,70,425" AutomationProperties.Name="Category" BorderBrush="#FF1264B1" SelectionChanged="Category_Cmbox_SelectionChanged" >
             <ComboBoxItem Content="Art Materials"/>
             <ComboBoxItem Content="Books"/>
@@ -126,6 +127,12 @@
             Style="{StaticResource MaterialDesignRaisedButton}"
             materialDesign:ButtonAssist.CornerRadius="20"
             HorizontalAlignment="Left" Margin="738,220,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="116" Background="Black" Click="btn_Order_Click"/>
+        <Button x:Name="cancel_orders" Content="Cancel Orders" 
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            HorizontalAlignment="Left" Margin="581,444,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="141" Click="cancel_btn_Click" Background="Black" RenderTransformOrigin="0.545,-8.828"/>
+        <Label Content="Selected Customer:" HorizontalAlignment="Left" Margin="29,60,0,0" VerticalAlignment="Top" Height="26" Width="109" RenderTransformOrigin="0.229,0.276"/>
+        <Label x:Name="sel_Customerlbl" Content="" HorizontalAlignment="Left" Margin="143,60,0,0" VerticalAlignment="Top" Height="26" Width="109" RenderTransformOrigin="0.229,0.276"/>
 
 
     </Grid>

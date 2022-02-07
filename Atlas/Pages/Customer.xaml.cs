@@ -21,7 +21,6 @@ namespace Atlas.Pages
     /// </summary>
     public partial class Customer : Page
     {
-        public List<CSCustomer> customers { get; private set; }
         public Customer()
         {
             InitializeComponent();
@@ -49,6 +48,30 @@ namespace Atlas.Pages
         private void customer_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void del_btn_click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Delete selected customer?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            if (result == MessageBoxResult.Yes)
+            {
+                using (DataContext context = new DataContext())
+                {
+                    if (customer_list.SelectedItems.Count > 0)
+                    {
+                        CSCustomer delCustomer = customer_list.SelectedItem as CSCustomer;
+                        context.Remove(delCustomer);
+                        context.SaveChanges();
+                        Read();
+                    }
+                    else
+                        MessageBox.Show("Please select a customer to be deleted!");
+                }
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                Read();
+            }
         }
     }
 }

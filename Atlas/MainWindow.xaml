@@ -24,7 +24,7 @@
         </Border>
         <StackPanel Orientation="Horizontal">
             <StackPanel Width="430">
-                <Image Source="/atlasims.png" Width="342" Height="198" Margin="30,86,30,37" Stretch="Fill"/>
+                <Image Source="/images/atlasims.png" Width="342" Height="198" Margin="30,86,30,37" Stretch="Fill"/>
             </StackPanel>
             <StackPanel Width="350" Margin="-8,0,0,0">
                 <StackPanel Margin="20,82,20,40">

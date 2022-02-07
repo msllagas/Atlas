@@ -28,13 +28,6 @@ namespace Atlas.Pages
             InitializeComponent();
             Read();
         }
-
-
-        //private void inventory_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    delete_btn_Click(sender, e);
-        //}
-
         public DataTemplate ItemTemplate { get; set; }
 
         private void add_btn_click(object sender, RoutedEventArgs e)
@@ -44,20 +37,27 @@ namespace Atlas.Pages
         }
         private void delete_btn_click(object sender, RoutedEventArgs e)
         {
-            using (DataContext context = new DataContext())
+            var result = MessageBox.Show("Delete selected item?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            if (result == MessageBoxResult.Yes)
             {
-                if (inventory_list.SelectedItems.Count > 0)
+                using (DataContext context = new DataContext())
                 {
-
-                    CSProduct delProduct = inventory_list.SelectedItem as CSProduct;
-
-                    context.Remove(delProduct);
-                    context.SaveChanges();
-                    Read();
+                    if (inventory_list.SelectedItems.Count > 0)
+                    {
+                        CSProduct delProduct = inventory_list.SelectedItem as CSProduct;
+                        context.Remove(delProduct);
+                        context.SaveChanges();
+                        Read();
+                    }
+                    else
+                        MessageBox.Show("Please select a product to be deleted!");
                 }
-                else
-                    MessageBox.Show("Please select a product to be deleted!");
             }
+            else if (result == MessageBoxResult.No)
+            {
+                Read();
+            }
+            
         }
         private void edit_btn_click(object sender, RoutedEventArgs e)
         {
@@ -82,29 +82,33 @@ namespace Atlas.Pages
         {
             
             var db = new DataContext();
-            var emp = 0;
             inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products").ToList();
-            //using (DataContext context = new DataContext())
-            //{
-            //    products = context.Products.ToList();
-
-            //    if (products.Count > 0)
-            //        inventory_list.ItemsSource = products;
-            //}
         }
 
         private void search_btn_Click(object sender, RoutedEventArgs e)
-        {
-           //MessageBox.Show(category.Content.ToString());            
-            if (!String.IsNullOrEmpty(SearchField.Text) && !String.IsNullOrEmpty(Category_Cmbox.Text))
+        {         
+            if (!String.IsNullOrEmpty(SearchField.Text) && Category_Cmbox.SelectedIndex > -1)
             {
                 using (DataContext context = new DataContext())
                 {
-                    var input = SearchField.Text;
-                    var category = Category_Cmbox.SelectedItem.ToString();
+                    MessageBox.Show("Hello 1");
+                    var input = SearchField.Text + "%";
+                    ComboBoxItem combCategory = (ComboBoxItem)Category_Cmbox.SelectedItem;
+                    string category = combCategory.Content.ToString();
+                    MessageBox.Show(input + category);
+                    inventory_list.ItemsSource = context.Products.FromSqlRaw("Select * from Products where ProductName like {0} AND Category = {1}", input, category).ToList();                 
+                }
+            }
+            else if(!String.IsNullOrEmpty(SearchField.Text) && Category_Cmbox.SelectedIndex == -1)
+            {
+                using (DataContext context = new DataContext())
+                {
+                    MessageBox.Show("Hello 2");
 
-                    inventory_list.ItemsSource = context.Products.FromSqlRaw("Select * from Products where Category = {0} AND ProductName = {1}", category, input).ToList();
-                    //inventory_list.ItemsSource = context.Products.FromSqlInterpolated($"Select * from Products where Category = {category} AND ProductName = {input}").ToList();                    
+                    var input = SearchField.Text + "%";
+                    ComboBoxItem combCategory = (ComboBoxItem)Category_Cmbox.SelectedItem;
+                    MessageBox.Show(input);
+                    inventory_list.ItemsSource = context.Products.FromSqlRaw("Select * from Products where ProductName like {0}", input).ToList();
                 }
             }
         }
@@ -112,6 +116,7 @@ namespace Atlas.Pages
         {
             ComboBoxItem category = (ComboBoxItem)Category_Cmbox.SelectedItem;
             string strCategory = category.Content.ToString();
+            SearchField.Text = String.Empty;
             var db = new DataContext();           
 
             inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products where Category = {0}", strCategory).ToList();           

@@ -97,20 +97,45 @@ namespace Atlas.Pages
 
         private void delete_order(object sender, RoutedEventArgs e)
         {
-            using (DataContext context = new DataContext())
+
+            var result = MessageBox.Show("Delete selected item?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            if (result == MessageBoxResult.Yes)
             {
-                if (delivery_list.SelectedItems.Count > 0)
+                using (DataContext context = new DataContext())
                 {
+                    if(delivery_list.SelectedItems.Count > 0)
+                    {
 
-                    CSDelivery delOrder = delivery_list.SelectedItem as CSDelivery;
+                        CSDelivery delOrder = delivery_list.SelectedItem as CSDelivery;
 
-                    context.Remove(delOrder);
-                    context.SaveChanges();
-                    Read();
-                }
-                else
-                    MessageBox.Show("Please select an order to be deleted!");
+                        context.Remove(delOrder);
+                        context.SaveChanges();
+                        Read();
+                    }
+                     else
+                        MessageBox.Show("Please select an order to be deleted!");
+                    }
             }
+            else if (result == MessageBoxResult.No)
+            {
+                Read();
+            }
+
+
+            //using (DataContext context = new DataContext())
+            //{
+            //    if (delivery_list.SelectedItems.Count > 0)
+            //    {
+
+            //        CSDelivery delOrder = delivery_list.SelectedItem as CSDelivery;
+
+            //        context.Remove(delOrder);
+            //        context.SaveChanges();
+            //        Read();
+            //    }
+            //    else
+            //        MessageBox.Show("Please select an order to be deleted!");
+            //}
         }        
     }
 }

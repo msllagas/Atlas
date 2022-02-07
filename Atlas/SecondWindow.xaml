@@ -184,7 +184,7 @@
                             <Button x:Name="btnLog" Click="btnLog_Click" Background="#FF1569B7" BorderBrush="#FF1569B7" ClipToBounds="True">
                                 <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                    <Image Source="/log_icon.png"
+                                    <Image Source="/images/log_icon.png"
                                        Stretch="Uniform"
                                        Margin="0,0,0,0"/>
                                     <TextBlock Text="Logs"
@@ -200,7 +200,7 @@
                             <Button x:Name="btnSettings" Click="btnSettings_Click" Background="#FF1569B7" BorderBrush="#FF1569B7" ClipToBounds="True">
                                 <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                    <Image Source="/settings_icon.png"
+                                    <Image Source="/images/settings_icon.png"
                                        Stretch="UniformToFill"
                                        Margin="0,0,0,0"/>
                                     <TextBlock Text="Settings"
@@ -218,7 +218,7 @@
                                         Width="230">
                                     <Image
                                        Stretch="Fill"
-                                       Margin="0,0,0,0" Source="/logout.png"/>
+                                       Margin="0,0,0,0" Source="/images/logout.png"/>
                                     <TextBlock Text="Log Out"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>

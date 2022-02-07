@@ -33,14 +33,14 @@
         <Button x:Name="add_btn" 
                  Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                HorizontalAlignment="Center" Margin="0,385,0,0" VerticalAlignment="Top" 
+                HorizontalAlignment="Left" Margin="455,385,0,0" VerticalAlignment="Top" 
                 BorderBrush="{x:Null}" Click="add_btn_Click" Height="38" 
                 ToolTip="Add" Foreground="White" Background="Black" Content="Add Customer"/>
         <Button x:Name="cancel_btn" HorizontalAlignment="Left" Margin="28,22,0,0"
                 VerticalAlignment="Top" BorderBrush="{x:Null}" Width="40"
                 Click="cancel_btn_Click" Height="17">
             <Button.Background>
-                <ImageBrush ImageSource="/Pages/back.png" Stretch="Fill"/>
+                <ImageBrush ImageSource="/images/back.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
 
@@ -72,5 +72,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="del_customer_btn" 
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:ButtonAssist.CornerRadius="20"
+            HorizontalAlignment="Left" Margin="274,385,0,0" VerticalAlignment="Top" 
+            BorderBrush="{x:Null}" Click="del_btn_click" Height="38" 
+            ToolTip="Delete" Foreground="White" Background="Black" Content="Delete Customer"/>
     </Grid>
 </Page>

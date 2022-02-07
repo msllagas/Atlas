@@ -57,7 +57,7 @@
 
         <Button x:Name="cancel_btn" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="32" Click="close_btn_click" Height="14" BorderThickness="0,0,0,0" Foreground="#DD131111" FontWeight="Bold">
             <Button.Background>
-                <ImageBrush ImageSource="/Pages/back.png" Stretch="Fill"/>
+                <ImageBrush ImageSource="/images/back.png" Stretch="Fill"/>
             </Button.Background>
         </Button>
     </Grid>

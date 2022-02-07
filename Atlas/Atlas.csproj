@@ -18,17 +18,43 @@
     <None Remove="delivery.png" />
     <None Remove="home.png" />
     <None Remove="icons8-menu-24.png" />
+    <None Remove="images\add.png" />
+    <None Remove="images\add_icon.png" />
+    <None Remove="images\atlas.png" />
+    <None Remove="images\atlasims.png" />
+    <None Remove="images\atlaslogo.png" />
+    <None Remove="images\back.png" />
     <None Remove="images\background.jpg" />
+    <None Remove="images\box.png" />
     <None Remove="images\box_inventory.png" />
+    <None Remove="images\cart.png" />
+    <None Remove="images\customer_list.png" />
+    <None Remove="images\delete.png" />
+    <None Remove="images\delete_icon.png" />
     <None Remove="images\delivery.png" />
+    <None Remove="images\edit_icon.png" />
     <None Remove="images\home.png" />
     <None Remove="images\icons8-menu-24.png" />
+    <None Remove="images\ims.png" />
     <None Remove="images\inventory.png" />
+    <None Remove="images\item 2.jpg" />
+    <None Remove="images\item 3.jpg" />
+    <None Remove="images\item4.jpg" />
+    <None Remove="images\list.png" />
     <None Remove="images\log.png" />
     <None Remove="images\logoimage.png" />
+    <None Remove="images\logout.png" />
+    <None Remove="images\log_icon.png" />
     <None Remove="images\menu_button_default.png" />
     <None Remove="images\menu_button_mouseover.png" />
+    <None Remove="images\peso.png" />
+    <None Remove="images\profile_icon.png" />
+    <None Remove="images\R %283%29.jpg" />
+    <None Remove="images\refresh.png" />
+    <None Remove="images\sales.png" />
+    <None Remove="images\search.png" />
     <None Remove="images\settings.png" />
+    <None Remove="images\settings_icon.png" />
     <None Remove="inventory.png" />
     <None Remove="log.png" />
     <None Remove="logoimage.png" />
@@ -39,7 +65,6 @@
     <None Remove="Pages\add.png" />
     <None Remove="Pages\add_icon.png" />
     <None Remove="Pages\atlas.png" />
-    <None Remove="Pages\atlasims.png" />
     <None Remove="Pages\back.png" />
     <None Remove="Pages\box.png" />
     <None Remove="Pages\cart.png" />
@@ -65,6 +90,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="images\R (3).jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="AtlasDB.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -84,92 +113,62 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="atlas.png" />
-    <Resource Include="atlasims.png" />
-    <Resource Include="atlaslogo.png" />
-    <Resource Include="background.jpg" />
-    <Resource Include="box_inventory.png" />
-    <Resource Include="delivery.png" />
-    <Resource Include="home.png" />
-    <Resource Include="icons8-menu-24.png" />
-    <Resource Include="images\background.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\box_inventory.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\delivery.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\home.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\icons8-menu-24.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\inventory.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\log.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\logoimage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\menu_button_mouseover.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\menu_button_default.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="images\settings.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="inventory.png" />
-    <Resource Include="log.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="logoimage.png" />
-    <Resource Include="logout.png" />
-    <Resource Include="log_icon.png" />
-    <Resource Include="menu_button_default.png" />
-    <Resource Include="menu_button_mouseover.png" />
-    <Resource Include="Pages\add.png" />
-    <Resource Include="Pages\add_icon.png" />
-    <Resource Include="Pages\atlas.png" />
-    <Resource Include="Pages\atlasims.png" />
-    <Resource Include="Pages\back.png" />
-    <Resource Include="Pages\box.png" />
-    <Resource Include="Pages\cart.png" />
-    <Resource Include="Pages\customer_list.png" />
-    <Resource Include="Pages\delete.png" />
-    <Resource Include="Pages\delete_icon.png" />
-    <Resource Include="Pages\edit_icon.png" />
-    <Resource Include="Pages\icons8-menu-24.png" />
-    <Resource Include="Pages\item 2.jpg" />
-    <Resource Include="Pages\item 3.jpg" />
-    <Resource Include="Pages\item4.jpg" />
-    <Resource Include="Pages\list.png" />
-    <Resource Include="Pages\peso.png" />
-    <Resource Include="Pages\profile.png" />
-    <Resource Include="Pages\profile_icon.png" />
-    <Resource Include="Pages\R (3).jpg" />
-    <Resource Include="Pages\refresh.png" />
-    <Resource Include="Pages\sales.png" />
-    <Resource Include="Pages\search.png" />
-    <Resource Include="sales.png" />
-    <Resource Include="settings.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="settings_icon.png" />
+    <Resource Include="images\add.png" />
+    <Resource Include="images\add_icon.png" />
+    <Resource Include="images\atlas.png" />
+    <Resource Include="images\atlasims.png" />
+    <Resource Include="images\atlaslogo.png" />
+    <Resource Include="images\back.png" />
+    <Resource Include="images\background.jpg" />
+    <Resource Include="images\box.png" />
+    <Resource Include="images\box_inventory.png" />
+    <Resource Include="images\cart.png" />
+    <Resource Include="images\customer_list.png" />
+    <Resource Include="images\delete.png" />
+    <Resource Include="images\delete_icon.png" />
+    <Resource Include="images\delivery.png" />
+    <Resource Include="images\edit_icon.png" />
+    <Resource Include="images\home.png" />
+    <Resource Include="images\icons8-menu-24.png" />
+    <Resource Include="images\ims.png" />
+    <Resource Include="images\inventory.png" />
+    <Resource Include="images\item 2.jpg" />
+    <Resource Include="images\item 3.jpg" />
+    <Resource Include="images\item4.jpg" />
+    <Resource Include="images\list.png" />
+    <Resource Include="images\log.png" />
+    <Resource Include="images\logoimage.png" />
+    <Resource Include="images\logout.png" />
+    <Resource Include="images\log_icon.png" />
+    <Resource Include="images\menu_button_mouseover.png" />
+    <Resource Include="images\menu_button_default.png" />
+    <Resource Include="images\peso.png" />
+    <Resource Include="images\profile_icon.png" />
+    <Resource Include="images\refresh.png" />
+    <Resource Include="images\sales.png" />
+    <Resource Include="images\search.png" />
+    <Resource Include="images\settings.png" />
+    <Resource Include="images\settings_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Settings.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

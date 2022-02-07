@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,7 @@ namespace Atlas.Pages
         {
             InitializeComponent();
             Read();
+            SelCustomer();
         }
         private void inventory_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -48,8 +50,7 @@ namespace Atlas.Pages
         }
         private void cancel_btn_Click(object sender, RoutedEventArgs e)
         {
-            Delivery gotopage = new Delivery();
-            this.NavigationService.Navigate(gotopage);
+            Cancel_Orders();
         }
         private void add_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -123,115 +124,118 @@ namespace Atlas.Pages
         private void btn_Order_Click(object sender, RoutedEventArgs e)
         {
             orderBtn(sender);
-            totalamount.Text = Convert.ToString(  Price * float.Parse(quantityValue.Text));
+            try
+            {
+                totalamount.Text = Convert.ToString(Price * float.Parse(quantityValue.Text));
+            }
+            catch (Exception)
+            {
+            }
+            
         }
 
         private void orderBtn(object sender)
         {
-            
-            Button targetbutton = (sender as Button);
 
-            if (targetbutton != null && targetbutton.Name == "btn_Order")
+            try
             {
-                if (inventory_list.SelectedItems.Count > 0)
+                CSProduct selProduct = (CSProduct)inventory_list.SelectedItems[0];
+                Button targetbutton = (sender as Button);
+
+                if (targetbutton != null && targetbutton.Name == "btn_Order")
                 {
-                    using (DataContext context = new DataContext())
+                    if (inventory_list.SelectedItems.Count > 0)
                     {
-                        
-
-                        var db = new DataContext();
-
-                        CSProduct selProduct = (CSProduct)inventory_list.SelectedItems[0];
-                        var quantityval = int.Parse(quantityValue.Text);
-                        var uprice = float.Parse(selProduct.Price.ToString());
-                        var productnameval = selProduct.ProductName.ToString();
-                        var prodid = int.Parse(selProduct.ID.ToString());
-
-                        var iniTotal = quantityval * uprice;
-                        Price = selProduct.Price;
-
-                        //CSCustomer selCustomer = (CSCustomer)customer_list.SelectedItems[0];
-
-                        var id = selProduct.ID;
-
-                        if (selProduct.Stocks > int.Parse(quantityValue.Text))
+                        using (DataContext context = new DataContext())
                         {
-                            
-                            if (context.Orders.Any(e => e.ProductID == id))
+
+
+                            var db = new DataContext();
+
+
+                            var quantityval = int.Parse(quantityValue.Text);
+                            var uprice = float.Parse(selProduct.Price.ToString());
+                            var productnameval = selProduct.ProductName.ToString();
+                            var prodid = int.Parse(selProduct.ID.ToString());
+
+                            var iniTotal = quantityval * uprice;
+                            Price = selProduct.Price;
+
+
+                            var id = selProduct.ID;
+
+                            if (selProduct.Stocks >= int.Parse(quantityValue.Text) && selProduct.Stocks != 0)
                             {
 
-                                var insOrder = context.Orders.Single(b => b.ProductID == id);
+                                if (context.Orders.Any(e => e.ProductID == id))
+                                {
 
-                                var requantityval = insOrder.Quantity + quantityval;
+                                    var insOrder = context.Orders.Single(b => b.ProductID == id);
 
-                                insOrder.Quantity = requantityval;
+                                    var requantityval = insOrder.Quantity + quantityval;
 
-                                insOrder.Total = requantityval * insOrder.Price;
+                                    insOrder.Quantity = requantityval;
 
-                                
-                                MessageBox.Show("Hello");
-
-                                context.Orders.Update(insOrder);
-                                selProduct.Stocks = selProduct.Stocks - quantityval;
-
-                                context.Products.Update(selProduct);
-
-                                context.SaveChanges();
-
-                                
+                                    insOrder.Total = requantityval * insOrder.Price;
 
 
+                                    MessageBox.Show("Hello");
+
+                                    context.Orders.Update(insOrder);
+                                    selProduct.Stocks = selProduct.Stocks - quantityval;
+
+                                    context.Products.Update(selProduct);
+
+                                    context.SaveChanges();
+
+                                }
+
+                                else
+                                {
+
+                                    context.Orders.Add(new Orderlist()
+                                    {
+                                        ProductID = prodid,
+                                        ProductName = productnameval,
+                                        Quantity = quantityval,
+                                        Price = uprice,
+                                        Total = iniTotal
+
+                                    });
+
+    
+                                    MessageBox.Show("bye");
+                                    selProduct.Stocks = selProduct.Stocks - quantityval;
+
+                                    context.Products.Update(selProduct);
+                                    context.SaveChanges();
+
+                                }
+
+                                Read();
+                            }
+                            else if (selProduct.Stocks == 0)
+                            {
+                                MessageBox.Show("Selected Product is out of stocks!");
                             }
                             else
-                            {
+                                MessageBox.Show("Stocks is lower than the quantity required");
 
-                                context.Orders.Add(new Orderlist()
-                                {
-                                    ProductID = prodid,
-                                    ProductName = productnameval,
-                                    Quantity = quantityval,
-                                    Price = uprice,
-                                    Total = iniTotal
-
-                                });
-                                MessageBox.Show("bye");
-                                selProduct.Stocks = selProduct.Stocks - quantityval;
-                                
-                                context.Products.Update(selProduct);
-                                context.SaveChanges();
-
-                                
-                                
-
-                            }
-                            
-
-                            Read();
                         }
-                        else
-                            MessageBox.Show("Stocks is lower than the quantity required");
-
-                       
                     }
 
-                    //Orderlist order = new Orderlist
-                    //{
-                    //    ProductName = productname,
-                    //    Quantity = quantity,
-                    //    Price = uprice,
-                    //    Total = iniTotal
-                    //};
+                    else
+                        MessageBox.Show("Please select a Product!");
 
-
-
-
-                    //MessageBox.Show(selCustomer.Address.ToString());
                 }
-                else
-                    MessageBox.Show("Please select a Product!");
-            
-
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Select Product First!");
+            }
+
+            
         }
         public void Read()
         {
@@ -240,17 +244,47 @@ namespace Atlas.Pages
 
             inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products").ToList();
             initial_Order.ItemsSource = db.Orders.FromSqlRaw("Select * from Orders").ToList();
-            //customer_list.ItemsSource = db.Customers.FromSqlRaw("Select * from Customers").ToList();
-
-            //using (DataContext context = new DataContext())
-            //{
-            //    products = context.Products.ToList();
-
-            //    if (products.Count > 0)
-            //        inventory_list.ItemsSource = products;
-            //}
         }
 
+        private void go_back_btn_click(object sender, RoutedEventArgs e)
+        {
+            Cancel_Orders();
+            AddDelivery gotopage = new AddDelivery();
+            this.NavigationService.Navigate(gotopage);
+        }
+
+        public void SelCustomer()
+        {
+            sel_Customerlbl.Content = AddDelivery.selectedCus.CustomerName.ToString();
+        }
+        public void Cancel_Orders()
+        {
+            using (DataContext context = new DataContext())
+            {
+                var cancelOrder = context.Orders.FromSqlRaw("Select * From Orders").ToList();
+
+                foreach (var item in cancelOrder)
+                {
+                    var cancelOrderQuantity = item.Quantity;
+                    var productUpdate = context.Products.Single(b => b.ID == item.ProductID);
+                    productUpdate.Stocks += cancelOrderQuantity;
+                    context.Products.Update(productUpdate);
+                }
+
+                context.SaveChanges();
+
+                foreach (var item in cancelOrder)
+                {
+                    context.Orders.Remove(item);
+                }
+
+                context.SaveChanges();
+
+                MessageBox.Show("Done!");
+
+                Read();
+            }
+        }
     }
 
 }
