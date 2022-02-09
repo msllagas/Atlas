@@ -24,6 +24,7 @@ namespace Atlas.Pages
     public partial class _2ndPageAddDel : Page
     {
         private static float Price;
+        private static float amount = 0f;
         public _2ndPageAddDel()
         {
             InitializeComponent();
@@ -113,6 +114,7 @@ namespace Atlas.Pages
 
                     context.SaveChanges();
                     MessageBox.Show("Done!");
+                    quantityValue.Text = 0.ToString();
                     Read();
                 }
                 else
@@ -126,7 +128,7 @@ namespace Atlas.Pages
             orderBtn(sender);
             try
             {
-                totalamount.Text = Convert.ToString(Price * float.Parse(quantityValue.Text));
+                totalamount.Text = amount.ToString();
             }
             catch (Exception)
             {
@@ -159,8 +161,12 @@ namespace Atlas.Pages
                             var prodid = int.Parse(selProduct.ID.ToString());
 
                             var iniTotal = quantityval * uprice;
+
+                            amount += iniTotal;
+
                             Price = selProduct.Price;
 
+                            
 
                             var id = selProduct.ID;
 
@@ -206,7 +212,7 @@ namespace Atlas.Pages
     
                                     MessageBox.Show("bye");
                                     selProduct.Stocks = selProduct.Stocks - quantityval;
-
+                                    quantityValue.Text = 0.ToString();
                                     context.Products.Update(selProduct);
                                     context.SaveChanges();
 
@@ -249,6 +255,7 @@ namespace Atlas.Pages
         private void go_back_btn_click(object sender, RoutedEventArgs e)
         {
             Cancel_Orders();
+            amount = 0;
             AddDelivery gotopage = new AddDelivery();
             this.NavigationService.Navigate(gotopage);
         }
@@ -279,7 +286,7 @@ namespace Atlas.Pages
                 }
 
                 context.SaveChanges();
-
+                amount = 0;
                 MessageBox.Show("Done!");
 
                 Read();
