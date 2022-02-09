@@ -16,7 +16,7 @@ namespace Atlas
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = dbv3.db"); 
+            optionsBuilder.UseSqlite("Data Source = dbv2.db"); 
         }
 
 

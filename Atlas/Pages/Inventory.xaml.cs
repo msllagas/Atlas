@@ -22,13 +22,6 @@ namespace Atlas.Pages
     public partial class Inventory : Page
     {
         public List<CSProduct> products { get; private set; }
-        public static  int ID;
-        //public static string productName;
-        //public static float price;
-        //public static string measurement;
-        //public static string color;
-        //public static string category;
-        //public static int stocks;
 
         public Inventory()
         {
@@ -72,15 +65,6 @@ namespace Atlas.Pages
             {
                 if (inventory_list.SelectedItems.Count > 0)
                 {
-                    CSProduct product = inventory_list.SelectedItem as CSProduct;
-                    ID = product.ID;
-                    //productName = product.ProductName;
-                    //price = product.Price;
-                    //measurement = product.Measurement;
-                    //color = product.Color;
-                    //category = product.Category;
-                    //stocks = product.Stocks;
-
                     EditInventory gotopage = new EditInventory();
                     this.NavigationService.Navigate(gotopage);
                 }
@@ -99,7 +83,6 @@ namespace Atlas.Pages
             
             var db = new DataContext();
             inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products").ToList();
-            
         }
 
         private void search_btn_Click(object sender, RoutedEventArgs e)
@@ -108,11 +91,11 @@ namespace Atlas.Pages
             {
                 using (DataContext context = new DataContext())
                 {
-                    //MessageBox.Show("Hello 1");
+                    MessageBox.Show("Hello 1");
                     var input = SearchField.Text + "%";
                     ComboBoxItem combCategory = (ComboBoxItem)Category_Cmbox.SelectedItem;
                     string category = combCategory.Content.ToString();
-                    //MessageBox.Show(input + category);
+                    MessageBox.Show(input + category);
                     inventory_list.ItemsSource = context.Products.FromSqlRaw("Select * from Products where ProductName like {0} AND Category = {1}", input, category).ToList();                 
                 }
             }
@@ -120,51 +103,23 @@ namespace Atlas.Pages
             {
                 using (DataContext context = new DataContext())
                 {
-                    //MessageBox.Show("Hello 2");
+                    MessageBox.Show("Hello 2");
 
                     var input = SearchField.Text + "%";
                     ComboBoxItem combCategory = (ComboBoxItem)Category_Cmbox.SelectedItem;
-                    //MessageBox.Show(input);
+                    MessageBox.Show(input);
                     inventory_list.ItemsSource = context.Products.FromSqlRaw("Select * from Products where ProductName like {0}", input).ToList();
                 }
             }
-            else
-            {
-                using (DataContext context = new DataContext())
-                {
-                    
-                    inventory_list.ItemsSource = context.Products.FromSqlRaw("Select * from Products").ToList();
-                }
-            }
-
         }
         private void Category_Cmbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem category = (ComboBoxItem)Category_Cmbox.SelectedItem;
             string strCategory = category.Content.ToString();
             SearchField.Text = String.Empty;
-            var db = new DataContext();
+            var db = new DataContext();           
 
             inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products where Category = {0}", strCategory).ToList();           
-        }
-
-        private void change_availability(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBoxItem category = (ComboBoxItem)sortAvailability.SelectedItem;
-            string strCategory = category.Content.ToString();
-            var noStock = 0;
-            var db = new DataContext();
-            if (strCategory == "Available")
-            {
-                inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products where Stocks > {0}", noStock).ToList();
-            }
-            else if (strCategory == "Unavailable")
-            {
-                inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products where Stocks = {0}", noStock).ToList();
-            }
-            else
-                inventory_list.ItemsSource = db.Products.FromSqlRaw("Select * from Products").ToList();
-
-        }
+        }               
     }
 }

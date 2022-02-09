@@ -19,9 +19,7 @@
         </Grid.Background>
         <Border 
                 CornerRadius="0 250 0 150" 
-                Background="White" Margin="0,25,0,38">
-            <TextBox x:Name="brand" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontSize="14" BorderThickness="0,0,0,1" CaretBrush="#FF1569B7" SelectionBrush="#FF7EAFDC" Margin="561,218,0,0"/>
-        </Border>
+                Background="White" Margin="0,25,0,38"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="29,57,0,0" Text="Inventory/ Add Item" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF020527" FontSize="25" FontWeight="Normal" FontFamily="Segoe UI"/>
         <Label Content="Product Name:" HorizontalAlignment="Left" Margin="29,145,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal"/>
@@ -50,7 +48,6 @@
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 materialDesign:ButtonAssist.CornerRadius="20"
                 HorizontalAlignment="Left" Margin="458,370,0,0" VerticalAlignment="Top" Width="112" BorderBrush="{x:Null}" Click="cancel_Click" FontFamily="Bahnschrift Light" FontWeight="ExtraBold" ClipToBounds="True" BorderThickness="0,0,0,0" Background="Black" Height="37"/>
-        <Label Content="Brand:" HorizontalAlignment="Left" Margin="506,241,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal" HorizontalContentAlignment="Right"/>
 
     </Grid>
 </Page>

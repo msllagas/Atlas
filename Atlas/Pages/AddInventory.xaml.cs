@@ -26,18 +26,9 @@ namespace Atlas.Pages
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            if (!(String.IsNullOrEmpty(product_name.Text) && String.IsNullOrEmpty(price.Text) && String.IsNullOrEmpty(category.Text)))
-            {
-                Create();
-                MessageBox.Show("Successsfully added!");
-
-                Inventory gotopage = new Inventory();
-                this.NavigationService.Navigate(gotopage);
-            }
-            else
-                MessageBox.Show("Please fill the needed information!");
-
-
+            Create();
+            Inventory gotopage = new Inventory();
+            this.NavigationService.Navigate(gotopage);
         }
 
         private void cancel_Click(object sender, RoutedEventArgs e)
@@ -56,24 +47,19 @@ namespace Atlas.Pages
                 var _color = color.Text;
                 var _category = category.Text;
                 var _stocks = int.Parse(stocks.Text);
-                var _brand = brand.Text;
 
 
                 //if (product != null && cost != null && _color != null && _category != null && _status != null && _stocks != null)
-                
-                    context.Products.Add(new CSProduct()
-                    {
-                        ProductName = product,
-                        Brand = _brand,
-                        Price = cost,
-                        Measurement = measure,
-                        Color = _color,
-                        Category = _category,
-                        Stocks = _stocks
-                    }) ;
+                if (product != null && _color != null && _category != null)
+                {
+                    context.Products.Add(new CSProduct() { ProductName = product, 
+                                                            Price = cost,
+                                                            Measurement = measure,
+                                                            Color = _color,
+                                                            Category = _category,
+                                                            Stocks = _stocks});
                     context.SaveChanges();
-                
-                
+                }
 
             }
         }

@@ -32,7 +32,7 @@
                     </TextBlock>
                     <StackPanel Orientation="Horizontal" Margin="10">
                         <materialDesign:PackIcon Kind="User" Width="25" Height="25" Foreground="Black" />
-                        <TextBox SpellCheck.IsEnabled="True" x:Name="txtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Enter Username" Foreground="Black" Width="250" BorderBrush="Black" CaretBrush="Black" SelectionBrush="Black"/>
+                        <TextBox x:Name="txtUsername" Margin="10 0" materialDesign:HintAssist.Hint="Enter Username" Foreground="Black" Width="250" BorderBrush="Black" CaretBrush="Black" SelectionBrush="Black"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="10">
                         <materialDesign:PackIcon Kind="Lock" Width="25" Height="25" Foreground="Black" />
