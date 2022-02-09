@@ -39,6 +39,7 @@
                     <ComboBoxItem Content="Books"/>
                     <ComboBoxItem Content="School Supplies"/>
                     <ComboBoxItem Content="Stationary Items"/>
+                    <Menu/>
                 </ComboBox>
 
             </Grid>
@@ -66,13 +67,12 @@
                 </DataGrid.Columns>
             </DataGrid>-->
 
-            <ListView x:Name="inventory_list" Margin="0,189,354,0" 
-                      Width="500" SnapsToDevicePixels="True"
+            <ListView x:Name="inventory_list" Margin="105,250,60,0" SnapsToDevicePixels="True" Height="200"
                       VerticalAlignment="Top" 
                       HorizontalContentAlignment="Left"
                       VerticalContentAlignment="Center"
                       FlowDirection="LeftToRight" 
-                      PreviewMouseLeftButtonDown="inventory_list_PreviewMouseLeftButtonDown">
+                      PreviewMouseLeftButtonDown="inventory_list_PreviewMouseLeftButtonDown" RenderTransformOrigin="0.544,0.475">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="{x:Type ListViewItem}">
                         <Setter Property="BorderBrush" Value="LightGray" />
@@ -85,6 +85,8 @@
                     <GridView>
                         <GridViewColumn Header="Product Name" Width="150" 
                                     DisplayMemberBinding="{Binding ProductName}"/>
+                        <GridViewColumn Header="Brand"  Width="150" 
+                                    DisplayMemberBinding="{Binding Brand}"/>
                         <GridViewColumn Header="Price" Width="100" 
                                     DisplayMemberBinding="{Binding Price}"/>
                         <GridViewColumn Header="Category" Width="150" 
@@ -95,33 +97,12 @@
                 </ListView.View>
             </ListView>
             <Label Content="Main Inventory" FontWeight="Normal" HorizontalAlignment="Left" Margin="20,94,0,0" VerticalAlignment="Top" FontSize="20"/>
-            <ListView x:Name="unavailableProducts" Margin="0,335,354,0" 
-                Width="500" SnapsToDevicePixels="True"
-                VerticalAlignment="Top" 
-                HorizontalContentAlignment="Left"
-                VerticalContentAlignment="Center"
-                FlowDirection="LeftToRight">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListViewItem}">
-                        <Setter Property="BorderBrush" Value="LightGray" />
-                        <Setter Property="BorderThickness" Value="0,0,0,1" />
-                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        <Setter Property="HorizontalAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Product Name" Width="150" 
-                            DisplayMemberBinding="{Binding ProductName}"/>
-                        <GridViewColumn Header="Price" Width="100" 
-                            DisplayMemberBinding="{Binding Price}"/>
-                        <GridViewColumn Header="Category" Width="150" 
-                            DisplayMemberBinding="{Binding Category}"/>
-                        <GridViewColumn Header="Stocks"  Width="150" 
-                            DisplayMemberBinding="{Binding Stocks}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>            
+            <ComboBox x:Name="sortAvailability" Width="236" Height="29" Text="Category" Margin="20,165,598,306" AutomationProperties.Name="Category" BorderBrush="#FF1264B1" SelectionChanged="change_availability">
+                <ComboBoxItem Content="All"/>
+                <ComboBoxItem Content="Available"/>
+                <ComboBoxItem Content="Unavailable"/>
+                <Menu/>
+            </ComboBox>
         </Grid>
     </Grid>
 </Page>

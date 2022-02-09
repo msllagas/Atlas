@@ -14,6 +14,9 @@ namespace Atlas.Model_Classes
         public string ProductName { get; set; }
 
         [Required]
+        public string Brand { get; set; }
+
+        [Required]
         public float Price { get; set; }
 
         public string Measurement { get; set; }
