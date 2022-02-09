@@ -24,6 +24,12 @@ namespace Atlas.Pages
     public partial class _2ndPageAddDel : Page
     {
         private static float Price;
+<<<<<<< HEAD
+=======
+
+        ObservableCollection<iniOrder> iniitem = new ObservableCollection<iniOrder>();
+
+>>>>>>> parent of 2505503 (latest latest)
         public _2ndPageAddDel()
         {
             InitializeComponent();
@@ -273,12 +279,10 @@ namespace Atlas.Pages
 
                 context.SaveChanges();
 
-                foreach (var item in cancelOrder)
-                {
-                    context.Orders.Remove(item);
-                }
-
-                context.SaveChanges();
+                //foreach (var item in cancelOrder)
+                //{
+                    
+                //}
 
                 MessageBox.Show("Done!");
 
