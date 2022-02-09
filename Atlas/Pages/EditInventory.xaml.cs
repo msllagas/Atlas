@@ -47,8 +47,8 @@ namespace Atlas.Pages
                     product.Stocks = int.Parse( _stocks);
                     context.SaveChanges();
                 }
-                
 
+                MessageBox.Show("Changes Saved!");
             }
 
         }
@@ -65,8 +65,6 @@ namespace Atlas.Pages
                 price.Text = product.Price.ToString();
                 category.Text = product.Category;
                 stocks.Text = product.Stocks.ToString();
-
-
 
             }
 

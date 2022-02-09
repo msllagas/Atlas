@@ -52,26 +52,30 @@ namespace Atlas.Pages
 
         private void del_btn_click(object sender, RoutedEventArgs e)
         {
-            var result = MessageBox.Show("Delete selected customer?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
-            if (result == MessageBoxResult.Yes)
+            if (customer_list.SelectedItems.Count == 0)
             {
-                using (DataContext context = new DataContext())
+                MessageBox.Show("Please select a customer to be deleted!");
+            }
+            else if (customer_list.SelectedItems.Count > 0)
+            {
+                var result = MessageBox.Show("Delete selected customer?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                if (result == MessageBoxResult.Yes)
                 {
-                    if (customer_list.SelectedItems.Count > 0)
+                    using (DataContext context = new DataContext())
                     {
-                        CSCustomer delCustomer = customer_list.SelectedItem as CSCustomer;
-                        context.Remove(delCustomer);
-                        context.SaveChanges();
-                        Read();
+                        
+                            CSCustomer delCustomer = customer_list.SelectedItem as CSCustomer;
+                            context.Remove(delCustomer);
+                            context.SaveChanges();
+                            Read();
                     }
-                    else
-                        MessageBox.Show("Please select a customer to be deleted!");
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    Read();
                 }
             }
-            else if (result == MessageBoxResult.No)
-            {
-                Read();
-            }
+           
         }
     }
 }
