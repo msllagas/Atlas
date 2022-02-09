@@ -31,6 +31,8 @@ namespace Atlas
             InitializeComponent();
             
         }        
+
+        //When Login is clicked
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
@@ -78,12 +80,16 @@ namespace Atlas
             
          
         }
+
+        //For dragging window
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
+        //For closing the app
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
